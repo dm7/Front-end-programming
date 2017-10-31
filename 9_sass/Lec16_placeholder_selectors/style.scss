@@ -1,0 +1,30 @@
+#main div%blue{
+    color:white;
+    background-color: blue;
+    font-size: 14px;
+}
+
+.sign{
+    @extend %blue;
+}
+
+.box{
+    @extend %blue;
+}
+
+/*
+%blue{
+    color:white;
+    background-color: blue;
+    font-size: 14px;
+}
+
+.sign{
+    @extend %blue;
+}
+
+.box{
+    @extend %blue;
+}
+
+*/

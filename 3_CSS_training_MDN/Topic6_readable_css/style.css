@@ -1,0 +1,40 @@
+/*
+	Some people like the compact layout that we have been using, only splitting a line when it becomes very long:
+*/
+.carrot {color: orange; text-decoration: underline; font-style: italic;}
+
+/*
+	Some people prefer one property-value per line:
+*/
+.carrot
+{
+color: orange;
+text-decoration: underline;
+font-style: italic;
+}
+
+/*
+	Some people use indention—two spaces, four spaces, or a tab are common:
+*/
+.carrot {
+  color: orange;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+/*
+	Some people like everything to line up vertically (but a layout like this is difficult to maintain):
+*/
+.carrot
+    {
+    color           : orange;
+    text-decoration : underline;
+    font-style      : italic;
+    }
+
+/*
+	Some people use mixed whitespace to enhance readability.
+*/
+.vegetable         { color: green; min-height:  5px; min-width:  5px }
+.vegetable.carrot  { color: orange;    height: 90px;     width: 10px }
+.vegetable.spinach { color: darkgreen; height: 30px;     width: 30px }

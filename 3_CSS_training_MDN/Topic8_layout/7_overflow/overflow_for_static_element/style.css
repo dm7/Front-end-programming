@@ -1,0 +1,19 @@
+body > div{
+	width: 300px;
+	height: 300px;
+	border: 20px solid black;
+	background-color: gold;
+	padding: 20px;
+	/* overflow: visible; */ /* default default behaviour showing child element overflowed*/
+	/* overflow: hidden; */
+	/* overflow: scroll; */
+	/* overflow: auto; */ /* Let the browser decide*/
+	/* overflow-x: hidden; */ /* x-axis will be hidden*/
+	/* overflow-y: hidden; */ /* y-axis will be hidden*/
+}
+
+div > div{
+	width: 150%; /* This is a case of overflow*/
+	height: 150%;
+	background-color: hotpink;
+}

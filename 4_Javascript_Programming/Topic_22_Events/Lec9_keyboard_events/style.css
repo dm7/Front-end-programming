@@ -1,0 +1,9 @@
+form{
+	width: 300px;
+	height: 350px;
+	background-color: hsl(195, 100%, 38%);
+	color: white;
+	font-family: courier;
+	font-weight: bold;
+	padding: 20px;
+}

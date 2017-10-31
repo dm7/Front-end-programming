@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form validation using RegExp</title>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			function deleteAllChildren(spanElementObject){
+				if(spanElementObject != null){
+						while(spanElementObject.firstChild){
+							spanElementObject.removeChild(spanElementObject.firstChild);
+						}	
+				}
+			}
+			function editSpanElementText(regex, inputElementValue, spanElementObject, helpMessage){
+				deleteAllChildren(spanElementObject);
+				if(!regex.test(inputElementValue)){
+					spanElementObject.appendChild(document.createTextNode(helpMessage));
+					return false;
+				}else{
+					return true;	
+				}
+			}
+			function isTheNameValid(inputElementObject, spanElementObject){
+				return editSpanElementText(
+									/^[\u0041-\u005A\u0061-\u007A\.\' \-]{2,15}\s?[\u0041-\u005A\u0061-\u007A\.\' \-]{0,15}\s?[\u0041-\u005A\u0061-\u007A\.\' \-]{2,15}$/, 
+									inputElementObject.value, 
+									spanElementObject, 
+									'Please enter a valid name.');		
+			}
+
+			function isAddressOk(inputElementObject, spanElementObject){
+				return editSpanElementText(
+									/^[0-9\u0041-\u005A\u0061-\u007A\.\' \-]{2,15}$/, 
+									inputElementObject.value,
+									spanElementObject,
+									'Please enter a valid address');
+			}
+
+			function isCityOk(){
+				return editSpanElementText(
+									/^[\u0041-\u005A\u0061-\u007A \']{2,15}$/, 
+									inputElementObject.value,
+									spanElementObject,
+									'Please enter a valid city');	
+			}
+			function isStateOk(){
+				return editSpanElementText(
+									/^A[LKSZRAEP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA|
+										M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]$/i, 
+									inputElementObject.value,
+									spanElementObject,
+									'Please enter a valid State');		
+			}
+			function isPhoneOk(){
+				return editSpanElementText(
+									/^((\d[-. ]?)?((\(\d{3}\))|\d{3}))?[-. ]?\d{3}[-. ]?\d{4}$/,
+									inputElementObject.value,
+									spanElementObject,
+									'Enter a Phone Number (Ex.412-828-3000)');
+			}
+			function isEmailOk(){
+				return editSpanElementText(
+										/^[A-Za-z0-9. _-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/,
+										inputElementObject.value,
+										spanElementObject,
+										'Enter an Email');
+			}	
+		</script>
+	</head>
+	<body>
+		<form action="javascript:void(0)" method="GET" enctype="multipart/form-data">
+			<fieldset>
+				<legend>Details</legend>
+				Enter the name: <input id="name" name="name" type="text" size="30"
+								onblur="isTheNameValid(this, document.getElementById('name_help'));">	
+				<span id="name_help"></span>
+				<br>
+				Enter your street address: <input id="street" name="street" type="text" size="30"
+								onblur="isAddressOk(this, document.getElementById('street_help'));">	
+				<span id="street_help"></span>
+				<br>
+				Enter your city: <input id="city" name="city" type="text" size="30"
+								onblur="isCityOK(this, document.getElementById('city_help'));">	
+				<span id="city_help"></span>
+				<br>
+				Enter your state code: <input id="state" name="state" type="text" size="2"
+								onblur="isStateOk(this, document.getElementById('state_help'));">	
+				<span id="state_help"></span>
+				<br>
+				Enter your number: <input id="phone" name="phone" type="text" size="15"
+								onblur="isPhoneOk(this, document.getElementById('phone_help'));">	
+				<span id="phone_help"></span>
+				<br>
+				Enter your email: <input id="email" name="email" type="text" size="30"
+								onblur="isEmailOk(this, document.getElementById('email_help'));">	
+				<span id="email_help"></span>
+				<br>
+			</fieldset>	
+		</form>
+		<noscript>
+			<h3>This site requires JavaScript</h3>
+		<noscript>
+	</body>
+</html>

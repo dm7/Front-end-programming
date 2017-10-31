@@ -1,0 +1,33 @@
+/*
+	Summary
+		The ::selection CSS pseudo-element applies rules to the portion 
+		of a document that has been highlighted (e.g. selected with the 
+		mouse or another pointing device) by the user.
+
+		Only a small subset of CSS properties can be used in a rule using 
+		::selection in its selector: color, background-color, cursor, 
+		outline, text-decoration, text-emphasis-color and text-shadow. 
+		Note that, in particular, background-image is ignored, like 
+		any other property.
+
+*/
+
+/* draw any selected text yellow on red background */
+::-moz-selection { 
+					color: gold;  
+					background: red; 
+				}
+::selection      { 
+					color: gold;  
+					background: red; 
+				} 
+
+/* draw selected text in a paragraph white on black */
+p::-moz-selection { 
+					color: white;  
+					background: black; 
+				}
+p::selection      { 
+					color: white;  
+					background: black; 
+				}

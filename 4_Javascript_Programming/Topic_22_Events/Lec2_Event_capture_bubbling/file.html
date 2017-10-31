@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Event and EventTarget interface</title>
+		<!--script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script-->
+		<style>
+			div{
+				margin: auto;
+			}
+			body > div{
+				width: 500px;
+				height: 500px;
+				background-color: #46A5F2;
+			}
+			body > div > div{
+				width: 400px;
+				height: 400px;
+				background-color: #F2ED46;
+			}
+			div > div > div{
+				width: 300px;
+				height: 300px;
+				background-color: #FC6296;
+			}
+	</style>
+	</head>
+	<body>
+		<div data-name="First div">1
+			<div data-name="Second div">2
+				<div data-name="Third div">3
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>

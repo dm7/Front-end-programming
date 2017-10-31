@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Local storage</title>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			function save(){
+				var fieldValue = document.getElementById('textfield').value;
+				localStorage.setItem('text', fieldValue);
+
+			}
+
+			function load(){
+				var storedValue = localStorage.getItem('text');
+				if(storedValue){
+					document.getElementById('textfield').value = storedValue;
+				}
+			}
+			function remove(){
+				document.getElementById('textfield').value="";
+				localStorage.removeItem('text');
+			}
+		</script>
+	</head onload="load()">
+	<body>
+		<input type="text" id="textfield">
+		<input type="button" value="save" onclick="save()">
+		<input type="button" value="remove" onclick="remove()">
+	</body>
+</html>

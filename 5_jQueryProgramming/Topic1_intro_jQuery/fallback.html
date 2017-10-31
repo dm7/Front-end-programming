@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Fallback procedure</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+		/*
+			scripts with sources load synchronously. You can see that in the 
+			network tab of your browser inspector.
+
+			if you're running pages from the disk directly, you must specify the protocol.
+
+			Because, if you run a file locally, without a webserver, you 
+			cannot use protocol relative paths to load jQuery. That's because 
+			it is trying to find a local reference: file://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js
+
+			So yes, if you're running pages from the disk directly, 
+			you must specify the protocol if you want jQuery from a CDN.
+		*/
+		</script>
+		<script type="text/javascript">
+			if (typeof jQuery === 'undefined') {  
+				var element  = document.createElement('script');  
+				element.src = '../js/jquery-1.11.3.js';  
+				element.type='text/javascript';  
+				element.async = false;
+				/*
+					This approach does not "defer" execution of other script 
+					loading (such as jQuery plugins) or script-execution 
+					(such as inline JavaScript) in below page, until after jQuery has 
+					fully loaded. Because the fallbacks rely on appending 
+					script tags, further script tags after it in the markup 
+					would load/execute immediately and not wait for the local 
+					jQuery to load, which could cause dependency errors.
+					
+					So, dynamically created scripts are async so it 
+					doesn't block the execution but you can set the async 
+					to false explicitly. 
+
+					Another solution for that is to use document.write() and 
+					by doing so you will block other JavaScript included lower 
+					in the page from loading and executing.
+					<script type="text/javascript">  
+  						if (typeof jQuery === 'undefined')   
+     							document.write('<script type="text/javascript" src="/local/jquery-2.0.min.js"><\/script>');  
+					<\/script>  
+					So, document.write will add the <script> tag immediately, 
+					and then the very next thing the browser does will be to 
+					load that script (jQuery, from your server) and evaluate it. 
+					Then browser will move on to the next tag.
+				*/
+				document.getElementsByTagName("head")[0].appendChild(element); 
+			}
+		</script>
+	</head>
+	<body>
+		<p>Hello World!!</p>
+		<script type="text/javascript">
+			jQuery('p').html("Good Bye!!");
+		</script>
+	</body>
+</html>

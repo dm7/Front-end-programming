@@ -1,0 +1,32 @@
+/*
+	The list-style property is a shorthand property for setting 
+	list-style-type, list-style-image and list-style-position.
+*/
+
+
+*{
+	/* type */
+list-style: square;
+
+/* image */
+list-style: url('../img/dino.png');
+
+/* position */
+list-style: inside;
+
+/* type | position */
+list-style: georgian inside;
+
+/* type | image | position */
+list-style: lower-roman url('../img/dino.png') outside;
+
+list-style: none;
+
+/* Global values */
+list-style: inherit;
+list-style: initial;
+list-style: unset;
+}
+
+.one { list-style: circle; }
+.two { list-style: square inside; }

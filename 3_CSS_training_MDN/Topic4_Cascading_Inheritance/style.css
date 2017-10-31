@@ -1,0 +1,35 @@
+p {color:blue; text-decoration:underline}
+strong {color:red}
+
+/*
+	Question: What does !important mean in CSS?
+
+	Answer:
+
+	Cascading Style Sheets cascade. This means that the styles are applied in the
+	order they are read by the browser. The first style is applied and then the 
+	second and so on. What this means is that if a style appears at the top of a 
+	style sheet and then is changed lower down in the document, the second instance 
+	of that style will be the one applied, not the first.
+
+
+	For example, in the following style sheet, the paragraph text will be black, 
+	though the first style property applied is red:
+
+	    p { color: red; }
+	    p { color: black; } 
+
+	The !important directive is a way to make your CSS cascade but also have the
+	rules you feel are most crucial always be applied. A rule that has the !important 
+	directive will always be applied no matter where that rule appears in the CSS document.
+
+
+
+	So if you wanted to make sure that a property always applied, you would 
+	add the !important property to the tag. So, to make the paragraph text 
+	always red, from the above example, you would write:
+
+	    p { color: red !important; }
+	    p { color: black;}
+
+*/

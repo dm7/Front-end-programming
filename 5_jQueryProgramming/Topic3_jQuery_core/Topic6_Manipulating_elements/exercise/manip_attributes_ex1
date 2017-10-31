@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>attr demo</title>
+    <style>
+        p {
+          margin: 20px 0 0;
+        }
+        b {
+          color: blue;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+    <script type="text/javascript">
+        /*
+            Get the value of an attribute for the first element in 
+            the set of matched elements or set one or more attributes 
+            for every matched element.
+            
+            Syntax:
+                .attr( attributeName )  //The name of the attribute to get.
+                
+            
+            The .attr() method gets the attribute value for only the 
+            first element in the matched set. To get the value for 
+            each element individually, use a looping construct such 
+            as jQuery's .each() or .map() method.
+
+            Using jQuery's .attr() method to get the value of an element's 
+            attribute has two main benefits:
+                1) Convenience: It can be called directly on a jQuery
+                        object and chained to other jQuery methods.
+                2) Cross-browser consistency: The values of some attributes 
+                        are reported inconsistently across browsers, and even 
+                        across versions of a single browser. The .attr() method 
+                        reduces such inconsistencies.
+            Note: Attribute values are strings with the exception of 
+                    a few attributes such as value and tabindex.
+            
+            As of jQuery 1.6, the .attr() method returns undefined for 
+            attributes that have not been set. To retrieve and change 
+            DOM properties such as the checked, selected, or disabled 
+            state of form elements, use the .prop() method.
+            
+            Attributes vs. Properties
+
+            The difference between attributes and properties can be 
+            important in specific situations. Before jQuery 1.6, 
+            the .attr() method sometimes took property values into 
+            account when retrieving some attributes, which could 
+            cause inconsistent behavior. As of jQuery 1.6, the 
+            .prop() method provides a way to explicitly retrieve
+            property values, while .attr() retrieves attributes.
+            
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            Q) Is there a difference between an attribute and a property in the jQuery terminology?
+            A) A DOM element is an object, a thing in memory. Like most 
+            objects in OOP, it has properties. It also, separately, 
+            has a map of the attributes defined on the element 
+            (usually coming from the markup that the browser read to 
+            create the element). Some of the element's properties get 
+            their initial values from attributes with the same or similar names
+            (property 'value' gets its initial value from the "value" attribute; 
+            'href' gets its initial value from the "href" attribute, 
+            but it's not exactly the same value; className from the "class" attribute).
+            Other properties get their initial values in other ways: 
+            For instance, the 'parentNode' property gets its value based 
+            on what its parent element is; an element always has a 'style' 
+            property, whether it has a "style" attribute or not.
+            
+            Let's consider this anchor in a page at http://example.com/testing.html:
+            <a href='foo.html' class='test one' name='fooAnchor' id='fooAnchor'>Hi</a>
+
+            +-------------------------------------------+
+            | a                                         |
+            +-------------------------------------------+
+            | href:       "http://example.com/foo.html" |
+            | name:       "fooAnchor"                   |
+            | id:         "fooAnchor"                   |
+            | className:  "test one"                    |
+            | attributes:                               |
+            |    href:  "foo.html"                      |
+            |    name:  "fooAnchor"                     |
+            |    id:    "fooAnchor"                     |
+            |    class: "test one"                      |
+            +-------------------------------------------+
+
+            Note that the properties and attributes are distinct.
+
+            Now, although they are distinct, because all of this evolved rather 
+            than being designed from the ground up, a number of properties write
+            back to the attribute they derived from if you set them. But not all 
+            do, and as you can see from href above, the mapping is not always a 
+            straight "pass the value on", sometimes there's interpretation involved.
+
+            When I talk about properties being properties of an object, I'm not 
+            speaking in the abstract. Here's some non-jQuery code:
+
+            var link = document.getElementById('fooAnchor');
+            alert(link.href);                 // alerts "http://example.com/foo.html"
+            alert(link.getAttribute("href")); // alerts "foo.html"
+
+            The link object is a real thing, and you can see there's a real 
+            distinction between accessing a property on it, and accessing an attribute.
+
+
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+        */
+    </script>
+</head>
+<body>
+    
+    <input id="check1" type="checkbox" xyz="abc">
+    <label for="check1">Check me</label>
+    <p></p>
+    
+    <script>
+    $( "input" )
+        .change(function() {
+        var $input = $( this );
+        $( "p" ).html( ".attr( 'checked' ): <b>" + $input.attr("checked") + "</b><br>" +
+                            ".attr( 'xyz' ): <b>" + $input.attr("xyz") + "</b><br>"  +
+            ".prop( 'checked' ): <b>" + $input.prop("checked") + "</b><br>" +
+            ".is( ':checked' ): <b>" + $input.is( ":checked" ) + "</b>" );
+        });
+    </script>
+
+</body>
+</html>

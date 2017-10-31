@@ -1,0 +1,10 @@
+body{
+	margin: 0;
+}
+
+.square{
+	width: 100vmin; /*100vmax*/
+	height: 100vmin;
+	background-color: orange;
+	margin: 0 auto;
+}

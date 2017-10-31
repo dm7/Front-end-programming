@@ -1,0 +1,120 @@
+/*
+	px - pixel unit
+
+	px is not an absolute value of font size. 
+
+	In a given web page, 1 px is not equal x mm or y cm(say).
+
+	1 px is measured as 1 css pixel. That is, the “pixels” that are 
+	used in CSS declarations such as width: 300px or font-size: 14px.
+
+	These css pixels have nothing to do with the actual pixel density 
+	of the device. 
+	They’re essentially an abstract construct created specifically for 
+	web developers.
+
+	It’s easiest to explain when we consider zooming.
+
+	If the user "zoom-in", an element with "width: 300px" takes up more 
+	and more of the screen, and thus becomes wider and wider when measured 
+	in device (physical) pixels. In CSS pixels, however, the width remains
+	300px, and the zooming effect is created by expanding CSS pixels as 
+	much as is needed. When the zooming factor is exactly 100%, one CSS 
+	pixel equals one device pixel 
+
+	(I should probably warn you that “zoom 100%” has little meaning in 
+	web development. Zooming level is unimportant to us; what we need 
+	to know is how many CSS pixels currently fit on the screen.)
+
+*/
+
+/*
+	em - pixel unit
+
+	1) The other name is "Font's relative size".
+
+	2) em css unit computes the font-size by considering its direct 
+		parent element computed font-size
+
+	3) rem css unit computes the font-size by considering its root 
+		element font-size
+
+	4) em and rem behaviour does not affect with positioning of elements
+	
+	For example:
+*/
+body{
+	font-size: 10px;  /* Default font size is 16 css pixels for body tag*/
+}
+
+body > div{
+	font-size: 20px;
+
+}
+
+body > div > div{
+	font-size: 50px;
+}
+
+p{
+	font-size: 0.5em; 	/*   15 css pixels  */
+	width: 6em;       	/* 6X15 css pixels  */
+	height: 6em;	  	/* 6X15 css pixels  */	
+	padding-right: 3em; /* 3X15 css pixels  */	
+	margin-left: 3em;   /* 3X15 css pixels  */	
+	background-color: red;
+}
+
+/*
+	Above css declaration says that, paragraph text's font size is 50% of
+	parent's text font size(30 px), inherited in 'p' tag
+*/
+
+/*
+	pt - points as pixel unit
+
+	Points are traditionally used in print media (anything that 
+	is to be printed on paper, etc.). 
+
+	One point is equal to 1/72 of an inch.
+
+	Back in the good old days of analog printing, every page was 
+	laboriously set out in frames with metal letters. That was 
+	rolled in ink, and then it was pressed down onto a clean 
+	piece of paper. That was a page layout. Printers needed 
+	thousands of physical metal blocks, each with the character 
+	it was meant to represent set out in relief (the type face). 
+	If you wanted to print "Garamond", for example, you needed 
+	different blocks for every different size (10 point, 12 
+	point, 14 point, and so on) and weight (bold, light, medium).
+
+	In the example above, "Garamond" would be the typeface: 
+	It described all of the thousands of metal blocks a 
+	printer might have on hand and which had been designed 
+	with the same basic design principles. 
+
+	But a font was something else entirely. A font described 
+	a subset of blocks in that very typeface, but each font 
+	embodied a particular size and weight. For example, 
+	bolded Garamond in 12 point was considered a different 
+	font than normal Garamond in 8 point, and italicized Times 
+	New Roman at 24 point would be considered a different font 
+	than italicized Times New Roman at 28 point.
+
+	Inside Border syntax:;
+	    padding 10px 10px 10px 10px : Top, Right, Bottom, Left
+	    padding 10px 25px 15px : Top, Right / Left, Bottom
+	    padding 10px 15px : Top / Bottom, Left / Right
+
+
+	Outside Border syntax:;
+    	margin 10px 10px 10px 10px : Top, Right, Bottom, Left
+    	margin 10px 25px 15px : Top, Right / Left, Bottom
+    	margin 10px 15px : Top / Bottom, Left / Right
+
+
+
+	border: 5px 			solid 			green;
+	    	border-width, border-style, border-color
+	    border style - none, dotted, dashed, solid, double, groove, ridge, inset, outset
+*/

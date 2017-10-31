@@ -1,0 +1,43 @@
+nav{
+	background-color: #e3e3e3;
+	width: 100%;
+	text-align: center;
+}
+
+nav:after{
+	content: "";
+	clear: both;
+}
+
+nav li{
+	display: inline-block;
+	color: #333;
+	padding: 20px;
+	list-style: none;
+}
+
+div{
+	clear: both;
+	padding: 30px 60px;
+}
+
+.ad{
+	background-color: #e3e3e3;
+	border: 1px solid #d0d0d0;
+}
+
+h1{
+	text-align: center;
+}
+
+/*@media not screen, screen and (max-width:400px){ here comma is a logical OR*/
+/*@media not screen{ */
+@media print{
+	nav, .ad{
+		display: none;
+	}
+	a{
+		text-decoration: none;
+		color: inherit;
+	}
+}

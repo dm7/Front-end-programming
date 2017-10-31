@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Javascript</title>
+	</head>
+	<body>
+		<h1>Javascript tutorial: Building a Bookmarklet</h1>
+		<p id="message"></p>
+		<!--
+			A bookmarklet is a bookmark stored in a web browser that contains JavaScript commands that add new features to the browser. Bookmarklets are Unobtrusive JavaScripts stored as the URL of a bookmark in a web browser or as a hyperlink on a web page. Bookmarklets are usually JavaScript programs.
+
+			Web browsers use URIs for the href attribute of the <a> tag and for bookmarks. The URI scheme, such as http:, file:, or ftp:, specifies the protocol and the format for the rest of the string. Browsers also implement a prefix javascript: that to a parser is just like any other URI. Internally, the browser sees that the specified protocol is javascript, treats the rest of the string as a JavaScript application which is then executed, and uses the resulting string as the new page.
+	
+			The executing script has access to the current page, which it may inspect and change. If the script returns an undefined type (rather than, for example, a string), the browser will not load a new page, with the result that the script simply runs against the current page content. This permits changes such as in-place font size and color changes without a page reload.
+
+			<a href="javascript:void(0)" id="loginlink">login</a>
+			In this above code, void operator evaluates the given expression(0) and then returns undefined.
+
+			An anonymous function that does not return a value, define a function etc., can be used to force the script to return an undefined type:
+
+			javascript:(function(){
+			  //Statements returning a non-undefined type, e.g. assignments
+			})();
+
+			However, if a script includes a function definition/redefinition, such as function Use_this_globally(){...}, the environment will not be populated with it. For this reason an {arbitrary script} should be suffixed with ;void(...);.
+
+			javascript:{arbitrary script};void(0);
+			
+			Modern browsers block javascript: scheme to run on address bar, due to its use in social engineering attacks. 
+			
+			Q)  Why bookmarklet code as href attribute value only? Why not as onClick's callback?
+			
+			A)  If you click on the anchor, an anchor with a javascript: URI is mostly similar to having 
+				an onclick attribute with the same code.
+
+				But bookmarklets aren't intended to be followed directly. The user is supposed to 
+				right-click on it and save the URI to their bookmarks. This only works if the code 
+				is in the href attribute.
+
+
+			Q) Is onclick attribute redundant after href attribute?
+
+			A) 
+				The onclick attribute appears redundant because you are using a link as a button. That is semantically incorrect and misleading: a link navigates to a different location, a button performs an action. If you want to perform an action, use a button element.
+
+				If you need a link, then the href attribute should be the link target and the onclick should be used to attach additional behaviour.
+		-->
+
+
+		<div id="content">
+			Here is my <a href="javascript:(function(){ 
+											_my_script=document.createElement('SCRIPT');_my_script.type='text/javascript';
+											_my_script.src='file:///D:/git/javascript_programming/Topic8_DOM_Access/bookmark/bmlet.js';
+											document.getElementsByTagName('head')[0].appendChild(_my_script);})();">
+								bookmarklet
+						</a>
+		</div>
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+</html>

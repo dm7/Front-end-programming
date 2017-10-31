@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Scope inheritance</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script type="text/javascript">
+            var sample = angular.module("sample", []);
+
+            function ParentController(){
+                this.Name = "Jag";
+            }
+            sample.controller("emp", ParentController);
+
+            function ChildController(){
+                ParentController.call(this);
+                this.Sal = 3500;
+                this.Dept = "Sales";
+            }
+            ChildController.prototype = Object.create(ParentController.prototype);
+            sample.controller("empDetails", ChildController);
+        </script>
+    </head>
+    <body ng-app="sample">
+        <div ng-controller="emp as o1">
+            Employee details of <strong>{{o1.Name}}</strong>:
+        </div>
+        <div ng-controller="empDetails as o2">
+                <strong>{{o2.Name}}</strong> earns {{o2.Sal}} and works in {{o2.Dept}} department.
+        </div>
+
+    </body>
+</html>

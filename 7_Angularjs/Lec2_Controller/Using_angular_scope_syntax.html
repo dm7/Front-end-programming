@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.js"></script>
+            <script type="text/javascript">
+                /*
+                function MyController() {
+                    this.Name = "jag";
+                    this.sal = "4500";
+                } 
+                
+                MyController.prototype.getAnnualSal = function(){
+                        return (this.sal) * 12;
+                }
+
+                var app = angular.module("sample", []);
+                app.controller("emp", MyController);
+                */
+                
+                                
+                    function MyController($scope, $rootScope) {
+                        $scope.Name = "jag";
+                        $scope.sal = "4500";  
+                        this.member = $scope;
+                    }
+                    
+                    MyController.prototype.getAnnualSal = function(){
+                        // Becuase getAnnualSal() does not belong to the scope.
+                        return (this.member.sal) * 12;
+                    }
+                    var app = angular.module("sample", []);
+                    app.controller("emp", ['$scope', MyController]);
+                    
+            </script>
+        </head>
+        <body ng-app="sample">
+            <div ng-controller="emp as o" >
+                Hello {{o.Name}}, your annual salary is {{o.getAnnualSal()}}
+                
+            </div>
+        </body>
+    </html>

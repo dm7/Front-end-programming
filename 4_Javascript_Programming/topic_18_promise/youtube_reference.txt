@@ -1,0 +1,5 @@
+Promises:
+https://www.youtube.com/watch?v=Ads1A7pn2LI  setup
+https://www.youtube.com/watch?v=qN0dkXj7jc0 using callbacks
+https://www.youtube.com/watch?v=g90irqWEqd8
+https://github.com/shama/letswritecode/tree/master/async-js-with-promises  code examples

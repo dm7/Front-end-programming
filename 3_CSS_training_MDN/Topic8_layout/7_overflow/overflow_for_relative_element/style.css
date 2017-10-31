@@ -1,0 +1,28 @@
+/*
+	Firstly, overflow occurence does not mean the layout of the child 
+	should alwasy be  bigger than parent element.
+
+	Scenario:
+	If a relatively positioned child in a parent is located 
+	out side the borders of parent, then that is also overflow.
+
+*/
+body > div{
+	width: 300px;
+	min-height: 300px;
+	background-color: #ff0087;
+	/* overflow: visible; */ /* default default behaviour showing child element overflowed*/
+	/* overflow: hidden; */
+	/* overflow: scroll; */
+	/* overflow: auto; */ /* Let the browser decide*/
+	/* overflow-x: hidden; */ /* x-axis will be hidden*/
+	/* overflow-y: hidden; */ /* y-axis will be hidden*/
+}
+
+div > div{
+	min-height: 100px;
+	width: 200px;
+	background-color: yellow;
+	position: relative;
+	left: 200px;
+}

@@ -1,0 +1,41 @@
+body > div{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	margin: 20px;
+	padding: 20px;
+	border: 2px solid black;
+	width: 400px;
+	min-height: 400px;
+	background-color: hsl(221, 87%, 66%);
+}
+
+body > div > div{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	margin: 50px;
+	padding: 20px;
+	border: 2px solid black;
+	width: 200px;
+	min-height: 200px;
+	background-color: hsl(57, 85%, 58%);
+}
+
+body > div > div > div{
+	width: 100px;
+	min-height: 100px;
+	margin: 20px;
+	padding: 20px;
+	border: 2px solid black;
+	background-color: hsl(29%, 89%, 54%);
+}
+
+#iAmFixed{
+	position: fixed;
+	top: 100px;
+	left: 600px;
+	width: 100px;
+	min-height: 100px;
+	background-color: hsl(6, 100%, 54%);
+}

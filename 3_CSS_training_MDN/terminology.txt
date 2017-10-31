@@ -1,0 +1,97 @@
+﻿1.
+Replaced Element:
+
+An element whose content is outside the scope of the CSS 
+formatting model, such as an image, embedded document, or 
+applet. For example, the content of the HTML IMG element 
+is often replaced by the image that its "src" attribute 
+designates. Replaced elements often have intrinsic 
+dimensions: an intrinsic width, an intrinsic height, and 
+an intrinsic ratio. For example, a bitmap image has an 
+intrinsic width and an intrinsic height specified in 
+absolute units (from which the intrinsic ratio can obviously 
+be determined). On the other hand, other documents may not 
+have any intrinsic dimensions (for example, a blank HTML document).
+
+User agents may consider a replaced element to not have any 
+intrinsic dimensions if it is believed that those dimensions 
+could leak sensitive information to a third party. For example, 
+if an HTML document changed intrinsic size depending on the 
+user's bank balance, then the UA might want to act as if 
+that resource had no intrinsic dimensions.
+
+The content of replaced elements is not considered in the CSS rendering model.
+
+
+2.
+Non-replaced element:
+
+In general, non-replaced elements are those whose content is 
+contained in the document, whereas replaced-elements are those 
+whose content is coming from outside of the document. For example, 
+in the code:
+
+Visit the <a href="http://www.w3.org/">World Wide Web Consortium</a> to learn about... 
+the content of the a element is "World Wide Web Consortium". 
+
+Replaced elements are those where the content comes from some 
+external source, for example, an object or img element.
+
+
+3.
+CSS Character set:
+	The character set of a stylesheet is UTF-8 by default, but it
+	can be specified in the link, or in the stylesheet itself, or in other ways.
+
+	Representation of characters can also be specified by an escape mechanism 
+	that uses backslash as the escape character. For example, \265B is the 
+	chess symbol for a black queen ♛.
+
+
+4.
+Adjacent sibling selector:
+
+	This is referred to as an adjacent selector or next-sibling selector. 
+	It will select only the specified element that immediately follows 
+	the former specified element.
+
+	Syntax
+		former_element + immediate_target_element { style properties }
+
+5.
+General sibling selector:
+	
+	The ~ combinator separates two selectors and matches the second 
+	element only(may not be immediate) if it is preceded by the first, 
+	and both share a common parent.
+
+	Syntax
+		preceding_element ~ target_element { style properties }
+
+6.
+Child selector:
+
+	The > combinator separates two selectors and matches only those 
+	elements matched by the second selector that are direct children 
+	of elements matched by the first. By contrast, when two selectors 
+	are combined with the descendant selector, the combined selector 
+	expression matches those elements matched by the second selector 
+	for which there exists an ancestor element matched by the first 
+	selector, regardless of the number of "hops" up the DOM.
+
+	Syntax
+		selector1 > selector2 { style properties }
+
+7.
+Descendant selector:
+
+	This combinator (that's meant to represent a space, or more properly
+	one or more whitespace characters) combines two selectors such that 
+	the combined selector matches only those elements matching the second 
+	selector for which there is an ancestor element matching the first
+	selector. Descendant selectors are similar to child selectors, but 
+	they do not require that the relationship between matched elements 
+	be strictly parent-child.
+
+	Syntax
+		selector1 selector2 { style properties }

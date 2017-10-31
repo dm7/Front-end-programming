@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Attributes</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js">
+		</script>
+		<script type="text/javascript">
+			/*
+				1) Selecting Elements by ID
+					$( "#myId" ); // Note IDs must be unique per page.
+				
+				2) Selecting Elements by Class Name
+					$( ".myClass" );
+
+				3) Selecting Elements by Attribute
+					$( "input[name='first_name']" ); // Beware, this can be very slow in older browsers
+
+				4) Selecting Elements by Compound CSS Selector
+					$( "#contents ul.people li" );
+
+				5) Pseudo-Selectors
+					$( "a.external:first" );
+					$( "tr:odd" );
+					 
+					// Select all input-like elements in a form (more on this below).
+					$( "#myForm :input" );
+					$( "div:visible" );
+					 
+					// All except the first three divs.
+					$( "div:gt(2)" );
+					 
+					// All currently animated divs.
+					$( "div:animated" );
+
+				Note: When using the :visible and :hidden pseudo-selectors, 
+				jQuery tests the actual visibility of the element, not its 
+				CSS visibility or display properties. jQuery looks to see if 
+				the element's physical height and width on the page are both 
+				greater than zero.
+
+				However, this test doesn't work with <tr> elements. In the 
+				case of <tr> jQuery does check the CSS display property, 
+				and considers an element hidden if its display property is 
+				set to none.
+			*/
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html ng-app="app5" ng-cloak>
+	<head>
+		<meta charset="UTF-8">
+		<title> AngularJS Tutorial 5</title>
+		<style>
+			[ng\:cloak], [ng-cloak], .ng-cloak{
+				display: none;
+			}
+			table{
+				width: 400px;
+				text-align: left;
+				border: 2px solid black;
+				padding: 10px;
+			}
+			/* 
+				We need to validate form so that only the valid values are put in the form.
+				
+				Angular also provides some help in this context. We can validate a form and 
+				see that the required validations work correctly. It provides different objects 
+				to the form. They are very helpful while validating forms:	
+
+				$pristine: It will be TRUE, if the user has not interacted with the form yet
+				$dirty: It will be TRUE, if the user has already interacted with the form.
+				$valid: It will be TRUE, if all containing form and controls are valid
+				$invalid: It will be TRUE, if at least one containing form and control is invalid.
+				$error: Is an object hash, containing references to all invalid controls or forms, where: 
+						. keys are validation tokens (error names)
+						. values are arrays of controls or forms that are invalid with given error.
+				
+				There are some built-in validation tokens, that can help in validating form:
+					. email
+					. max
+					. maxlength
+					. min
+					. minlength
+					. number
+					. pattern
+					. required
+					. url
+				
+				In accordance with these AngularJS also provides corresponding CSS classes for them. 
+				We can use them for validation purpose.
+					. ng-pristine
+					. ng-dirty
+					. ng-valid
+					. ng-invalid
+			*/
+			input.ng-dirty.ng-invalid{
+				border.color: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div ng-controller="gListCtrl"> 
+			<h3>Grocery List</h3>		
+			<table>
+				<thead>
+					<tr>
+						<th>Item</th>
+						<th>Purchased</th>
+					</tr>
+				</thead>
+				<tr ng-repeat="grocery in groceries">
+					<td>{{grocery.item}}</td>
+					<td><input type="checkbox" ng-model="grocery.purchased"></td>
+				</tr>
+			</table>
+			<br>
+
+			<label>New item:
+				<input type="text" ng-model="newItem">
+			</label>
+			<button ng-click="addItem(newItem)">Add Item</button>
+
+			<h4>{{missingNewItemError}}</h4>
+		</div>  <!-- End of grocery list-->
+
+		<hr>
+		<div ng-controller="userCtrl">
+			<form name="userForm" ng-submit="saveUser(userInfo)">
+				<label>First name:</label>
+				<input type="text" 
+						name="fname" 
+						ng-model="userInfo.fName" 
+						ng-required="true"
+						ng-minlength="2"> 
+				<span class="error-message" 
+						ng-show="userForm.fname.$dirty && 
+						userForm.fname.$error.required">Must Enter a First Name
+				</span>
+
+				<span class="error-message"
+						ng-show="userForm.fname.$dirty &&
+								userForm.fname.$error.minlength">Must be a minimum of two characters
+				</span>	
+
+				<br><br>
+
+				<label>Last name:</label>
+				<input type="text" 
+						name="lname" 
+						ng-model="userInfo.lName" 
+						ng-required="true"
+						ng-minlength="2"> 
+				<span class="error-message" 
+						ng-show="userForm.lname.$dirty && 
+						userForm.lname.$error.required">Must Enter a Last Name
+				</span>
+
+				<span class="error-message"
+						ng-show="userForm.lname.$dirty &&
+								userForm.lname.$error.minlength">Must be a minimum of two characters
+				</span>	
+
+				<br><br>
+
+				<label>Street:</label>
+				<input type="text" name="street"
+					ng-model="userInfo.street"
+					ng-required="true"
+					ng-minlength="6"
+					ng-pattern="/^(\d{3,})\s?(\w{0,5})\s([a-zA-Z]{2,30})\s([a-zA-Z]{2,15})\.?\s?(\w{0,5})$/">
+				<span class="error-message"
+						ng-show="userForm.street.$dirty && userForm.street.$invalid">
+					Must Enter a Number, Street and Street Type (ex: 123 Main St)		
+				</span>
+
+				<br><br>
+				<label>Subscribe:</label>
+				<input type="checkbox" name="subscribe"
+						ng-model="userInfo.subscribe"
+						ng-true-value="'Subscribe'"
+						ng-false-value="'Dont\'t Subscribe'">
+
+				<br><br>
+
+				<label>Delivery Method:</label>
+				<select name="delivery" 
+						ng-model="userInfo.delivery"
+						ng-required="true">
+					<option value="Email">Email</option>
+					<option value="Mail">Mail</option>
+				</select>	
+
+				<br><br>
+
+				<input type="submit" value="Save"
+						ng-disabled="userForm.$invalid">
+
+				<ul>
+					<li ng-repeat = "item in user">
+						{{'User:' + item.fName + " " + item.lName + " " +
+							item.street + " " + item.subscribe + " " + 
+							item.delivery}}
+					</li>	
+
+				</ul>
+			</form>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script type="text/javascript" src="js/exam5.js"></script>
+	</body>
+</html>

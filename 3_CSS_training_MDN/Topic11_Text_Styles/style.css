@@ -1,0 +1,175 @@
+/*
+	CSS has several properties for styling text.
+
+	There is a convenient shorthand property, font, which you can use to specify several aspects at once—for example:
+
+		. Bold, italic, and small-caps (small capitals)
+		. The size
+		. The line height
+		. The font typeface
+*/
+
+p {
+	font: italic 75%/125% "Comic Sans MS", cursive;
+}
+
+/*
+	This rule sets various font properties, 
+	a) font-style to  italic.
+	b) The font-size is set to three-quarters of the size in each paragraph's
+		 parent element, 
+	c) line-height is set to 125% (a little more spaced than normal)
+	d) The TYPEFACE is set to "Comic Sans MS", but if this typeface is 
+		not available then the browser will use its default "cursive" 
+		(hand-written) typeface.
+	e) The rule has the side-effect of turning off of bold and small-caps 
+		(setting them to normal):
+*/
+
+/*
+	FONT VS. TYPEFACE
+
+	Back in the good old days of analog printing, every page was 
+	laboriously set out in frames with metal letters. That was 
+	rolled in ink, and then it was pressed down onto a clean 
+	piece of paper. That was a page layout. Printers needed 
+	thousands of physical metal blocks, each with the character 
+	it was meant to represent set out in relief (the type face). 
+	If you wanted to print Garamond, for example, you needed 
+	different blocks for every different size (10 point, 12 
+	point, 14 point, and so on) and weight (bold, light, medium).
+
+	This is where we get the terms typeface and font. In the 
+	example above, Garamond would be the typeface: It described 
+	all of the thousands of metal blocks a printer might have 
+	on hand and which had been designed with the same basic 
+	design principles. But a font was something else entirely. 
+	A font described a subset of blocks in that very typeface—
+	but each font embodied a particular size and weight. For 
+	example, bolded Garamond in 12 point was considered a 
+	different font than normal Garamond in 8 point, and 
+	italicized Times New Roman at 24 point would be considered 
+	a different font than italicized Times New Roman at 28 point.
+*/
+
+/*
+	@font-face css rule
+
+	The @font-face CSS at-rule allows authors to specify online fonts 
+	to display text on their web pages. By allowing authors to provide 
+	their own fonts, @font-face eliminates the need to depend on the 
+	limited number of fonts users have installed on their computers. 
+*/
+
+
+/*
+	font-weight & font-style property
+	
+	
+	font-weight: normal|bold|bolder|lighter|number|initial|inherit;
+	
+	==================================================================
+		Value		Description	
+	==================================================================
+	1. normal		Defines normal characters. This is default.
+	2. bold	 		Defines thick characters	
+	3. bolder		Defines thicker characters	
+	4. lighter		Defines lighter characters	
+	5.  100
+		200
+		300
+		400
+		500         Defines from thin to thick characters. 
+		600         400 is the same as normal, and 700 is the same as bold.
+		700
+		800
+		900	
+	=================================================================
+
+	
+
+
+	font-style: normal|italic|oblique|initial|inherit;
+
+	====================================================================
+	Value		Description	
+	====================================================================
+	normal		The browser displays a normal font style. This is default.
+	italic		The browser displays an italic font style.	
+	oblique		The browser displays an oblique font style.
+	initial		Sets this property to its default value.
+	inherit		Inherits this property from its parent element.
+	======================================================================
+
+*/
+
+
+/*
+	font-size property
+
+	This property measures in CSS pixels but not in device pixels. That is, 
+	the “pixels” that are used in CSS declarations such as 
+	width & font-size, as shown below,
+
+	*{
+		width: 300px ;
+		font-size: 14px;
+	}
+	
+	
+	Browser users can override the default font sizes or change the 
+	text size while they read a page, so it makes good sense for you
+	to use relative sizes wherever you can.
+
+	You can use some built-in values for font sizes, like small, 
+	medium and large. You can also use values relative to the font 
+	size of the parent element, like: smaller, larger, 150% or 1.5em. 
+	An "em" is equivalent to the width of the letter "m" (for the 
+	font size of the parent element); thus 1.5em is one-and-a-half 
+	times the size of the font of the parent element.
+
+	If necessary you can specify an actual size, like: 14px (14 
+	pixels) for a display device or 14pt (14 points) for a 
+	printer. This is not accessible for visually impaired users, 
+	because it does not allow them to change the size. A more 
+	accessible strategy is to set a built-in value like medium 
+	on a top-level element of the document, and then set relative 
+	sizes for all its descendent elements.
+
+	To specify a font size on its own, use the font-size property.
+*/
+
+/*
+	Line height
+
+	The line height specifies the spacing between lines. If your 
+	document has long paragraphs with many lines, a larger-than-normal
+	spacing makes it easier to read, especially if the font size is small.
+
+	To specify a line height on its own, use the line-height property.
+*/
+
+/*
+	Decoration
+	
+	The separate text-decoration property can specify other styles, 
+	like underline or line-through. You can set it to none to 
+	explicitly remove any decoration.
+*/
+
+/*Other properties
+
+	To specify italic on its own, use font-style: italic;
+	To specify bold on its own, use font-weight: bold;
+	To specify small capitals on its own, use font-variant: small-caps;
+*/
+
+/*
+	To turn any of these off individually, you can specify the value normal or inherit.
+*/
+
+/*
+	If you don't want to depend on the typefaces installed on users' 
+	systems, you can use @font-face to specify an online font. However, 
+	this requires that the users have a browser that supports this rule.
+*/

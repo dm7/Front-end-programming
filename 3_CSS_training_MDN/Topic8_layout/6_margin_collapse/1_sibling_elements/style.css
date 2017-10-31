@@ -1,0 +1,21 @@
+div{
+	height: 200px;
+	width: 200px;
+}
+
+div: nth-child(1){
+	background-color: #F52C6F;
+	margin-bottom: 20px;
+}
+
+div: nth-child(2){
+	background-color: #0ECCCC;
+	margin-top: 25px;
+	margin-bottom: -25px;
+}
+
+div: nth-child(3){
+	background-color: #EBE723;
+	margin-top: 60px; /* effective top margin is 60-25=45px */
+}
+

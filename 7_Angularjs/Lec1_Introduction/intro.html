@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>AngularJS Intro</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.js"></script>
+            <script type="text/javascript">
+                angular.module("sample", []);
+            </script>
+            <script>
+                /*
+                    AngularJS:
+                    1) Client side Framework
+                    
+                    2) Developed and being maintained by Google
+                    
+                    3) Goals:
+                        > Separate DOM manipulation from application logic
+                        > Separation of concerns (using MVC like pattern)
+                        > Make SPA development easier
+                        > Provide solid foundation for robust/enterprise-scale
+                                    JS client-side applications
+                        > Extensibility & Customization
+                    
+                    4) Define an angular.module
+                        > As per angularJS terminology, All the models/views/controllers
+                        that form an application is a module.
+                        > Developing an angularJS application starts with a module.
+                        > angular.module("sample", [])
+                            > If second parameter is provided(i.e., square brackets),
+                                then we are creating a new module.
+                            > If second parameter is not provided, then we are accessing
+                                existing(already created) module.
+                            > Empty square brackets mean, the module has no dependency
+                                on other module.
+                    
+                    5) Decorate an element using ng-app and attach to the module
+                        > ng-app = Angular application
+                        > The ng-app directive defines the root element of an AngularJS application.
+                        > The ng-app directive will auto-bootstrap (automatically initialize)
+                                the application when a web page is loaded.
+                        > The ng-app directive initializes an AngularJS application.
+                        > The ng-app directive also tells AngularJS that the <body>
+                            element is the "owner" of the AngularJS application, in below code.
+                        > One web page can have multiple ng-app directives.
+                    
+                    6) {{ expr}}
+                        > Angular expression
+                        > Javascript like code snippets evaluated by Angular
+                        > Control flow statements(conditional/loop) are not allowed
+                */
+            </script>
+        </head>
+        <body ng-app = "sample">
+            Sum of two numbers (1 + 2) is {{1 + 2}}    
+        </body>
+    </html>

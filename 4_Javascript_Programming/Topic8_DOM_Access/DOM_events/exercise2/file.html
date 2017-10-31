@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Event handling</title>
+		<style type="text/css">
+			#h3style{
+				color: gray;
+			}
+			#littlebrain{
+				height: 30px;
+				width: 40px;
+			}
+			#first, #second, #third{
+				visibility: hidden;
+			}
+		</style>
+	</head>
+	<body onLoad="alert('website loaded');">
+		<!-- 
+			What are ‘named elements’? Anything with an id, and anything with a name being used for ‘identifying’ purposes: that is, forms, images, anchors and a few others, but not other unrelated instances of a name attribute, like control-names in form input fields, parameter names in <param> or metadata type in <meta>.
+			
+			What is supposed to happen is that ‘named elements’ are added as apparent properties of the document object. This is a really bad idea, as it allows element names to clash with real properties of document.
+				For ex: document.littlebrain   in the below code
+			There's no point in using an id-to-element lookup cache, because browsers typically optimise the getElementById call to use a quick lookup anyway
+
+			This behavior is known as named access on the window object. The value of the name attribute for some elements and the value of the id attribute for all elements are made available as properties of the global window object. These are known as named elements. Since window is the global object in the browser, each named element will be accessible as a global variable.
+
+			document.getElementById('littlebrain').style grabs the values of inline style attributes.
+			var obj = document.getElementById('littlebrain');var style =window.getComputeStyle(obj, null); grabs the values computed from css style rules.
+		-->
+		
+		<script type="text/javascript">
+			
+			document.body.onresize = changeImage;
+			
+			function changeImage(){
+				document.getElementById("littlebrain").style.height="35%";
+				document.getElementById("littlebrain").style.width= "35%";
+				return true;
+			}
+
+			function alertme(){
+				var obj = document.getElementById('littlebrain');
+				var style = window.getComputedStyle(obj, null);
+				var alertMsg = 	window.littlebrain.src + "\nHeight: " + style.height + "\nWidth: " + style.width;
+				alert(alertMsg);
+				return true;
+			}
+
+			function changeColor(){
+				document.getElementById('h3style').style.color = "red";
+				document.getElementById('h3style').firstChild.nodeValue="Excited";
+				return true;
+			}
+			function changeAgain(){
+				document.getElementById('h3style').style.color = "gray";
+				document.getElementById('h3style').firstChild.nodeValue="Bored";
+			}
+			function showPara(){
+				document.getElementById('first').style.visibility  = (document.formex.firstpara.checked)  ? "visible" : "hidden";
+				document.getElementById('second').style.visibility = (document.formex.secondpara.checked) ? "visible" : "hidden";
+				document.getElementById('third').style.visibility  = (document.formex.thirdpara.checked)  ? "visible" : "hidden";
+				return true;
+			}
+		</script>
+		<img id="littlebrain" src="littlebrain.png"  onClick="alertme();" onDblClick="alert('You double clicked');">
+		<h3 id="h3style" onMouseOver="changeColor();" onMouseout="changeAgain();">Rollover</h3>
+		<p id="first">This is a paragraph</p>
+		<p id="second">This is a paragraph</p>
+		<p id="third">This is a paragraph</p>
+
+		<form name="formex">
+			<input type="checkbox" name="firstpara" onClick="showPara();"> First Paragraph<br>
+			<input type="checkbox" name="secondpara" onClick="showPara();"> Second Paragraph<br>
+			<input type="checkbox" name="thirdpara" onClick="showPara();"> Third Paragraph<br>
+		
+			<p>Text input</p>
+			<input type="text" name="textinput" onBlur="alert('onBlur Triggered');" 
+												onChange="alert('onChange Trigered');"
+												onFocus="alert('onFocus Triggered');"><br>
+			<input type="text" name="mousex">Mouse X Position<br>
+			<input type="text" name="mousey">Mouse Y Position<br>
+			<input type="text" name="keypress">Key Press<br>
+			<input type="text" name="mouseclick">Mouse Clicked<br>
+			
+		</form>
+
+		
+
+		<!--
+			Window.captureEvents
+			
+			Summary
+				Registers the window to capture all events of the specified type.
+
+			Syntax
+				window.captureEvents(eventType) 
+			
+			eventType is a combination of the following values: Event.ABORT, Event.BLUR, Event.CLICK, Event.CHANGE, Event.DBLCLICK, Event.DRAGDDROP, Event.ERROR, Event.FOCUS, Event.KEYDOWN, Event.KEYPRESS, Event.KEYUP, Event.LOAD, Event.MOUSEDOWN, Event.MOUSEMOVE, Event.MOUSEOUT, Event.MOUSEOVER, Event.MOUSEUP, Event.MOVE, Event.RESET, Event.RESIZE, Event.SELECT, Event.SUBMIT, Event.UNLOAD.
+
+		-->
+		<script type="text/javascript">
+			var mie = (navigator.appName == "Microsoft Internet Explorer") ? true : false;
+			if(!mie){
+					document.captureEvents(Event.MOUSEMOVE);
+					document.captureEvents(Event.MOUSEDOWN);
+					document.captureEvents(Event.KEYPRESS);
+			}
+			document.onmousemove = mousePos;
+			document.onmousedown = mouseClicked;
+			document.onkeypress  = keyPressed;
+
+			var mouseClick = 0;
+			var keyPressed = 0;
+			var mouseX = 0;
+			var mouseY = 0;
+
+			function mousePos(e){
+				if(!mie){
+					mouseX = e.pageX;
+					mouseY = e.pageY;
+				}
+				else{
+					mouseX = e.clientX + document.body.scrollLeft;
+					mouseY = e.clientY + document.body.scrollRight;
+				}
+
+				document.formex.mousex.value = mouseX;
+				document.formex.mousey.value = mouseY;
+
+				return true;
+			}
+
+			function keyPressed(e){
+				if(mie){
+					e = window.event;
+					keyPressed = e.keyCode; 
+				}else{
+					/* String.fromCharCode(65, 66, 67);  // "ABC"*/
+					keyPressed = String.fromCharCode(e.charCode);
+				}
+				if(!keyPressed){
+					return false;
+				}
+				document.formex.keypress.value = keyPressed;
+				return true;
+			}
+
+			function mouseClicked(e){
+				if(mie){
+					switch(event.button){
+						case 0:
+							document.formex.mouseclick.value = "Left";
+							break;
+						case 1:
+							document.formex.mouseclick.value = "Middle";
+							break;
+						default:
+							document.formex.mouseclick.value = "Right";
+							break;
+					}
+					return true;
+				}else{
+					switch(e.which){
+						case 1:
+							document.formex.mouseclick.value = "Left";
+							break;
+						case 2:
+							document.formex.mouseclick.value = "Middle";
+							break;
+						default:
+							document.formex.mouseclick.value = "Right";
+							break;
+					}
+					return true;
+				}
+			}
+			/*  
+				The other JavaScript Events
+		        OnAbort - Called when a page load is interrupted
+		        OnError - Called when an error occurs during page load
+		        OnKeyDown - When key is pressed but not released
+		        OnKeyUp - When key is released
+		        OnMouseUp - When mouse button is released
+		        OnReset - When reset button is clicked
+		        OnSelect - When text is selected
+		        OnSubmit - When submit button is clicked
+		        OnUnload - When user leaves a page
+	        */
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>addClass demo</title>
+    <style>
+    p {
+        margin: 8px;
+        font-size: 16px;
+    }
+    .selected {
+        color: blue;
+    }
+    .highlight {
+        background: yellow;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+    <script type="text/javascript">
+      /*
+          Syntax:
+              .addClass( className )
+          
+          Description: Adds the specified class(es) to each element in the set of matched elements.
+
+          It's important to note that this method does not replace a 
+          class. It simply adds the class, appending it to any which 
+          may already be assigned to the elements.
+
+          The .addClass() method manipulates the className property 
+          of the selected elements, not the class attribute. Once 
+          the property is changed, it's the browser that updates 
+          the attribute accordingly. An implication of this behavior 
+          is that this method only works for documents with HTML DOM 
+          semantics (e.g., not pure XML documents).
+          
+          More than one class may be added at a time, separated by a 
+          space, to the set of matched elements, like so:
+          
+          > $( "p" ).addClass( "myClass yourClass" );
+
+          This method is often used with .removeClass() to switch elements' 
+          classes from one to another, like so:
+
+          > $( "p" ).removeClass( "myClass noClass" ).addClass( "yourClass" );
+
+          Here, the myClass and noClass classes are removed from all paragraphs, 
+          while yourClass is added.
+
+          As of jQuery 1.4, the .addClass() method's argument can receive a function.
+
+          > $( "ul li" ).addClass(function( index ) {
+                return "item-" + index;
+              });
+          
+          Given an unordered list with two <li> elements, this example adds 
+          the class "item-0" to the first <li> and "item-1" to the second.
+      */
+    </script>
+</head>
+<body>
+ 
+    <p>Hello</p>
+    <p>and</p>
+    <p>Goodbye</p>
+     
+    <script>
+        $( "p" ).last().addClass( "selected" );
+        //$( "p:last" ).addClass( "selected highlight" );
+    </script>
+ 
+</body>
+</html>

@@ -1,0 +1,24 @@
+/*
+	The text-decoration CSS property is used to set the text 
+	formatting to underline, overline, line-through or blink. 
+	Underline and overline decorations are positioned under
+	the text, line-through over it.
+
+	CSS Text Decoration Level 3 transformed this property as 
+	a shorthand for the three new text-decoration-color, 
+	text-decoration-line, and text-decoration-style CSS properties.
+	
+	Syntax:
+*/
+
+*{
+	/* Keyword values */
+	text-decoration: none;                 /* No text decoration */
+	text-decoration: underline red;        /* Red underlining */
+	text-decoration: underline wavy red;   /* Red wavy underlining */
+
+	/* Global values */
+	text-decoration: inherit;
+	text-decoration: initial;
+	text-decoration: unset;
+}

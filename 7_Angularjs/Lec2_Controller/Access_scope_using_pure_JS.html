@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Controller</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.js"></script>
+            <script type="text/javascript">
+                var app = angular.module("sample", []);
+                app.controller("emp", function($scope){
+                        $scope.Name = "jag";
+                    });
+            </script>
+        </head>
+        <body ng-app="sample">
+            <div ng-controller="emp">
+                Hello {{Name}}
+                <script>
+                    //Using Javascript:
+                    $(document).ready(function(){
+                        var dom_el = document.querySelector('[ng-controller="emp"]');
+                        var ng_el = angular.element(dom_el);
+                        var ng_el_scope = ng_el.scope();
+                        var name = ng_el_scope.Name;
+                        alert(name);    
+                        });
+                </script>
+            </div>
+        </body>
+    </html>

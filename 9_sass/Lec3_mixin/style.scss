@@ -1,0 +1,47 @@
+$blue: #9FBFBF;
+$margin: 5%;
+$cream: #F2EFEB;
+$cream2: $cream - 100;
+
+
+@mixin border-radius($radius: 20px){
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+}
+body{background: #262626; font-family: helvetica, ariel, sans-serif;}
+header{
+    margin:20px 0 0 $margin;
+    h1{color: $blue;}
+    h2{color: $blue; margin: 10px $margin + 5%;}    
+    }
+p{ margin: 20px $margin;}
+
+a{color: $blue;}
+
+
+
+.grad{
+    @include border-radius;
+    padding: 1%;
+    background-color: $cream;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($cream), to($cream2));
+    background-image: -webkit-linear-gradient(top, $cream, $cream2);
+    background-image:   -moz-linear-gradient(top, $cream, $cream2);
+    background-image:     -ms-linear-gradient(top, $cream, $cream2);
+    background-image:       -o-linear-gradient(top, $cream, $cream2);
+    
+    .intro{
+        background: #333;
+        @include border-radius;
+        .par1{
+            color: $blue;
+            a{
+                @include border-radius(10px);
+                font-size: 20px;
+                background: $cream;
+            }
+            a:hover {background: $cream2;}
+        }    
+    }
+}

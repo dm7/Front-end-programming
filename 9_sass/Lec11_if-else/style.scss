@@ -1,0 +1,90 @@
+$blue: #9FBFBF;
+$margin: 5%;
+$cream: #F2EFEB;
+$cream2: $cream - 100;
+
+
+@mixin border-radius($radius: 20px){
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+}
+body{background: #262626; font-family: helvetica, ariel, sans-serif;}
+header{
+    margin:20px 0 0 $margin;
+    h1{color: $blue;}
+    h2{color: $blue; margin: 10px $margin + 5%;}    
+    }
+p{ margin: 20px $margin;}
+
+a{color:$blue - 100;}
+
+.grad{
+    @include border-radius;
+    padding: 1%;
+    background-color: $cream;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($cream), to($cream2));
+    background-image: -webkit-linear-gradient(top, $cream, $cream2);
+    background-image:   -moz-linear-gradient(top, $cream, $cream2);
+    background-image:     -ms-linear-gradient(top, $cream, $cream2);
+    background-image:       -o-linear-gradient(top, $cream, $cream2);
+    
+    .intro{
+        background: rgba(#333, 0.5);
+        @include border-radius;
+        width:round(percentage(550px / 1400px));
+        float: left;
+    }
+    .feature{@extend .intro; border:1px solid yellow; width:round(percentage(820px / 1400px)); float: right;}
+}
+
+ul.social-links li{
+    list-style: none;
+    a{
+        display: block;
+        float: left;
+        width: 70px;
+        height: 70px;
+        font-size: 10px;
+        text-indent: -999px;
+    }
+}
+
+$icons:(twitter,facebook,youtube,rss);
+@each $social in $icons{
+    .#{$social} {background:url('images/#{$social}.png') no-repeat;}
+}
+
+@function text-contrast($background){
+    @if lightness($background) < 50%{
+        @return lighten( $background, 70% );    
+    }@else{
+        @return darken($background, 70%);
+    }
+    
+}
+
+
+@each $p in (
+    one black,
+    two black + 20,
+    three black + 40,
+    four black +60
+){
+    .#{nth($p, 1)} {background: #{nth($p, 2)}; }
+}
+
+.three{
+    clear: left;
+    color: text-contrast(black+40);
+}
+
+.clearfix:before, .clearfix:after{
+    content:"";
+    display: table;
+}
+.clearfix:after{clear:both;}
+.clearfix{zoom: 1;}
+
+
+

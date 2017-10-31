@@ -1,0 +1,52 @@
+@import "mixin";
+.circle{
+    @include circle(200px, #999);
+    display: block;
+    &:hover {background-color: black;} //pseudo class syntax using parent reference
+}
+
+.triangle{
+    @include triangle(200px, right, red);
+    display: block;
+}
+
+.ir{
+    /*
+     *font:0/0 a – a shorthand property that zeros out
+     *the font size and line-height. The a value acts
+     *as a very short font-family (an idea taken from
+     *the BEM implementation of this method). The CSS
+     *validator complains that using 0/0 in the shorthand
+     *font property is not valid, but every browser
+     *accepts it and this appears to be an error in the
+     *validator. Using font:0px/0 a passes validation
+     *but it displayed as font:0/0 a in the code that
+     *the validator flags as valid.
+     */
+    font: 0/0 a;
+    /*
+     *text-shadow:none – makes sure that any inherited
+     *text shadow is removed for the text. This prevents
+     *the chance of any text shadow colors showing over
+     *the background.
+     */
+    text-shadow: none;
+    /*
+     *color:transparent – needed for browsers than don’t
+     *completely crush the text to the point of being invisible. 
+     */
+    color: transparent;
+}
+
+.clearfix:before, .clearfix:after{
+    content:"";
+    display: table;
+}
+
+.clearfix:after{
+    clear:both;
+}
+
+.clearfix{
+    *zoom: 1;
+}

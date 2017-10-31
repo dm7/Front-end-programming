@@ -1,0 +1,16 @@
+.box{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0, 1);
+}
+
+.box1{ background: #1abc9c; }
+.box2{ background: #3498db; }
+
+
+/* Here is a code for flex box */
+/* Flex-box alignment + Centering with align-content */
+.container{
+	display:flex;
+}

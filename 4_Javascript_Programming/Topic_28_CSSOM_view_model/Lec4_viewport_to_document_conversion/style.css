@@ -1,0 +1,22 @@
+div{
+	position: absolute;
+	margin: 20px;
+	padding: 20px;
+	border: 20px solid black;
+}
+
+body > div{
+	top: 100px;
+	left: 100px;
+	width: 400px;
+	min-height: 400px;
+	background-color: hsl(60, 91%, 50%);
+}
+
+div > div{
+	top: 10px;
+	left: 10px;
+	width: 100px;
+	min-height: 100px;
+	background-color: hsl(98, 91%, 46%);
+}

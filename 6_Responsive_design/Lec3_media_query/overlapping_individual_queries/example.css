@@ -1,0 +1,53 @@
+/*
+	OVERLAPPING
+*/
+@media (min-width: 300px){
+	div{
+		color:red;
+		border: 2px solid blue;
+	}
+}
+@media (min-width: 600px){
+	div{
+		/*
+			color:red;
+			border: 2px solid blue;
+		*/
+		border-radius: 5px;	
+	}
+}
+@media (min-width: 900px){
+	div{
+		/*
+			color:red;
+			border: 2px solid blue;
+			border-radius: 5px;	
+		*/
+		font-size: 20px;
+	}	
+}
+
+
+
+
+/*
+	INDIVIDUAL/BACK-TO-BACK
+*/
+@media (min-width: 300px) and (max-width: 599px){
+	div{
+		color: red;
+		border: 1px solid red;
+	}
+}
+@media (min-width: 900px){
+	div{
+		color: orange;
+		border-radius: 10px;
+	}
+}
+@media (min-width: 600px) and (max-width: 899px){
+	div{
+		color: red;
+		border-radius: 5px;
+	}
+}

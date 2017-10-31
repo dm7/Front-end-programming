@@ -1,0 +1,37 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: "Helvetica", sans-serif;
+	font-weight: 100;
+	box-sizing: border-box;
+}
+
+header{
+	width: 100%;
+	text-align: center;
+	color: white;
+	height: 150px;
+	padding: 50px 0px;
+	background-color: #009bc7;
+}
+
+.column{
+	float: left;
+	font-weight: 100;
+	padding: 30px;
+	width: 50%;
+	font-size: 14px;
+	color: #7d7d7d;
+}
+
+@media all and (max-width: 600px){
+	.column{
+		width: 100%;
+	}
+}
+
+@media all and (min-width: 400px) and (max-width: 800px){
+	header{
+		background-color: orange;
+	}	
+}

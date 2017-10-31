@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <html >
+        <head>
+            <meta charset="UTF-8">
+            <title>Basic directives in angularJS</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.js"></script>
+            
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+            <!-- Optional theme -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+            
+        </head>
+        <body ng-app=""> <!-- angularJS framework is visible from here due to ng-app directive-->
+            
+            
+            <!-- First example-->            
+            <div ng-init="name='Bonita Ln';age=25;">
+                {{name}}
+            </div>
+            <script>
+                    /* Accessing ng-init variable Using Javascript */    
+                    $(document).ready(function(){
+                        var data1 = angular
+                                    .element(document.querySelector('[ng-init]'))
+                                    .scope()
+                                    .age;
+                        alert("Age is:" + data1);
+                    });
+            </script>
+            <!-- 
+                <body>
+                    <div ng-app="" ng-init="arr = [1, 2, 3, 4];obj={x:1}"> 
+                        {{arr[0]}}
+                    </div>
+                    /*******angular framework is not visible in this div***/
+                    <div ng-init="arr = [1, 2, 3, 4];obj={x:1}"> 
+                        {{arr[0]}}
+                    </div> 
+                </body>
+            -->
+            
+            
+            <!-- Second example-->            
+            <p><input type="text" ng-model="username"></p>
+                {{username}}<br> <!-- angular exp Binds to innerHTML -->
+                <p ng-bind="username"></p> <!-- ng-bind binds to innerHTML -->
+            <button class="btn" id="button">Click after entering text</button> <!-- for the support to run JS code-->
+            <script>
+                    /* Accessing ng-model variable Using Javascript */    
+                    $('#button').click(function(){
+                        var data2 = angular
+                                    .element(document.querySelector('[ng-model]'))
+                                    .scope()
+                                    .username;
+                        alert(data2);
+                    });
+            </script>
+        
+            <!-- Third example -->
+            <div ng-init="cities=[
+                            {city: 'Indore', state: 'MP'},
+                            {city: 'Pune', state: 'MH'},
+                            {city: 'Mumbai', , state: 'MH'}]">
+                <ul>
+                    <li ng-repeat="cityWithStates in cities">
+                        {{cityWithStates.city + ", " + cityWithStates.state}}
+                    </li>
+                </ul>
+            </div>
+        </body>
+    </html>

@@ -1,0 +1,12 @@
+/*
+	The <li> elements in the list inherit this style:
+
+	A. Lorem ipsum
+	B. Dolor sit
+	C. Amet consectetuer
+	D. Magna aliquam
+	E. Autem veleum
+
+
+*/
+ol.info {list-style: upper-latin;}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Attributes</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js">
+		</script>
+		<script type="text/javascript">
+			/*
+				Choosing good selectors is one way to improve JavaScript's 
+				performance. A little specificity – for example, including 
+				an element type when selecting elements by class name – can 
+				go a long way. On the other hand, too much specificity can
+				be a bad thing. A selector such as #myTable thead tr th.special 
+				is overkill if a selector such as #myTable th.special will get 
+				the job done.
+
+				jQuery offers many attribute-based selectors, allowing selections 
+				based on the content of arbitrary attributes using simplified 
+				regular expressions.
+
+				// Find all <a> elements whose rel attribute ends with "thinger".
+				$( "a[rel$='thinger']" );
+
+				While these can be useful in a pinch, they can also be extremely 
+				slow in older browsers. Wherever possible, make selections using 
+				IDs, class names, and tag names.
+			*/
+		</script>
+		<script type="text/javascript">
+			/*
+				Does My Selection Contain Any Elements?
+				======================================
+				Once you've made a selection, you'll often want to know whether 
+				you have anything to work with. A common mistake is to use:
+
+				// Doesn't work!
+				if ( $( "div.foo" ) ) {
+				    ...
+				}
+
+				This won't work. When a selection is made using $(), an object 
+				is always returned, and objects always evaluate to true. Even 
+				if the selection doesn't contain any elements, the code inside 
+				the if statement will still run.
+
+				The best way to determine if there are any elements is to test 
+				the selection's .length property, which tells you how many 
+				elements were selected. If the answer is 0, the .length property 
+				will evaluate to false when used as a boolean value:
+
+				// Testing whether a selection contains elements.
+				if ( $( "div.foo" ).length ) {
+				    ...
+				}
+			*/
+		</script>
+		<script type="text/javascript">
+			/*
+				Saving Selections
+				=================
+				jQuery doesn't cache elements for you. If you've made a selection 
+				that you might need to make again, you should save the selection 
+				in a variable rather than making the selection repeatedly.
+
+				var divs = $( "div" );
+
+				Once the selection is stored in a variable, you can call jQuery 
+				methods on the variable just like you would have called them on 
+				the original selection.
+
+				A selection only fetches the elements that are on the page at the 
+				time the selection is made. If elements are added to the page later, 
+				you'll have to repeat the selection or otherwise add them to the 
+				selection stored in the variable. Stored selections don't magically 
+				update when the DOM changes.
+
+				
+			*/
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

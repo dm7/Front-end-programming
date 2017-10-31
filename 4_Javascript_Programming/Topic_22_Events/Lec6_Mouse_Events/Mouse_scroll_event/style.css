@@ -1,0 +1,11 @@
+img{
+	position: absolute;
+	top: 5vh;
+	left: 5vw;
+	width: 300px;
+	height: 300px;
+}
+
+img:hover{
+	cursor: -webkit-zoom-in;
+}

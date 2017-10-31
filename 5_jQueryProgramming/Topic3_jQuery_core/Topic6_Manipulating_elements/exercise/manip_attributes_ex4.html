@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>attr demo</title>
+    <style>
+        div {
+            color: blue;
+        }
+        span {
+            color: red;
+        }
+        b {
+            font-weight: bolder;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+    <script type="text/javascript">
+        /*
+
+            Syntax:
+                .attr( attributeName, function )
+            
+            Description:
+                Set one or more attributes for the set of matched elements.
+                
+            Computed attribute values
+
+            By using a function to set attributes, you can compute the value 
+            based on other properties of the element. For example, to concatenate 
+            a new value with an existing value:
+            
+            > $( "#greatphoto" ).attr( "title", function( i, val ) {
+                      return val + " - photo by Kelly Clark";
+                    });
+
+            This use of a function to compute attribute values can be particularly 
+            useful when modifying the attributes of multiple elements at once.
+
+            Note: If nothing is returned in the setter function 
+            (ie. function(index, attr){}), or if undefined is returned, 
+            the current value is not changed. This is useful for selectively 
+            setting values only when certain criteria are met.
+        */
+    </script>
+</head>
+<body>
+    <div>Zero-th <span></span></div>
+    <div>First <span></span></div>
+    <div>Second <span></span></div>
+     
+    <script>
+        $( "div" )
+          .attr( "id", function( index ) {
+            return "div-id" + index;
+          })
+          .each(function() {
+            $( "span", this ).html( "(id = '<b>" + this.id + "</b>')" );
+        });
+    </script>
+
+</body>
+</html>

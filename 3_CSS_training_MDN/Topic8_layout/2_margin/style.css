@@ -1,0 +1,24 @@
+#parent-div{
+	background: #B3bEb5;
+	border: 0.1em solid black;
+}
+
+
+#default{
+  background: #DBE9F4;
+}
+ 
+/*
+	auto makes sure space on the left = right
+	Show how changing between em, % and pixels changes things
+*/
+#centered{
+  background: #89CFF0;
+  width: 50%;
+  margin: auto;
+}
+
+/* text-align: left, right, center, justify */
+#centered-text{
+  text-align: center;
+}

@@ -1,0 +1,20 @@
+/*
+	It does not make sense to apply absolute positioning on floated element
+*/
+
+body > div{
+	min-height: 300px;
+	width: 300px;
+	background-color: #ff0087;
+}
+
+div > div{
+	min-height: 100px;
+	width: 200px;
+	background-color: yellow;
+	float: right;
+	
+	position: relative;
+	left: 800px;
+	top: 20px;
+}

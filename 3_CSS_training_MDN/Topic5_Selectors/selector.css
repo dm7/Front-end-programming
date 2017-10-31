@@ -1,0 +1,87 @@
+strong {
+ 		color: red;
+ 		background: green;
+}
+
+/*
+	Terminology(jargon):
+	a) Above complete code is called a CSS rule.
+	b) The part inside the curly braces is the declaration.
+	c) The keyword 'color' is a property, and 'red' is a value.
+	d) The semicolon after the property-value pair separates it 
+	from other property-value pairs in the same declaration.
+	e) 'strong' is a tag selector.
+*/
+
+/*	
+	for this code:
+
+	<p class="key" id="principal">
+
+	The id value, "principal", must be unique in the document, but other tags in
+	the document can have the same class name, "key".  
+
+	So, if any one element uses id = "principal", any other element cannot use
+	the same id in the rest of the DOM.
+
+	If more than one rule applies to an element and specifies the same property, 
+	then CSS gives priority to the rule that has the more specific selector. 
+
+	That means,
+	An ID selector is more specific than a class selector, which in turn is more 
+	specific than a tag selector.
+*/
+
+
+
+/*
+	Combining selectors(p.key) will allow adding style wihtout modifying markup.
+
+	<div class="key">Text Text Text</div>
+	<p class="key">Text Text text</p>
+
+	Here, the selector .key selects all elements that have the class name 'key'. 
+	The selector p.key selects only <p> elements that have the class name key.
+*/
+.key {
+    color: red;
+}
+
+p.key{
+    color: blue
+}
+
+/*
+	Attribute selector:
+	You are not restricted to the two special attributes, class and id. You can
+	specify other attributes by using square brackets. For example, the selector 
+	[abc='xyz'] selects all elements that have a abc attribute with the value xyz
+	in the below code.
+
+	<p abc = "xyz"> text text </p>
+	<div abc = "xyz"> text text</div>
+*/
+
+[abc="xyz"]{
+    color: blue;
+}
+
+/*
+	If the stylesheet has conflicting rules and they are equally specific, then 
+	CSS gives priority to the rule that is later in the stylesheet.
+
+	For example:
+	<p class = "red blue"> text text </p>
+
+	When you have a problem with conflicting rules, try to resolve it by making 
+	one of the rules more specific, so that it has priority. If you cannot do 
+	that, try moving one of the rules nearer the end of the stylesheet so that 
+	it has priority.
+*/
+.blue{
+    color: blue;
+}
+
+.red{
+    color: red;
+} /* So, here the text is red in color.*/

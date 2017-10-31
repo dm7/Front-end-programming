@@ -1,0 +1,18 @@
+@mixin phone{
+    @media only screen and (max-width: 480px){
+        @content;
+    }
+}
+
+.main{
+    .header{
+        width: 80%;
+        margin: 0 auto;
+        height: 200px;
+    }
+    @include phone{
+        .header{
+            width: 100%;
+        }   
+    }
+}

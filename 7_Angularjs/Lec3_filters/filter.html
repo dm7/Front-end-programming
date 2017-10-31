@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html >
+        <head>
+            <meta charset="UTF-8">
+            <title>Controllers in angularJS</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.3/angular.js"></script>
+            <script src="MobileController.js"></script>
+        </head>
+        <body ng-app="">
+            <div ng-controller="mobileController">
+                Mobile Name : <input type="text" ng-model="name">
+                {{name}}
+                <p>Lowercase filter : {{name | lowercase}}</p>
+                <p>Uppercase filter : {{name | uppercase}}</p>
+                <hr>
+                Currency : <input type="text" ng-model="currency">
+                {{currency}}
+                <p>Currency filter in dollar: {{currency | currency}}</p>
+                <p>Currency filter in INR: {{currency | currency:"INR"}}</p>
+                <p>Number filter: {{currency | number:0}}</p>
+                <hr>
+                Without filter:
+                <ul>
+                    <li ng-repeat="mobile in mobiles">
+                        {{mobile.name + "," + mobile.price}}
+                    </li>
+                </ul>
+                <hr>
+                With orderBy filter:
+                <ul>
+                    <li ng-repeat="mobile in mobiles | orderBy:'name'">
+                        {{mobile.name}} , {{mobile.price}}
+                    </li>
+                </ul>
+                <hr>
+                With orderBy filter:
+                <ul>
+                    <li ng-repeat="mobile in mobiles | orderBy:'price'">
+                        {{mobile.name}} , {{mobile.price}}
+                    </li>
+                </ul>
+                <hr>
+                With json filter:
+                <ul>
+                    <li ng-repeat="mobile in mobiles">
+                        {{mobile | json}}
+                    </li>
+                </ul>
+                <hr>
+                With filter by filter name:
+                <p>Mobile name: <input type="text" ng-model="mobileName"></p>
+                <ul>
+                    <li ng-repeat="mobile in mobiles | filter:mobileName">
+                        {{mobile | json}}
+                    </li>
+                </ul>                
+            </div>
+        </body>
+    </html>

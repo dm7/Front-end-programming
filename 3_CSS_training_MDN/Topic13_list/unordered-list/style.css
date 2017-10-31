@@ -1,0 +1,16 @@
+/*
+	Unordered lists
+	
+	In an unordered list, each list item is marked in the same way.
+	
+	CSS has three types of markers, and here is how your browser displays them:
+
+		disc
+		circle
+		square
+	
+	Alternatively, you can specify the URL of an image.
+*/
+
+li.open {list-style: circle;}
+li.closed {list-style: disc;}

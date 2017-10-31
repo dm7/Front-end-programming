@@ -1,0 +1,95 @@
+f/* 
+    Absolute Positioning : 
+    1)
+    Element with `absolute` positioning is positioned at `padding` 
+    edge of the nearest `relative`/`absolute`/`fixed` positioning 
+    ancestor. If no such ancestor, then that element is positioned 
+    at viewport.
+    2)
+    The default width of an element that is absolutely positioned 
+    is the width of the content within it
+    3)
+    Absolute positioned elements are removed from the normal document flow
+    4)
+    You can have elements that overlap with absolutely positioned elements
+*/
+#top-left-pos{
+  background: #89CFF0;
+  border: 0.1em solid black;
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  z-index: 4; /* Element with highest z index goes on top */
+}
+
+#bottom-right-tl-parent {
+  background: #DBE9F4;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+#top-right-pos{
+  background: #89cff0;
+  border: 0.1em solid black;
+  position: absolute;
+  width: 400px;
+  height: 110px;
+  top: 0px;
+  right: 0px;
+}
+
+#bottom-left-tr-parent {
+  background: #DBE9F4;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+/* 
+    Fixed positioning : 
+    1) A fixed position element is always positioned at view port.
+        
+    2) The viewport doesn't change when the window is scrolled, 
+    so a fixed positioned element will stay right where it is 
+    when the page is scrolled.
+
+    3) Fixed positioned elements are not part of the normal document flow 
+*/
+ 
+#fixed-pos{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #DBE9F4;
+  border: 0.1em solid black;
+  margin: 0;
+}
+
+/* 
+    Relative Positioning : 
+    1) 
+    Positions at the content edge of immediate parent.
+    2) 
+    The default width of an element that is relatively positioned is 
+    100% of the space it can fill.
+    3)
+    Relative positioned elements are part of the normal document flow 
+    
+*/
+ 
+#relative-1{
+  background: #DBE9F4;
+  border: 0.1em solid black;
+  height: 100px;
+}
+ 
+#relative-2{
+  position: relative;
+  left: 20px; /* 20px to the right of original */
+  top: -30px; /* 30px up from original */
+  width: 300px;
+  background: yellow;
+  border: 0.1em solid black;
+}

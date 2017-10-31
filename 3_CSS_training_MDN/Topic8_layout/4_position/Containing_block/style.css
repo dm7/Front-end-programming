@@ -1,0 +1,47 @@
+*{
+	margin: 0px;
+}
+
+body > div{
+	width: 600px;
+	height: 600px;
+	background-color: darkcyan;
+}
+
+body > div > div{
+	width: 200px;
+	height: 200px;
+	background-color: gold;
+	border: 30px solid black;
+	padding: 30px;
+	/*position: relative;*/
+}
+
+p{
+	background-color: hotpink;
+	/* 
+		position: relative; // or static
+		left: 30px;  
+
+		If 'p' element is relative positioned, then 'p' is 30px left to content edge
+		of containing element( say 'div'), but not wrt padding edge or border edge
+	*/
+
+	/*
+		position: absolute;
+		left: 20px;
+		
+		If 'p' element is absolute positioned, then 'p' is 30px left to padding edge
+		of nearest positioned element(relative/absolute/fixed), but not wrt content 
+		edge or border edge
+	*/
+
+	/*
+		position: fixed;
+		left: 20px;  
+		
+		If 'p' element is fixed positioned, then 'p' is 30px left to border edge
+		of nearest positioned element(relative/absolute/fixed), but not wrt padding 
+		edge or content edge
+	*/
+}

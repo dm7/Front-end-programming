@@ -1,0 +1,34 @@
+*{
+	margin: 0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+h1{
+	color: #444444;
+	padding: 70px 0px 70px;
+	font-size: 50px;
+	font-weight: 100;
+}
+
+div{
+	width: 100%;
+	height: 100vh;
+	color: #fff;
+	padding: 10%;
+	font-size: 2vw;
+}
+
+.one{
+	background-color: #4a96a4;
+}
+
+.two{
+	background-color: #85a44a;
+}
+
+.three{
+	background-color: purple;
+}

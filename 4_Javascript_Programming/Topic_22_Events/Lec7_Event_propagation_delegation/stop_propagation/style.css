@@ -1,0 +1,21 @@
+div{
+	position: relative;
+	top: 20px;
+	left: 20px;
+	border: 1px solid hsl(195, 100%, 30%);
+	padding: 40px;
+	width: 300px;
+}
+
+form{
+	background-color: hsl(195, 100%, 38%);
+	width: 250px;
+	height: 60px;
+	font-family: Courier, monospace;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: white;
+	padding: 15px;
+	border: 2px solid hsl(195, 100%, 30%);
+	margin: auto;
+}

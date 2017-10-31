@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Two way data binding</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.js"></script>
+            <script src="controller.js"></script>
+        </head>
+        <body ng-app="app1">
+            <div ng-controller="TwoWayDataBindController">
+                <div>
+                    Value of a is <span ng-bind="a"></span> 
+                    , but you can change<input type="text" ng-model="a"> <!-- Two way binding using ng-model-->
+                    <br>Value of b is <span ng-bind="b"></span>
+                    , but you can change<input type="text" ng-model="b">    
+                </div>
+                Sum = {{sum}}<br>
+                <button ng-click="doSum()"> <!-- ng-click takes care of click event handling-->
+                    Calculate
+                </button>
+                <br>
+                Initial value is {{::a}} <!-- One time binding is performed thru "::" in angular expressions-->
+            </div>    
+        </body>
+    </html>

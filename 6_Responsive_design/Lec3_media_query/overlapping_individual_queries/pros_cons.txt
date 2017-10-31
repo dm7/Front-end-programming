@@ -1,0 +1,20 @@
+Overlapping style of media queries:
+	Order of media queries matter.
+	There is overriding issue.
+	No need to repeat styles.
+	
+
+Individual/back-to-back style of media queries:
+	Order of media queries does not matter.
+	There is no overriding issue.
+	Repeating styles a few times.
+	Avoids unnecessary download of images with high bandwidth usage.
+
+
+There is no reason one style is preferred over other.If the elements require similar styles, one can use overlapping approach.
+
+There should be minimal code outside media query.
+
+Mobile style is lighter than desktop style in terms of elements and images downloaded on http request. 
+
+On using overlap  approach, if desktop style media query is written before mobile style media query, then all the resources related to desktop style will be loaded on mobile.

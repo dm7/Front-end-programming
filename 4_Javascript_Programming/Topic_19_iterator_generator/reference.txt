@@ -1,0 +1,16 @@
+Iterators and generators:
+https://www.youtube.com/watch?v=mM7k1OuhK5E
+  Demos: https://github.com/DanShappir/itergen
+
+
+Hanging Up On Callbacks: Generators in ECMAScript 6
+   https://www.youtube.com/watch?v=s-BwEk-Y4kg
+   slides:  http://github.com/laser/slides
+
+
+Understanding javascript generators:
+    https://www.youtube.com/watch?v=YrZyAn0yCb8
+
+
+Ben Newman: Yield Ahead: Regenerator in Depth [JSConf2014]:
+    https://www.youtube.com/watch?v=MC9Q9L2ujOA

@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="jstut.js">
+			/*
+				The Document Object Model (DOM) is a programming
+				interface for HTML, XML and SVG documents. It
+				provides a structured representation of the
+				document (a tree) and it defines a way that the
+				structure can be accessed from programs so that
+				they can change the document structure, style and
+				content. The DOM provides a representation of the
+				document as a structured group of nodes and objects
+				that have properties and methods. Nodes can also
+				have event handlers attached to them, and once that
+				event is triggered the event handlers get executed.
+				Essentially, it connects web pages to scripts or
+				programming languages.
+
+				Though often accessed using JavaScript, the DOM itself
+				is not a part of the JavaScript language, and it can
+				be accessed by other languages, though this is much
+				less common.
+				
+				The DOM is a fully object-oriented representation of
+				the web page, and it can be modified with a scripting
+				language such as JavaScript.
+				
+				The http://www.w3.org/DOM/ standard forms the basis of
+				the DOM implemented in most modern browsers. Many browsers
+				offer extensions beyond the W3C standard, so care must be
+				exercised when using them on the web where documents may
+				be accessed by various browsers with different DOMs.
+				
+				For example, the W3C DOM specifies that the getElementsByTagName
+				method in the code below must return a list of all the <P>
+				elements in the document:
+				
+				var paragraphs = document.getElementsByTagName("P");
+				// paragraphs[0] is the first <p> element
+				// paragraphs[1] is the second <p> element, etc.
+				alert(paragraphs[0].nodeName);
+				
+				
+				All of the properties, methods, and events available for
+				manipulating and creating web pages are organized into
+				objects (e.g., the document object that represents the
+				document itself, the table object that implements the
+				special HTMLTableElement DOM interface for accessing
+				HTML tables, and so forth). This documentation provides
+				an object-by-object reference to the DOM implemented in
+				Gecko-based browsers.
+				
+				Gecko is a web browser engine used in many applications
+				developed by Mozilla Foundation and the Mozilla Corporation
+				(notably the Firefox web browser including its mobile version
+				and their e-mail client Thunderbird), as well as in many
+				other open source software projects. Gecko is free and
+				open-source software subject to the terms of the Mozilla
+				Public License version 2.
+				
+				
+			*/
+		</script>
+	</head>
+	<body>
+		<p id="sayHello"></p>
+		<script type="text/javascript">
+			// You create variables that store values with var
+  			// Prompt opens a popup that requests info
+  			var yourName = window['prompt']("What is your name?");
+
+  			if(yourName == ''){
+  				window['alert']("Name is empty");
+    		}else if(yourName != null){
+    			// Set text in an HTML element with the id sayHello
+    			// You concatenate (combine) strings with +
+    			window['document']['getElementById']("sayHello").innerHTML = "Hello " + yourName;
+    		} 
+	   		else{
+    			// Alert opens a popup that contains a message
+    			// prompt returns null, when user hits cancel button
+    			window['alert']("Please enter your name next time");
+    		}
+
+    		// ---------- VARIABLES ----------
+			// variable names can't start with a number, can't contain spaces, but can
+			// contain letters, numbers, underscores or $ (Are case sensitive)
+			var myName = "Sham";
+			var myAge = 40;
+
+			myname = 100;
+
+			// ---------- MATH ----------
+			/*
+				>  window['Math']  //Object literal notation
+					Math {
+							E: 2.718281828459045,
+							LN2: 0.6931471805599453,
+							LN10: 2.302585092994046,
+							LOG2E: 1.4426950408889634,
+							LOG10E: 0.4342944819032518,
+							PI: 3.141592653589793,
+							SQRT1_2: 0.7071067811865476,
+							SQRT2: 1.4142135623730951,
+							abs: abs(), acos: acos(), acosh: acosh(), asin: asin(), asinh: asinh(), atan: atan(), atan2: atan2()
+							atanh: atanh(), cbrt: cbrt(), ceil: ceil(), clz32: clz32(), cos: cos(), cosh: cosh(), exp: exp()
+							expm1: expm1(), floor: floor(), fround: fround(), hypot: hypot(), imul: imul(), log: log(), log1p: log1p(),
+							log2: log2(), log10: log10(), max: max(), min: min(), pow: pow(), random: random(), round: round(),
+							sign: sign(), sin: sin(), sinh: sinh(), sqrt: sqrt(), tan: tan(), tanh: tanh(), trunc: trunc(), 
+							Symbol(Symbol.toStringTag): "Math", __proto__: Object
+						}
+				>	Math.__proto__ == Object.prototype
+			*/
+
+
+			// document.write outputs data to the browser
+			window['document']['write']("5 + 4 =", 5 + 4, "<br />");
+
+			// Using + instead of , will treat everything as a string unless you use ()
+			window['document']['write']("5 + 4 =" + (5 + 4) + "<br />");
+
+			window['document']['write']("5 - 4 =", 5 - 4, "<br />");
+			window['document']['write']("5 * 4 =", 5 * 4, "<br />");
+			window['document']['write']("5 / 4 =", 5 / 4, "<br />");
+			window['document']['write']("5 % 4 =", 5 % 4, "<br />")
+
+			var maxNum = window['Number']['MAX_VALUE'];
+			window['document']['write']("Max Num = ", maxNum, "<br />");
+			window['document']['write']("Min Num = ", window['Number']['MIN_VALUE'], "<br />");
+
+
+			// Numbers have 16 digits of precision
+			precisionTest = 0.1000000000000001;
+			document.write(precisionTest + 0.1000000000000001, "<br/>");
+
+			// Round number to 2 decimal places
+			var balance = 1563.87;
+			window['document']['write']("Monthly payment: " , (balance/12).toFixed(2) , "<br />");
+
+
+			var randNum = 5;
+ 
+			// Shortcut for adding 1
+			document.write("randNum++ = ", randNum++, "<br/>");
+			document.write("++randNum = ", ++randNum, "<br/>");
+			 
+			// The same exists for -
+			document.write("randNum-- = ", randNum--, "<br/>");
+			document.write("--randNum = ", --randNum, "<br/>");
+
+			// Perform a calculation on a value and assign the result
+			document.write("randNum += 5 = ", randNum += 5, "<br/>");
+			document.write("randNum -= 5 = ", randNum -= 5, "<br/>");
+			document.write("randNum *= 5 = ", randNum *= 5, "<br/>");
+			document.write("randNum /= 5 = ", randNum /= 5, "<br/>");
+
+			// Order of operations
+			document.write("3 + 2 * 5 = ", 3 + 2 * 5, "<br/>");
+			document.write("(3 + 2) * 5 = ", (3 + 2) * 5, "<br/>");
+
+			document.write("Math.E = ", window['Math']['E'], "<br />");
+			document.write("Math.PI = ", window['Math']['PI'], "<br />");
+
+			document.write("Math.abs(-8) = ", Math.abs(-8), "<br/>");
+			document.write("Math.cbrt(1000) = ", Math.cbrt(1000), "<br/>");
+			document.write("Math.ceil(6.45) = ", Math.ceil(6.45), "<br/>");
+			document.write("Math.floor(6.45) = ", Math.floor(6.45), "<br/>");
+			document.write("Math.round(6.45) = ", Math.round(6.45), "<br/>");
+			document.write("Math.log(10) = ", Math.log(10), "<br/>"); // Natural log
+			document.write("Math.log10(10) = ", Math.log10(10), "<br/>"); // Base 10 log
+			document.write("Math.max(10,5) = ", Math.max(10,5), "<br/>");
+			document.write("Math.min(10,5) = ", Math.min(10,5), "<br/>");
+			document.write("Math.pow(4,2) = ", Math.pow(4,2), "<br/>");
+			document.write("Math.sqrt(1000) = ", Math.sqrt(1000), "<br/>");
+			 
+			document.write("Random # (1-10) = ", Math.floor((Math.random() * 10) + 1), "<br/>");
+
+
+			// Convert strings to numbers
+			document.write("Converted String : ", Number("3.14"), "<br />");
+			 
+			document.write("Converted Int : ", parseInt("5"), "<br />");
+			document.write("Converted Float : ", parseFloat("5.555"), "<br />");
+
+			// Convert strings to numbers
+			document.write("Converted String : ", Number("3.14"), "<br />");
+			 
+			document.write("Converted Int : ", parseInt("5"), "<br />");
+			document.write("Converted Float : ", parseFloat("5.555"), "<br />");
+
+
+			/*
+				window['String'] is a constructor function
+
+				>  Object.getOwnPropertyNames(String.prototype);
+					["length", "constructor", "valueOf", "toString", "charAt", "charCodeAt", "codePointAt", "concat", "endsWith", "includes", "indexOf", "lastIndexOf", "localeCompare", "match", "normalize", "repeat", "replace", "search", "slice", "split", "substring", "substr", "startsWith", "toLowerCase", "toLocaleLowerCase", "toUpperCase", "toLocaleUpperCase", "trim", "trimLeft", "trimRight", "link", "anchor", "fontcolor", "fontsize", "big", "blink", "bold", "fixed", "italics", "small", "strike", "sub", "sup"]
+
+				>  var randStr = "Sham";
+					"Sham"
+ 				
+ 				>  Object.getOwnPropertyNames(randStr);
+					["0", "1", "2", "3", "length"]	
+			*/
+
+			// ---------- STRINGS ----------
+			var randStr = "A long " + "string that " + "goes on and on";
+			 
+			// String length
+			document.write("String Length : ", randStr.length + "<br/>");
+			 
+			document.write("Index for \"goes\" : ", randStr.indexOf("goes"), "<br/>");
+			 
+			// Return the value using a start and end index
+			document.write(randStr.slice(19, 23) + "<br/>");
+			 
+			// Return everything after the start index
+			document.write(randStr.slice(19) + "<br/>");
+			 
+			// Return the value using the start index and length
+			document.write(randStr.substr(19, 4) + "<br/>");
+			 
+			// Replace a string
+			document.write(randStr.replace("and on", "forever") + "<br/>");
+			 
+			// Get character at an index
+			document.write("At Index 2 : ", randStr.charAt(2) + "<br/>");
+			 
+			// Split a string into an array
+			var randStrArray = randStr.split(" ");
+			 
+			// Trim white space
+			randStr = randStr.trim();
+			 
+			// Convert to uppercase
+			document.write(randStr.toUpperCase() + "<br/>");
+			 
+			// Convert to lowercase
+			document.write(randStr.toLowerCase() + "<br/>");
+			 
+			// Styling with JS
+			var strToStyle = "Random String";
+			 
+			document.write("Big : ", strToStyle.big(), "<br />");
+			document.write("Bold : ", strToStyle.bold(), "<br />");
+			document.write("Font Color : ", strToStyle.fontcolor("blue"), "<br />");
+			document.write("Font Size : ", strToStyle.fontsize("8em"), "<br />");
+			document.write("Italics : ", strToStyle.italics(), "<br />");
+			document.write("Google : ", strToStyle.link("http://google.com"), "<br />");
+			document.write("Small : ", strToStyle.small(), "<br />");
+			document.write("Strike : ", strToStyle.strike(), "<br />");
+			document.write("Sub : ", strToStyle.sub(), "<br />");
+			document.write("Sup : ", strToStyle.sup(), "<br />");
+
+
+			// ---------- CONDITIONALS ----------
+			// Relational Operators : == != > < >= <=
+			// === : Equal value and type
+			// Logical Operators : && \\ !
+			 
+			var age = 8;
+			 
+			if ((age >= 5) && (age <= 6)){
+			  document.write("Go to Kindergarten<br />");
+			} else if (age > 18) {
+			  document.write("Go to College<br />");
+			} else {
+			  document.write("Go to Grade ", age - 5, "<br />");
+			}
+			 
+			document.write("true || false = ", true || false, "<br />");
+			document.write("!true = ", ! true, "<br />");
+			document.write("\"5\" == 5 = ", ("5" == 5), "<br />");
+			document.write("\"5\" === 5 = ", ("5" === 5), "<br />");
+
+			// Switch is used to match a limited number of options
+			switch(age) {
+			  case 5 :
+			  case 6 :
+			    document.write("Go to Kindergarten<br />");
+			    break;
+			 
+			  case 7 :
+			    document.write("Go to 1st Grade<br />");
+			    break;
+			 
+			  default :
+			    document.write("Subtract 5 from your age<br />");
+			}
+ 
+			// Ternary Operator assigns a value based on a condition
+			// (condition) ? iftrue : ifFalse
+			var canIVote = (age >= 18) ? true : false;
+			 
+			document.write("Can I Vote : ", canIVote, "<br />");
+ 
+
+			// do while is used when you must go through the loop at least once
+			do{
+			  var guess = prompt("Guess a number between 1 and 20");
+			}while(guess != 15)
+			 
+			alert("You guessed it! 15 was the number");
+			 
+			// for is a self contained looping structure
+			for(j = 0; j <= 20; j++){
+			 
+			  // If j is divisible by 2 then skip back to the top of the loop
+			  if((j % 2) == 0){
+			    continue;
+			  }
+			 
+			  // If j is equal to 15 break completely out of the loop
+			  if(j == 15){
+			    break;
+			  }
+			  document.write(j, ", ");
+			}
+			document.write("<br />");
+
+			var customer = {name : "Bob Thomas", address : "123 Main", balance : 50.50};
+ 
+			// for in cycles through an enumerable properties of an object
+			for(k in customer){
+			  document.write(customer[k], "<br />");
+			}
+
+			// ---------- ARRAYS ----------
+			// Arrays have variable sizes and can contain multiple types in JS
+			/*
+				> Object.getOwnPropertyNames(Array); //constructor function
+					["length", "name", "arguments", "caller", "prototype", "isArray", "from", "of", "observe", "unobserve"]
+				> Object.getOwnPropertyNames(Array.prototype);
+					["length", "constructor", "toString", "toLocaleString", "join", "pop", "push", "reverse", "shift", "unshift", "slice", "splice", "sort", "filter", "forEach", "some", "every", "map", "indexOf", "lastIndexOf", "reduce", "reduceRight", "entries", "keys", "copyWithin", "find", "findIndex", "fill", "concat", "includes"]	
+			*/
+			var tomSmith = ["Tom Smith", "123 Main", 120.50];
+ 
+			// Access first array item
+			document.write("1st index : ", tomSmith[0], "<br />");
+			 
+			// Add an item
+			tomSmith[3] = "tsmith@aol.com";
+
+			// Overwrite index 2 and fit everything else after index 2 without
+			// overwriting (Put 0 for second parameter to not overwrite)
+			tomSmith.splice(2, 1, "Pittsburgh", "PA");
+ 
+			// Convert an array into a string (Also use toString())
+			document.write("Array : ", tomSmith.valueOf(), "<br />");
+			 
+			// Convert an array into a string with separator
+			document.write("Array : ", tomSmith.join(", "), "<br />");
+
+			// Delete an index
+			delete tomSmith[3];
+			 
+			// Sort an array (reverse() for reverse sort)
+			// Works for sorting strings
+			tomSmith.sort();
+
+			// Sort numbers
+			var numbers = [4,3,9,1,20,43];
+			 
+			// Descending sort return y - x
+			numbers.sort(function(x,y){ return x - y });
+			document.write("Num Array : ", numbers.toString(), "<br />");
+
+			// Combine arrays
+			var combinedArray = numbers.concat(tomSmith);
+			 
+			// Remove the last item
+			tomSmith.pop();
+			 
+			// Add items to the end
+			tomSmith.push("555-1212", "US");
+			 
+			// Deletes the first item
+			tomSmith.shift();
+			 
+			// Adds item to the first index
+			tomSmith.unshift("Tom Smith");
+			 
+			for (var i = 0; i < tomSmith.length; i++) {
+			  document.write(tomSmith[i], "<br />");
+			}
+
+
+			// ---------- FUNCTIONS ----------
+			// Function inArray is defined at parse time
+			// Functions provide code reuse and eliminate repetitive code
+			 
+			// Define a function that checks if a value is in an array
+			function inArray(arrayToCheck, value){
+				for(var i = 0; i < arrayToCheck.length; i++){
+					if(arrayToCheck[i] === value){
+						return true;
+					}
+				}
+				return false;
+			}
+
+			var randArray = [1, 2, 3, 4, 5];
+			document.write("In Array: ", window['inArray'](randArray, 4), "<br />");
+
+			// Local variables defined in functions can't be accessed outside of
+			// the function
+			 
+			function times2_ver1(num){
+			  var var2 = 2;
+			  return num * var2;
+			}
+			 
+			// Causes Error : document.write("Val of var2 : ", var2, "<br />");
+ 
+			// Pass a function as a parameter
+			function times3(num){
+			  return num * 3;
+			}
+			 
+			function multiply(func, num){
+			  return func(num);
+			}
+			 
+			document.write("3 * 15 = ", multiply(times3, 15), "<br />");
+
+			/*
+				 Define a function expression
+				 We can assign functions to variables, store them in arrays,
+				 pass them into other functions and return them from functions
+				 
+				 Function triple is defined at runtime.
+				
+				 
+			 */
+			var triple = function(num){
+			  return num * 3;
+			};
+			 
+			document.write("3 * 45 = ", multiply(triple, 45), "<br />");
+
+			// Receive variable number of arguments
+			function getSum(){
+			  var sum = 0;
+			  for(i = 0; i < arguments.length; i++){
+			    sum += arguments[i];
+			  }
+			  return sum;
+			}
+			 
+			document.write("Sum : ", getSum(1,2,3,4,5), "<br />");
+			 
+			// Return a variable number of values
+			function times2(theArray){
+			 
+			  var newArray = [];
+			  for(i = 0; i < theArray.length; i++){
+			    newArray.push(theArray[i] * 2);
+			  }
+			  return newArray;
+			}
+			 
+			document.write("Array Doubled : ", times2([1,2,3,4,5]).toString(), "<br />");
+
+
+			// Recursive Function
+			function factorial(num){
+			  if(num <= 1){
+			    return 1;
+			  } else {
+			    return num * factorial(num - 1);
+			  }
+			}
+			 
+			document.write("Factorial of 4 : ", factorial(4), "<br />");
+			 
+			// 1st: num = 4 * factorial(3) = 4 * 6 = 24
+			// 2nd: num = 3 * factorial(2) = 3 * 2 = 6
+			// 3rd: num = 2 * factorial(1) = 2 * 1 = 2
+ 
+		</script>
+	</body>
+</html>

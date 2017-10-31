@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Angular JS module</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.js"></script>
+            <script src="CityController.js"></script>
+            <!--
+                1) AngularJS modules define functionality of an application
+                    which is represented by ng-app directive.
+                2) It helps in defining services, directives and filters, so
+                    that it can be reused it in different applications
+            -->
+        </head>
+        <body ng-app="cityApp">
+            <div ng-controller="cityController">
+                City: <input type="text" ng-model="city"/><br>
+                State: <input type="text" ng-model="state"><br>
+                <label>CityInfo: {{cityInfo()}}</label>
+                <ul>
+                    <li ng-repeat="cityWithStates in cities">
+                        {{cityWithStates.city + ", " + cityWithStates.state}}
+                    </li>
+                </ul>
+            </div>
+        </body>
+    </html>

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+.circle {
+  width: 200px;
+  height: 200px;
+  background: #999;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  display: block; }
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 200px solid transparent;
+  border-bottom: 200px solid transparent;
+  border-left: 200px solid red;
+  display: block; }
+
+.ir {
+  /*
+   *font:0/0 a ΓÇô a shorthand property that zeros out
+   *the font size and line-height. The a value acts
+   *as a very short font-family (an idea taken from
+   *the BEM implementation of this method). The CSS
+   *validator complains that using 0/0 in the shorthand
+   *font property is not valid, but every browser
+   *accepts it and this appears to be an error in the
+   *validator. Using font:0px/0 a passes validation
+   *but it displayed as font:0/0 a in the code that
+   *the validator flags as valid.
+   */
+  font: 0/0 a;
+  /*
+   *text-shadow:none ΓÇô makes sure that any inherited
+   *text shadow is removed for the text. This prevents
+   *the chance of any text shadow colors showing over
+   *the background.
+   */
+  text-shadow: none;
+  /*
+   *color:transparent ΓÇô needed for browsers than donΓÇÖt
+   *completely crush the text to the point of being invisible. 
+   */
+  color: transparent; }
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+/*# sourceMappingURL=style.css.map */

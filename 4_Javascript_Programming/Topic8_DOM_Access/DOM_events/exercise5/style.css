@@ -1,0 +1,15 @@
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 41%;
+    height: 40%;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul li{
+    flex: 1;
+    
+}

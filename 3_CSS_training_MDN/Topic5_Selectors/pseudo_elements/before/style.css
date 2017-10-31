@@ -1,0 +1,48 @@
+/*
+	::before creates a pseudo-element that is the first child of the
+	element matched. It is often used to add cosmetic content to an 
+	element by using the content property. This element is inline by default.
+
+	The ::before notation was introduced in CSS3 in order to establish a 
+	discrimination between pseudo-classes and pseudo-elements.
+
+	Examples
+	Adding quotation marks
+
+	One simple example of using pseudo-elements is to provide quotation 
+	marks. Here we use both ::before and ::after to insert quotation characters.
+
+	.
+
+*/
+
+q::before { 
+  content: "«";
+  color: blue;
+}
+q::after { 
+  content: "»";
+  color: red;
+}
+
+/*
+	Output
+	«Some quotes», he said, «are better than none».
+*/
+
+/*
+	We can style text or images in the content property almost any way we want.
+	
+	HTML content
+	
+*/
+.ribbon {
+   background-color: #5BC8F7;
+}
+
+.ribbon::before {
+   content:          "Look at this orange box.";
+   background-color: #FFBA10;
+   border-color:     black;
+   border-style:     dotted;
+}

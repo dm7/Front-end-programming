@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="DOM_events.js">
+		<style type="text/css">
+			body{ font-size: 1.6em;}
+			.hidden { display: none;}
+			.show {	display: inline !important;	}
+			button{
+				border: 2px solid black;
+				background: #E5E4E2;
+				font-size: .5em; font-weight: bold; color: black;
+				padding: .8em 2em;
+				margin-top: .4em;
+			}
+		</style>
+	</head>
+	<body>
+		<!--        CHANGING ELEMENTS & EVENT HANDLING         -->
+		
+		<!--  
+			href = "JavaScript:void(0)" does not allow to reload the page
+
+			href = "" does reload the same page.
+			href = "#" does reload the same page.
+
+			alert('Hello') is inline javascript 
+			
+			A link is going somewhere. It's for teleporting the user to your menu page, 
+			or the contact us page, or to the opening times section in your about page.
+			
+			A button is doing something. It's for submitting an order, it's for rating, it's for upvoting.
+		-->
+		<input type="button" onClick="alert('Hello')" value="SayHello"> 
+
+		<!-- Change text color on mouse rollover and roll out -->
+		<input type="button" value="Make me red"
+			onmouseover = "this.style.color='red';  "
+			onmouseout  = "this.style.color='green'; "
+			ondblclick  = "this.value='You double clicked me';"
+		> <br>
+
+		<!-- Get value in an input element and open alert on change --> 
+		<input type="text" id="randInput" onChange="f();" >
+
+		<script type="text/javascript">
+			function f(){
+				var dataEntered=document.getElementById('randInput').value;
+				alert('User Typed '+ dataEntered);
+			}
+		</script>
+
+		<form action="#" id="sampForm">
+			<input id='charInput' type='text'>
+			<p id="keyData">Key Data Here</p>
+			<input type="submit" value="Submit">
+			<input type="reset" value="Reset">
+		</form><br>
+
+		<img src="ntt.png" id="logo">
+		<button id="logoButton">Get Logo</button>
+		<input id='mouseInput' type='text' size='30'><br />
+
+		Mouse X:<input type="text" id="mouseX"><br>
+		Mouse Y:<input type="text" id="mouseY"><br>
+
+		<script type="text/javascript">
+					/*  
+						Compiler or language runtime "reads" the entire program file once just 
+						to find out what functions and variables you have used. Only after this 
+						first pre-run scan does the actual program execution start safe in knowledge 
+						that all global variables and functions are defined. This is what JavaScript 
+						does and it is the origin of the idea we usually call "hoisting".
+						
+						JavaScript doesn't insist that you declare variables and it allows you to 
+						define functions anywhere you like and it allows you to use a function before its definition.
+						
+						It does this by implementing "hoisting - a picturesque term inspired by the 
+						image of the declarations being yanked up to the top of their scope.
+						
+						The rule is quite simple and it makes sense to state what it is and then 
+						explore some of its consequences.
+						
+						Hoisting moves all declarations to the start of the function that contains them.
+						or
+						Hoisting moves all declarations to the start of their enclosing scope.
+						As scope in JavaScript is defined by functions the two definitions are the same.
+						
+						If the declarations are not within a function then they are moved to the 
+						start of the main program which is the scope in this case.
+						
+						In other words, JavaScript could have insisted that you define everything 
+						you are going to use at the start of the function that you use them in. 
+						Instead it automatically gathers things up and moves them to the correct position.
+						Of course it doesn't actually modify your program - but your program is 
+						run as if the declarations were at the start of the function.
+						
+						http://www.i-programmer.info/programming/javascript/5364-javascript-hoisting-explained.html
+						
+						function f receives KeyBoardEvent instance into its parameter 'event'
+
+						>   Object.prototype.toString.call(document.getElementById('charInput'));
+							   
+							   "[object HTMLInputElement]"
+
+						>   Object.getOwnPropertyNames(HTMLInputElement);
+							
+								["length", "name", "arguments", "caller", "prototype", "toString"]
+						
+						>   window['HTMLInputElement']
+								
+								HTMLInputElement() { [native code] }
+						
+						>   Object.getOwnPropertyNames(HTMLInputElement.prototype);
+								
+								["accept", "alt", "autocomplete", "autofocus", "defaultChecked", "checked", "dirName", "disabled", "form", "files", "formAction", "formEnctype", "formMethod", "formNoValidate", "formTarget", "height", "indeterminate", "list", "max", "maxLength", "min", "minLength", "multiple", "name", "pattern", "placeholder", "readOnly", "required", "size", "src", "step", "type", "defaultValue", "value", "valueAsDate", "valueAsNumber", "width", "willValidate", "validity", "validationMessage", "labels", "selectionStart", "selectionEnd", "selectionDirection", "align", "useMap", "autocapitalize", "webkitdirectory", "incremental", "stepUp", "stepDown", "checkValidity", "reportValidity", "setCustomValidity", "select", "setRangeText", "setSelectionRange", "webkitEntries", "constructor"]
+
+						>   Object.prototype.toString.call(event);   // where event is parameter passed to anonymous function below
+
+								"[object KeyboardEvent]" 
+					
+						
+						w3.org/TR/DOM-Level-2-Events/events.html 
+						An object which implements the Event interface is generally passed as the first parameter to an event handler.
+						For example: In below code KeyboardEvent object is passed to eventhandler 
+			
+						onKeyPress happens before the character is put in the textbox. So at the moment function f is executed the character just entered is not put in the text box yet (it will be thereafter)
+					*/
+					document.getElementById('charInput').onkeypress = f;
+
+					function f(event) {
+						  var char = getChar(event || window.event)
+						  if (!char) return false; // Special Key Clicked
+						 
+						  document.getElementById('keyData').innerHTML = char + " was clicked";
+						  return true;
+					}		
+					
+					function getChar(event) {
+			 			  // event.which returns the key or mouse button clicked
+						  if (event.which == null) {
+						 
+						    // Return the char if not a special character
+						    return String.fromCharCode(event.keyCode); // IE
+						  } else if (event.which!=0 && event.charCode!=0) {
+						    return String.fromCharCode(event.which);   // Other Browsers
+						  } else {
+						    return null; // Special Key Clicked
+						  }
+					}
+		 
+					// Change text when the input gains focus
+					document.getElementById('charInput').onfocus = function(event) {
+					  document.getElementById('keyData').innerHTML = "Input Gained Focus";
+					}
+					 
+					// Change text when the input loses focus
+					document.getElementById('charInput').onblur = function(event) {
+					  document.getElementById('keyData').innerHTML = "Input Lost Focus";
+					}
+					 
+					// Change text when text is selected
+					document.getElementById('charInput').onselect = function(event) {
+					  document.getElementById('keyData').innerHTML = "Text Selected";
+					}
+					 
+					// Add a listener that triggers a function on browser resize
+					window.addEventListener("resize", browserResized);
+					 
+					function browserResized() {
+					  document.getElementById('keyData').innerHTML = "I've been resized";
+					}
+
+
+					// Make image invisible on click
+					document.getElementById('logo').onclick = function(event) {
+					 
+					  // Change the class for the image
+					  document.getElementById('logo').className = "hidden";
+					 
+					  // Change the input element value
+					  document.getElementById('mouseInput').value = "Clicked on image with button " + event.button;
+					}
+					 
+					// Make image visible on click
+					document.getElementById('logoButton').onclick = function(event) {
+					  document.getElementById('logo').className = "show";
+					}
+					 
+					// Change image src on mouseover
+					document.getElementById('logo').onmouseover = function(event) {
+					  document.getElementById('logo').src = "ntt-logo-horz.png";
+					  document.getElementById('mouseInput').value = "Mouse Over image";
+					}
+					 
+					// Change image src back on mouseout
+					document.getElementById('logo').onmouseout = function(event) {
+					  document.getElementById('logo').src = "ntt-logo.png";
+					  document.getElementById('mouseInput').value = "Mouse Left image";
+					}
+
+
+					
+		</script>
+
+
+
+
+	</body>
+</html>

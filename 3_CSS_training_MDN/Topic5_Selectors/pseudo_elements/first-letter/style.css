@@ -1,0 +1,50 @@
+/*
+	Summary
+		The ::first-letter CSS pseudo-element selects the first letter of the 
+		first line of a block, if it is not preceded by any other content 
+		(such as images or inline tables) on its line.
+
+		The first letter of an element is not necessarily trivial to identify:
+
+		- Punctuation, that is any characters defined in Unicode in the open (Ps), close (Pe),
+			 initial quote (Pi), final quote (Pf) and other punctuation (Po) classes, preceding 
+			 or immediately following the first letter is also matched by this pseudo-element.
+		- Similarly some languages have digraphs that are always capitalized together, like the
+			 IJ in Dutch. In these rare cases, both letters of the digraph should be matched by 
+			 the ::first-letter pseudo-element. (This is poorly supported by browsers, check 
+			 the browser compatibility table).
+		- Finally, a combination of the ::before pseudo-element and the content property may 
+			 inject some text at the beginning of the element. In that case, ::first-letter 
+			 will match the first letter of this generated content.
+		
+
+		A first line has meaning only in a block-container box, therefore the ::first-letter
+		pseudo-element has an effect only on elements with a display value of block, 
+		inline-block, table-cell, list-item or table-caption. In all other cases,
+		::first-letter has no effect.
+
+		Only a small subset of all CSS properties can be used inside a declaration block
+		of a CSS ruleset containing a selector using the ::first-letter pseudo-element:
+
+		- All font properties : font, font-style, font-feature-settings, font-kerning, 
+			font-language-override, font-stretch, font-synthesis, font-variant, 
+			font-variant-alternates, font-variant-caps, font-variant-east-asian, 
+			font-variant-ligatures, font-variant-numeric, font-variant-position, 
+			font-weight, font-size, font-size-adjust, line-height and font-family.
+		- All background properties : background-color, background-image, background-clip, 
+			background-origin, background-position, background-repeat, background-size, 
+			background-attachment, and background-blend-mode.
+		- All margin properties: margin, margin-top, margin-right, margin-bottom, margin-left.
+		- All padding properties: padding, padding-top, padding-right, padding-bottom, padding-left.
+		- All border properties: the shorthands border, border-style, border-color, 
+			border-width, border-radius, border-image, and the longhands properties.
+		- The color property.
+		- The text-decoration, text-shadow, text-transform, letter-spacing, word-spacing 
+			(when appropriate), line-height, text-decoration-color, text-decoration-line,
+			text-decoration-style, box-shadow, float, vertical-align (only if float is none) CSS properties.
+*/
+
+p::first-letter { /* Use ::first-letter if support for IE 8 or earlier is needed */
+  color: red;
+  font-size: 130%;
+}

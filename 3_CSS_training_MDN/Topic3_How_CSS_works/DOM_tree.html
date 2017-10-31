@@ -1,0 +1,80 @@
+<!-- 
+	When a browser displays a document, it must combine the document's content 
+	with its style information. It processes the document in two stages:
+		
+		1) The browser converts the markup language and the CSS into the DOM 
+		(Document Object Model). The DOM represents the document in the 
+		computer's memory. It combines the document's content with its style.
+		2) The browser displays the contents of the DOM. 
+
+	A markup language uses elements to define the document's structure. You
+	mark an element using tags, which are strings beginning with '<' and 
+	ending with '>'. Most elements have paired tags, a start tag and an end
+	tag. For the start tag, place the element name between '<' and '>'. For 
+	the end tag, place a '/' after the '<' and before the element name.
+
+	Depending on the markup language, some elements have only a start tag,
+	or a single tag where the '/' comes after the element name. An element
+	can also be a container and include other elements between its start tag
+	and end tag. Just remember to always close the tags inside the container.
+
+	A DOM has a tree-like structure. Each element, attribute and run of text 
+	in the markup language becomes a node in the tree structure. The nodes 
+	are defined by their relationship to other DOM nodes. Some elements are
+	parents of child nodes, and child nodes have siblings.
+
+	Understanding the DOM helps you design, debug and maintain your CSS, 
+	because the DOM is where your CSS and the document's content meet up.
+
+	Example
+ 
+	In below sample document, the <p> tag and its end tag </p> create a container:
+
+-->
+
+<p>
+  <strong>C</strong>ascading
+  <strong>S</strong>tyle
+  <strong>S</strong>heets
+</p>
+
+<!--
+ 	In the DOM, the corresponding P node is a parent. Its children are the 
+ 	STRONG nodes and the text nodes. The STRONG nodes are themselves parents, 
+ 	with text nodes "C" as their children: 
+
+ 	P
+	├─STRONG
+	│ └─"C"
+	├─"ascading"
+	├─STRONG
+	│ └─"S"
+	├─"tyle"
+	├─STRONG
+	│ └─"S"
+	└─"heets"
+-->
+
+<!-- 
+	Analyzing a DOM: Using DOM Inspector
+	
+	To analyze a DOM, you need special software. You can use Mozilla's DOM 
+	Inspector (DOMi) add-on to analyze a DOM. You simply need to install the add-on
+	
+	1. Use your Mozilla browser to open your sample HTML document.
+	
+	2. From your browser's menu bar, choose Tools > DOM Inspector, or Tools > Web Development > DOM Inspector.
+	
+	3. In DOMi, expand your document's nodes by clicking on their arrows.
+	Note:  Spacing in your HTML file may cause DOMi to show some empty text nodes, which you can ignore.	
+
+	When you select any node, you can use DOMi's right-hand pane to find out more about it.
+	For example, when you select a text node, DOMi shows you the text in the right-hand pane.
+
+	When you select an element node, DOMi analyzes it and provides a huge amount of information 
+	in its right-hand pane. Style information is just part of the information it provides.
+
+-->
+
+
+

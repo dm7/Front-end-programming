@@ -1,0 +1,21 @@
+img:first-child{
+	position: absolute;
+	top: 180px;
+	left: 80px;
+}
+
+img:nth-child(2){
+	position: absolute;
+	top: 300px;
+	left: 600px;
+}
+
+img:last-child{
+	position: absolute;
+	top: 50px;
+	left: 400px;
+}
+
+.draggable:hover{
+	cursor: move;
+}

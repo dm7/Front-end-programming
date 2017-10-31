@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Javascript DOM tutorial</title>
+		<meta chrset="UTF-8">
+		<script type="text/javascript">
+			function editNodeText(id, newText){
+				var node = document.getElementById(id);
+
+				while(node.firstChild){
+					node.removeChild(node.firstChild);
+				}
+				node.appendChild(document.createTextNode(newText));
+
+				document.getElementById(id).style.color = "red";
+				document.getElementById(id).style.position = "fixed";
+				document.getElementById(id).style.top = "100px";
+				document.getElementById(id).style.left = "300px";
+			}
+
+			function editNodeText2(id, newText){
+				// var node = document.getElementById(id).lastChild;
+				// var node = document.getElementById(id).firstChild;
+				var node = document.getElementById(id);
+				// node.nodeValue=newText;
+				node.removeChild(node.childNodes[0]);
+				node.childNodes[2].nodeValue=newText;
+				var newNode = document.createElement('hr'); // Creates a new tag element
+				node.appendChild(newNode); // Inserts the hr tag
+				// Create a text node
+				var randTextNode = document.createTextNode("I'm random text");
+				node.appendChild(randTextNode);
+			}
+		</script>
+	</head>
+	<body>
+		<span id="spanEx" onclick="editNodeText('spanEx','New Text in Div');">
+								Change the text</span>
+		<div id="divEx" onclick="editNodeText2('divEx', 'New Text in Div');">
+			<b>Some Bold Text</b><br>
+			<i>Italic text</i><br>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Callback</title>
+		<script type="text/javascript" src="../js/jquery-1.11.3.js">
+		</script>
+
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				A callback is a function that is passed as an argument to 
+				another function and is executed after its parent function 
+				has completed. Callbacks are special because they patiently 
+				wait to execute until their parent finishes. Meanwhile, the 
+				browser can be executing other functions or doing all sorts 
+				of other work.
+			*/
+			jQuery(document).ready(function(){
+				jQuery.get( "intro.html", myCallBack1);
+			});
+			
+			jQuery(document).ready(function(){
+				jQuery.get( "intro.html", function() {
+ 					myCallBack2( arg1, arg2 );
+				});	
+			});
+
+			function myCallBack1(){
+
+			}
+			function myCallBack2(param1, param2){
+
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app = "app2">
+	<head >
+		<title>AngularJS Tutorial2</title>
+	</head>
+	<body>
+		<!-- Multiple views having same controller-->
+		<h4 ng-controller="ctrl1"> First random number: {{randomNum1}}</h4>
+		<h4 ng-controller="ctrl1"> Second random number: {{randomNum2}}</h4>
+
+
+		<!-- Same view having different controllers-->
+		<h4 ng-controller="badCtrl"> I am feeling {{bad}}</h4>
+		<h4 ng-controller="goodCtrl"> I am feeling {{good}}</h4>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script type="text/javascript" src="js/exam2.js"></script>
+	</body>
+</html>

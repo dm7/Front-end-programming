@@ -1,0 +1,11 @@
+div{
+	background-color: hsl(20, 65%, 50%);
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	width: 200px;
+	height: 160px;
+	color: white;
+	font-family: courier;
+	font-weight: bold;
+}

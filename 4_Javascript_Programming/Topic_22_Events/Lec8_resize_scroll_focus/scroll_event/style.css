@@ -1,0 +1,13 @@
+div{
+	background-color: hsl(195, 100%, 38%);	
+	width: 900px;
+	height: 900px;
+	font-family: Courier, monospace;
+	font-size: 1.1em;
+	font-weight: bold;
+	color:white;
+	padding: 220px;
+	border: 2px solid hsl(195, 100%, 30%);
+	margin: auto;
+	text-align: center;
+}

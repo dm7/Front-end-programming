@@ -1,0 +1,32 @@
+body {
+  background: #262626;
+  font-family: helvetica, ariel, sans-serif; }
+
+header {
+  margin: 20px 0 0 5%; }
+
+p {
+  margin: 20px 5%; }
+
+h1 {
+  color: #9FBFBF; }
+
+h2 {
+  color: #9FBFBF;
+  margin: 10px 10%; }
+
+a {
+  color: #9FBFBF; }
+
+.grad {
+  padding: 1%;
+  background-color: #F2EFEB;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#F2EFEB), to(#8e8b87));
+  background-image: -webkit-linear-gradient(top, #F2EFEB, #8e8b87);
+  background-image: -moz-linear-gradient(top, #F2EFEB, #8e8b87);
+  background-image: -ms-linear-gradient(top, #F2EFEB, #8e8b87);
+  background-image: -o-linear-gradient(top, #F2EFEB, #8e8b87); }
+  .grad par1 a {
+    font-size: 20px; }
+
+/*# sourceMappingURL=style.css.map */

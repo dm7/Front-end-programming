@@ -1,0 +1,29 @@
+/*
+	.test{
+		background-color: yellow;
+		height: 50px;
+		display: block;
+	}
+
+	span is an inline element, that has, no height and no width.
+
+	To set height & width to span inline element, 
+	If we set 'display: block', then span element will go top down 
+	with its complete line, which break the purpose of span element
+*/
+
+
+
+/*
+	To set height & width to span inline element, 
+	As shown below, 
+	If we set 'display: inline-block', then span element will NOT go top
+    down with its complete line, but also obeys height & width property of span inline element.
+*/
+
+
+.test{
+	background-color: yellow;
+	height: 50px;
+	display: inline-block;
+}

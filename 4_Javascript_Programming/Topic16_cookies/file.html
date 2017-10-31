@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Javascript cookies</title>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			function getACookie(){
+				var cookieName = document.getElementbyId('getme').value;
+				var allCookies = document.cookie.split(';');
+				var cookieData = "";
+				for(int i=0; i < allCookies.length; i++){
+					if(allCookies[i].indexOf(cookieName) != -1){
+						match = allCookies[i].replace(" ", "");
+						cookieValue = match.substr(cookieName.length+1);
+						alert(cookieName + " " + cookieValue);
+					}
+				}
+			}
+
+			function createCookie(name){
+				var expDate = new Date();
+
+				expDate.setMonth(expDate.getMonth() + 1);
+
+				var cookieVal = document.getElementById(name).value;
+
+				document.cookie += name + "=" + cookieVal + ";path=/;expires=" + expDate.toGMTString();
+
+			}
+
+			function deleteCookie(){
+				var cookiename = document.getElementById('deleteme');
+				createCookie(cookiename, "");
+			}
+		</script>
+	</head>
+	<body>
+		<p>Enter your first name
+			<input type="text" id="firstname" onblur="createCookie('firstname');"><br>
+		</p>
+		<p>Enter your last name
+			<input type="text" id="lastname" onblur="createCookie('lastname');"><br>
+		</p>
+		<p>Cookie to delete
+			<input type="text" id="deleteme" onblur="deleteCookie();"><br>
+		</p>
+		<p>Display cookie
+			<input type="text" id="getme" onblur="getACookie();"><br>
+		</p>
+		<script type="text/javascript">
+			document.write("Every cookie: " + document.cookie);
+		</script>
+	</body>
+</html>

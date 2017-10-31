@@ -1,0 +1,19 @@
+/*
+	From a page speed standpoint, @import from a CSS file should 
+	almost never be used, as it can prevent stylesheets from being 
+	downloaded concurrently. For instance, if stylesheet A contains the text:
+
+	@import url("stylesheetB.css");
+
+	then the download of the second stylesheet may not start until the 
+	first stylesheet has been downloaded. If, on the other hand, both 
+	stylesheets are referenced in <link> elements in the main HTML page, 
+	both can be downloaded at the same time. If both stylesheets are 
+	always loaded together, it can also be helpful to simply combine 
+	them into a single file.
+*/
+@import url('/css/header.css') screen;
+@import url('/css/content.css') screen;
+@import url('/css/sidebar.css') screen;
+@import url('/css/print.css') print;
+

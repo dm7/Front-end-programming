@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	  <meta charset="utf-8">
+	  <title>html demo</title>
+	  <style>
+  		.red {
+    		color: red;
+  		}
+  	  </style>
+  	  <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js">
+	  </script>
+	  <script type="text/javascript">
+	  	 /*
+	  	 	Syntax:
+	  	 		.html( htmlString )
+
+	  	 	Returns: jQuery object
+
+	  	 	Description: Set the HTML contents of each element in 
+	  	 					the set of matched elements.
+
+	  	 	The .html() method is not available in XML documents.
+
+			When .html() is used to set an element's content, any content 
+			that was in that element is completely replaced by the new content. 
+			Additionally, jQuery removes other constructs such as data 
+			and event handlers from child elements before replacing those 
+			elements with the new content.
+
+			Consider the following HTML:
+
+			<div class="demo-container">
+			  <div class="demo-box">Demonstration Box</div>
+			</div>
+
+			The content of <div class="demo-container"> can be set like this:
+
+			> $( "div.demo-container" )
+						.html( "<p>All new content. <em>You bet!</em></p>" );
+
+			That line of code will replace everything inside <div class="demo-container">:
+
+			<div class="demo-container">
+			  <p>All new content. <em>You bet!</em></p>
+			</div>
+
+			As of jQuery 1.4, the .html() method allows the HTML content 
+				to be set by passing in a function.
+
+			> $( "div.demo-container" ).html(function() {
+					  var emphasis = "<em>" + $( "p" ).length + " paragraphs!</em>";
+					  return "<p>All new content for " + emphasis + "</p>";
+					});
+
+			Given a document with six paragraphs, this example will set the 
+			HTML of <div class="demo-container"> to 
+			<p>All new content for <em>6 paragraphs!</em></p>.			
+
+			This method uses the browser's innerHTML property. Some browsers 
+			may not generate a DOM that exactly replicates the HTML source 
+			provided. For example, Internet Explorer prior to version 8 
+			will convert all href properties on links to absolute URLs, 
+			and Internet Explorer prior to version 9 will not correctly 
+			handle HTML5 elements without the addition of a separate compatibility layer.
+
+			To set the content of a <script> element, which does not 
+			contain HTML, use the .text() method and not .html().
+		*/
+	  </script>
+  
+</head>
+<body>
+ 
+		<span>Hello</span>
+		<div></div>
+		<div></div>
+		<div></div>
+		 
+		<script>
+			$( "div" ).html( "<span class='red'>Hello <b>Again</b></span>" );
+		</script>
+</body>
+</html>

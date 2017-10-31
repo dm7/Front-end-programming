@@ -1,0 +1,17 @@
+/* 
+    Floating Content : Float an element to the left or right of the parent 
+
+    1) inline-level floats behave exactly like block-level floats
+
+    2) Behavior of inline float elements might have surprised you, 
+        but that's not due to the floating being (presumably) inline, 
+        it's due to the surrounding contents being inline.
+
+    http://stackoverflow.com/questions/39312963/how-inline-elements-float
+
+*/
+ 
+img[src="LittleBrain.jpg"] {
+  float: left;
+  padding: 10px;
+}

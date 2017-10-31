@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Intro</title>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="../js/jquery-1.11.3.js">
+			/*
+				jQuery is a lightweight javascript library that simplifies 
+				programming with JavaScript.
+			
+				It makes things like DOM traversal and manipulation, event handling,
+				animation and Ajax much simplerthat works across browsers.
+			
+				If you want to support IE6/7/8, then use jQuery 1.x where as if you
+				don't have the need to support IE6/7/8 then use jQuery 2.x
+				jQuery2.x is smaller in size than jQuery 1.x
+			*/
+
+			/*
+				Q) What does jquery(selector) actually return?
+				A) The jQuery Object: The Wrapped Set: Selectors return a 
+				jQuery object known as the "wrapped set," which is an 
+				array-like structure that contains all the selected 
+				DOM elements. You can iterate over the wrapped set like 
+				an array or access individual elements via the 
+				indexer ($(sel)[0] for example). More importantly, 
+				you can also apply jQuery functions against all the 
+				selected elements.
+
+				> var obj = jQuery('#button1');
+					undefined
+				
+				> Object.prototype.toString.call(obj);
+					"[object Object]"
+				
+				> Object.prototype.toString.call(obj[0]);
+					"[object HTMLInputElement]"
+			*/
+		</script>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				jQuery('#button1').click(function(){
+					alert('Button clicked');
+				});
+			});
+			/*
+				All these below three syntaxes are equivalent:
+				1) jQuery(document).ready(handler);
+				2) $().ready(handler);  Not a recommended usage
+				3) $(handler);
+				
+				The ready event occurs after the HTML document has been loaded, 
+				while the window.onload event occurs later, when all content (e.g. images, css) 
+				also has been loaded.
+
+				The onload event is a standard event in the DOM, while the ready 
+				event is specific to jQuery. The purpose of the ready event is 
+				that it should occur as early as possible after the document has 
+				loaded, so that code that adds functionality to the elements in 
+				the page doesn't have to wait for all content to load.
+			*/
+			jQuery(window).load(function(){
+				alert('load window event triggered');
+				jQuery('#div1').html("Height= " + jQuery('#img1').height() + "<br>" + "width= " + jQuery('#img1').width());
+			});
+			
+			/*
+				For click and most other events, you can prevent the default behavior 
+				by calling event.preventDefault() in the event handler:
+			*/
+
+			jQuery( document ).ready(function() {
+ 				jQuery( "a" ).click(function( event ) {
+ 				alert( "As you can see, the link no longer took you to jquery.com" );
+ 				event.preventDefault(); // This line avoids the default behavior of navigation
+ 			});
+ 
+});
+		</script>
+	</head>
+	<body>
+		<a href="http://jquery.com/">jQuery</a><br><br>
+		<input type="button" id="button1" value="Click Me"></button><br><br>
+		<div id="div1"></div>
+		<img id="img1" src="MammalConstructor.png">
+	</body>
+</html>

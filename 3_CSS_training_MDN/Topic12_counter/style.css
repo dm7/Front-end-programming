@@ -1,0 +1,56 @@
+/*
+	Note:  Some browsers do not support counters.
+
+	You can use counters to number any elements, not only 
+	list items. For example, in some documents you might 
+	want to number headings or paragraphs.	
+	
+	To specify numbering, you need a counter with a name that you specify.
+
+	In some element before the counting is to start, reset the counter 
+	with the property counter-reset and the name of your counter. The 
+	parent of the elements you are counting is a good place to do this, 
+	but you can use any element that comes before the list items.
+	
+	In each element where the counter increments, use the property 
+	counter-increment and the name of your counter.
+
+	To display your counter, add ::before or ::after to the selector 
+	and use the content property 
+
+	In the value of the content property, specify counter() with the 
+	name of your counter. Optionally specify a type. The types are 
+	the same as in the Ordered lists section above.
+
+	Normally the element that displays the counter also increments it.
+*/
+
+/*
+	Example
+	This rule initializes a counter for every <h3> element with the class initiate-counter:
+*/
+h3.initiate-counter {counter-reset: mynum;}
+
+/*
+	This rule displays and increments the counter for every <p> element with the class numbered:
+*/
+body {
+   counter-reset: mynum;
+}
+p.numbered:before {
+  content: counter(mynum) ": ";
+  counter-increment: mynum;
+  font-weight: bold;
+}
+
+/*
+	If you are able to use counters, they have the advantage 
+	that you can style the counters separately from the list 
+	items. In the example above, the counters are bold but 
+	the list items are not.
+
+	You can also use counters in more complex ways—for example, 
+	to number sections, headings, subheadings and paragraphs in 
+	formal documents.
+*/
+

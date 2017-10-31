@@ -1,0 +1,98 @@
+/*
+	A CSS pseudo-element is used to style specified parts of an element.
+
+	For example, it can be used to:
+
+		. Style the first letter, or line, of an element
+		. Insert content before, or after, the content of an element
+
+	The double colon replaced the single-colon notation for pseudo-elements in CSS3. 
+
+	1) The CSS ::after pseudo-element matches a virtual last child of 
+	the selected element. It is typically used to add cosmetic content
+	to an element by using the content CSS property. This element is 
+	inline by default.
+
+	The ::after notation was introduced in CSS 3 in order to establish 
+	a discrimination between pseudo-classes and pseudo-elements. Browsers 
+	also accept the notation :after introduced in CSS 2.
+
+	Example:
+	<p class="boring-text">Here is some good old boring text.</p>
+	<p>Here is some moderate text that is neither boring nor exciting.</p>
+	<p class="exciting-text">Contributing to MDN is easy and fun.
+	Just hit the edit button to add new live samples, or improve existing samples.</p>
+
+*/
+.exciting-text::after {
+  content: "<- now this *is* exciting!"; 
+  color: green;
+}
+
+.boring-text::after {
+   content:    "<- BORING!";
+   color:      red;
+}
+
+/*
+Output
+
+	Here is some good old boring text.<- BORING!
+	Here is some moderate text that is neither boring nor exciting.
+	Contributing to MDN is easy and fun. Just hit the edit button to add new 
+	live samples, or improve existing samples.<- now this *is* exciting!
+*/
+
+/*
+	Decorative example
+	We can style text or images in the content property almost any way we want.
+
+	<span class="ribbon">Notice where the orange box is.</span>
+*/
+.ribbon {
+  background-color: #5BC8F7;
+}
+
+.ribbon::after {
+  content: "Look at this orange box.";
+  background-color: #FFBA10;
+  border-color: black;
+  border-style: dotted;
+}
+
+span[data-descr] {
+  position: relative;
+  text-decoration: underline;
+  color: #00F;
+  cursor: help;
+}
+
+span[data-descr]:hover::after {
+  content: attr(data-descr);
+  position: absolute;
+  left: 0;
+  top: 24px;
+  min-width: 200px;
+  border: 1px #aaaaaa solid;
+  border-radius: 10px;
+  background-color: #ffffcc;
+  padding: 12px;
+  color: #000000;
+  font-size: 14px;
+  z-index: 1;
+}
+
+/*
+  Rules that match a pseudo element do not cascade
+  
+  As the psuedo element doesn't have children.
+  Rules can cascade to a pseudo element from its parent (not from its siblings though), 
+  but not from a pseudo element.
+  So for instance, this will work: */
+div {
+  color: red;
+}
+
+div::after {
+  content: 'This will be red!';
+}

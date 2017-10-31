@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Attributes</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js">
+			/*
+				An element's attributes can contain useful information for 
+				your application, so it's important to be able to get and set them.
+				
+				The .attr() method:
+				==================
+				The .attr() method acts as both a getter and a setter. As a setter, 
+				.attr() can accept either a key and a value, or an object containing 
+				one or more key/value pairs.
+				
+			*/
+		</script>
+	</head>
+	<body>
+		<a href="http://acadgild.com/">Link1</a>
+		<a href="http://acadgild.com/">Link2</a><br>
+		<input type="button" id = "button1" value="Set">
+		<input type="button" id = "button2" value="Get">
+		<script type="text/javascript">
+			/* .attr() as a setter: */
+			$('#button1').click(function(){
+				$( "a" ).attr( "href", "https://learn.jquery.com/using-jquery-core/attributes/");	
+			});
+			
+			$('#button1').click(function(){
+				$( "a" ).attr({
+				    title: "Learning site",
+				    href: "https://learn.jquery.com/using-jquery-core/attributes/"
+				});
+			});	
+		</script>
+
+		<script type="text/javascript">
+			/* .attr() as a getter: */
+			$('#button2').click(function(){
+				// Returns the href for the first a element in the document
+				document.write($( "a" ).attr("href")); 
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+div{
+	position: absolute;
+	top: 150px;
+	left: 150px;
+	background-color: hsl(155, 100%, 30%);
+	color: white;
+	font-family: courier;
+	font-weight: bold;
+	width: 500px;
+	height: 200px;
+	padding: 40px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app14" ng-cloak>
+	<head>
+		<meta charset="UTF-8">
+		<title> Angular built-in services</title>
+		<style>
+			[ng\:cloak], [ng-cloak], .ng-cloak{
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div ng-controller="mainCtrl as o">
+			<input type="text" ng-model="o.userName">
+			<button ng-click="o.greetUser(userName)">Hello</button>
+			<br><br>		
+
+			<!-- Using $location service-->
+			URL: {{o.currURL}}<br><br>
+			Protocol: {{o.theProtocol}}<br><br>
+			Host: {{o.currHost}}<br><br>
+			Port: {{o.currPort}}<br><br>
+			Path: {{o.currPath}}<br><br>
+			Search: {{o.currSearch}}<br><br>
+
+			<!-- Using $interval service-->
+			Current time: {{o.time}}<br><br>
+
+
+			<!-- Using $log service -->
+			<label>Message:
+				<input type="text" ng-model="o.message">
+			</label>
+			<button ng-click="o.$log.log(o.message)">log</button>
+			<button ng-click="o.$log.warn(o.message)">Warn</button>
+			<button ng-click="o.$log.info(o.message)">Info</button>
+			<button ng-click="o.$log.error(o.message)">Error</button>
+			<button ng-click="o.$log.debug(o.message)">Debug</button><br><br>
+
+			<!-- Using $exceptionHandler service -->
+			<button ng-click="o.throwException()">Throw Exception</button><br><br>
+
+			<!-- using $sanitize service-->
+			<input type="text" ng-model="badStuff">
+			<br><br>
+			<span>{{badStuff}}</span>
+			<span ng-bind-html="badStuff"></span>
+			<span ng-bind="badStuff"></span> <br><br>
+
+			<!-- Using $angular service-->
+			<p get-player-info></p><br>
+
+			<!-- Using $http service -->
+			<button ng-click="o.getData()">Get Data</button>
+			<br><br>
+			{{players}}
+
+			<ul>
+				<li ng-repeat="player in players">
+					{{player.name + " hit " + player.hr = " Home runs"}}
+				</li>
+			</ul>
+
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-sanitize.js"></script>
+		<script type="text/javascript" src="js/exam14.js"></script>
+	</body>
+</html>

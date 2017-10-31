@@ -1,0 +1,10 @@
+div{
+	border: 1px solid black;
+	height: 100px;
+	overflow: hidden;
+}
+
+p{
+	background-color: greenyellow;
+	position: absolute; /* overflow rule of container does not apply for absolutely positioned child element*/
+}

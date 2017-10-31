@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	  <meta charset="utf-8">
+	  <title>attr demo</title>
+	  <script src="https://code.jquery.com/jquery-1.10.2.js">
+	  </script>
+</head>
+<body>
+ 
+	<img title="../resources/hat.gif">
+	
+	<script>
+		$( "img" ).attr( "src", function() {
+			  var regpat = /[A-Za-z]{3}\.[A-Za-z]{3}/;
+			  return regpat.test(this.title);
+		});
+	</script>
+ 
+</body>
+</html>

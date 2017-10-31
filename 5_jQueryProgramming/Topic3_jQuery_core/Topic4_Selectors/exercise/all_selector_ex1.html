@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>All selector</title>
+		<style type="text/css">
+			h3{
+				margin: 0;
+				heigth: 10px;
+			}
+			div, span, p{
+				width: 80px;
+				height: 40px;
+				float: left;
+				padding: 10px;
+				margin: 10px;
+				background-color: #EEEEEE;
+			}
+		</style>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js">
+		</script>
+		<script type="text/javascript">
+			/*
+				Description: Selects all elements.
+				jQuery( "*" )		version added: 1.0
+				Caution: The all, or universal, selector is extremely slow, except when used by itself.
+				
+				Example:
+				Find every element (including head, body, etc) in the document. 
+				Note that if your browser has an extension/add-on enabled that 
+				inserts a <script> or <link> element into the DOM, that element 
+				will be counted as well.
+			*/	
+
+		</script>
+	</head>
+	<body>
+		<div>DIV</div>
+		<span>SPAN</span>
+		<p>P<button>BUTTON</button></p>
+
+		<script type="text/javascript">
+			var elementCount = $('*').css("border", "3px solid red").length;
+			$('body').prepend("<h3>" + elementCount + " elements found</h3>");
+		</script>
+	</body>
+</html>

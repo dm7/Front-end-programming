@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery constructor</title>
+		<script type="text/javascript">
+			/*
+				> Object.prototype.toString.call(jQuery);
+					"[object Function]"
+				
+				> Object.getOwnPropertyNames(jQuery.prototype).toString(); // 148 properties
+					"jquery,constructor,selector,length,toArray,get,pushStack,each,map,slice,first,last,eq,end,push,sort,splice,extend,find,filter,not,is,init,has,closest,index,add,addBack,parent,parents,parentsUntil,next,prev,nextAll,prevAll,nextUntil,prevUntil,siblings,children,contents,ready,data,removeData,queue,dequeue,clearQueue,promise,on,one,off,trigger,triggerHandler,text,append,prepend,before,after,remove,empty,clone,html,replaceWith,detach,domManip,appendTo,prependTo,insertBefore,insertAfter,replaceAll,css,show,hide,toggle,fadeTo,animate,stop,finish,slideDown,slideUp,slideToggle,fadeIn,fadeOut,fadeToggle,delay,val,attr,removeAttr,prop,removeProp,addClass,removeClass,toggleClass,hasClass,blur,focus,focusin,focusout,load,resize,scroll,unload,click,dblclick,mousedown,mouseup,mousemove,mouseover,mouseout,mouseenter,mouseleave,change,select,submit,keydown,keypress,keyup,error,contextmenu,hover,bind,unbind,delegate,undelegate,wrapAll,wrapInner,wrap,unwrap,serialize,serializeArray,ajaxStart,ajaxStop,ajaxComplete,ajaxError,ajaxSuccess,ajaxSend,offset,position,offsetParent,scrollLeft,scrollTop,innerHeight,height,outerHeight,innerWidth,width,outerWidth,size,andSelf"
+				
+				> jQuery.fn === jQuery.prototype
+					true
+				
+				> $ === jQuery
+					true
+				
+				> Object.prototype.toString.call(jQuery.prototype);
+					"[object Object]"
+
+				> Object.getOwnPropertyNames(jQuery).toString(); //101 properties
+					"prototype,fn,extend,expando,isReady,error,noop,isFunction,isArray,isWindow,isNumeric,isEmptyObject,isPlainObject,type,globalEval,camelCase,nodeName,each,trim,makeArray,inArray,merge,grep,map,guid,proxy,now,support,find,expr,unique,text,isXMLDoc,contains,filter,dir,sibling,Callbacks,Deferred,when,readyWait,holdReady,ready,acceptData,cache,noData,hasData,data,removeData,_data,_removeData,queue,dequeue,_queueHooks,access,event,removeEvent,Event,clone,buildFragment,cleanData,swap,cssHooks,cssNumber,cssProps,style,css,Tween,easing,fx,Animation,speed,timers,valHooks,attr,removeAttr,attrHooks,propFix,prop,propHooks,parseJSON,parseXML,active,lastModified,etag,ajaxSettings,ajaxSetup,ajaxPrefilter,ajaxTransport,ajax,getJSON,getScript,get,post,_evalUrl,param,parseHTML,offset,noConflict,length,name"
+				
+				jQuery.fn is a reference to jQuery.prototype. When you define a function 
+				using jQuery.fn.myFunction = function() { }, you can access it using 
+				jQuery("div").myFunction(). Within this function, you can access the 
+				selected elements using 'this', so you can for example run 
+				this.html("newcontent"), which would in this example equal jQuery("div").html("newcontent").
+
+				When you define a function using jQuery.myFunction = function() { }, the 
+				function will not receive any selected elements, so it is only useful 
+				if you pass it some parameters.
+
+				There are a few cases where object methods and core methods have the same names, 
+				such as $.each() and .each(). In these cases, be extremely careful when reading 
+				the documentation that you are exploring the correct method.
+
+				In this documentation, if a method can be called on a jQuery selection, we'll 
+				refer to it just by its name: .each(). If it is a utility method -- that is, a 
+				method that isn't called on a selection -- we'll refer to it explicitly as a 
+				method in the jQuery namespace: $.each()
+			*/
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

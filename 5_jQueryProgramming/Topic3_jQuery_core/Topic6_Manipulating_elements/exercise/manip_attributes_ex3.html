@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>attr demo</title>
+    <style>
+          img {
+            padding: 10px;
+          }
+          div {
+            color: red;
+            font-size: 24px;
+          }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+    <script type="text/javascript">
+        /*
+
+            Syntax:
+                .attr( attributeName, value )
+                .attr( attributes )
+                
+            Description:
+                Set one or more attributes for the set of matched elements.
+
+            The .attr() method is a convenient way to set the value 
+            of attributes—especially when setting multiple attributes 
+            or using values returned by a function. Consider the following image:
+
+            <img id="greatphoto" src="brush-seller.jpg" alt="brush seller">
+
+            Setting a simple attribute
+
+            To change the alt attribute, simply pass the name of the attribute 
+            and its new value to the .attr() method:
+
+            > $( "#greatphoto" ).attr( "alt", "Beijing Brush Seller" );
+
+            Add an attribute the same way:
+
+            > $( "#greatphoto" ).attr( "title", "Photo by Kelly Clark" );
+
+            Setting several attributes at once
+
+            To change the alt attribute and add the title attribute at the 
+            same time, pass both sets of names and values into the method 
+            at once using a plain JavaScript object. Each key-value pair 
+            in the object adds or modifies an attribute:
+
+            > $( "#greatphoto" ).attr({
+                  alt: "Beijing Brush Seller",
+                  title: "photo by Kelly Clark"
+                });
+            
+            When setting multiple attributes, the quotes around attribute names are optional.
+
+            WARNING: When setting the 'class' attribute, you must always use quotes!
+
+        */
+    </script>
+</head>
+<body>
+    <img>
+    <img>
+    <img>
+     
+    <div><b>Attribute of Ajax</b></div>
+     
+    <script>
+        $( "img" ).attr({
+          src: "hat.png",
+          title: "jQuery",
+          alt: "jQuery Logo"
+        });
+        $( "div" ).text( $( "img" ).attr( "alt" ) );
+    </script>
+
+</body>
+</html>

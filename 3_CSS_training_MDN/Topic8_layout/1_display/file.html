@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Sample document</title>
+      <link rel="stylesheet" href="style.css" type="text/css" media="all">
+  </head>
+  <body>
+       <div>
+          <!-- 
+              A block level box may contain either 
+              1) "inline level boxes" having property "display" as inline
+                            For example: text in <p>
+
+              or 
+              2) "block level boxes" having property "display" as block or list-item or table
+                            For example: 
+                                                  1) <tr> in <table> 
+                                                  2) <p> in <div>, 
+              3) but not both
+         -->
+          
+          
+          <p>Layout</p> <!-- Block level box-->
+          I am anonymous block box <!-- With the above rule, browser forces this text to be anonymous block level box-->
+          <p>Learning block-level box</p>
+          
+          <ul> <!-- Block level box--> 
+              <li>ListItem1</li>  <!-- "." is within inline level box &  "ListItem1" is within inline level box-->
+              <li>ListItem2</li> <!-- Block level box -->
+              <li>Learning <em>css</em></li> <!-- "Learning" is Anonymous inline level box &  <em> is inline level box -->
+          </ul>
+          
+          
+
+          <table>                                 <!-- display property value is table -->
+              <caption>caption</caption>          <!-- display property value is table-caption -->
+              <thead>                             <!-- display property value is table-header-group -->
+                  <tr>                            <!-- display property value is table-row -->
+                      <th>H1</th><th>H2</th>      <!-- display property value is table-cell -->
+                  </tr>
+              </thead>
+              <tbody>                             <!-- display property value is table-row-group -->
+                  <tr>                            <!-- display property value is table-row -->
+                      <td>1</td><td>2</td>        <!-- display property value is table-cell -->
+                  </tr>
+                  <tr> <td>3</td><td>4</td> </tr>
+              </tbody>
+              <tfoot>                             <!-- display property value is table-footer-group -->
+                  <tr> <td>F1</td><td>F2</td> </tr>
+              </tfoot>
+          </table>
+
+
+          <!-- inline-block elements-->  
+          Some interesting text to read<br> 
+          Some more <span class="test">text to read of</span> interest<br>
+          Yet even some more text to read<br>
+          Yet even some more great text to read
+
+       </div>
+  </body>
+</html>

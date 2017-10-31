@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Attributes</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js">
+		</script>
+		<script type="text/javascript">
+			/*
+				Selecting form elements:
+				=======================
+
+				jQuery offers several pseudo-selectors that help find elements 
+				in forms. These are especially helpful because it can be difficult 
+				to distinguish between form elements based on their state or type 
+				using standard CSS selectors.
+
+				1) :checked
+					Not to be confused with :checkbox, :checked targets checked checkboxes, 
+					but keep in mind that this selector works also for checked radio buttons, 
+					and <select> elements (for <select> elements only, use the :selected selector):
+				
+					$( "form :checked" );
+					The :checked pseudo-selector works when used with checkboxes, radio buttons and selects.
+
+				2) :disabled
+					Using the :disabled pseudo-selector targets any <input> elements with the disabled attribute:
+				
+					$( "form :disabled" );
+					In order to get the best performance using :disabled, first select 
+					elements with a standard jQuery selector, then use .filter( ":disabled" ), 
+					or precede the pseudo-selector with a tag name or some other selector.
+				
+				3) :enabled
+					Basically the inverse of the :disabled pseudo-selector, the :enabled 
+					pseudo-selector targets any elements that do not have a disabled attribute:
+					
+					$( "form :enabled" );
+					In order to get the best performance using :enabled, first select elements 
+					with a standard jQuery selector, then use .filter( ":enabled" ), or precede 
+					the pseudo-selector with a tag name or some other selector.
+				
+				4) :input
+					Using the :input selector selects all <input>, <textarea>, <select>, and <button> elements:
+					
+					$( "form :input" );
+
+				5) :selected
+					Using the :selected pseudo-selector targets any selected items in <option> elements:
+
+					$( "form :selected" );
+					In order to get the best performance using :selected, first select 
+					elements with a standard jQuery selector, then use .filter( ":selected" ), 
+					or precede the pseudo-selector with a tag name or some other selector.
+			*/
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

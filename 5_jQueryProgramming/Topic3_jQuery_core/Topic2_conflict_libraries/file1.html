@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery conflicts</title>
+		<!-- Putting jQuery into no-conflict mode. -->
+		<!-- 
+			The jQuery library and virtually all of its plugins are 
+			contained within the jQuery namespace. As a general rule, 
+			global objects are stored inside the jQuery namespace as 
+			well, so you shouldn't get a clash between jQuery and any 
+			other library (like prototype.js, MooTools, or YUI).
+
+			That said, there is one caveat: by default, jQuery uses $ 
+			as a shortcut for jQuery. Thus, if you are using another 
+			JavaScript library that uses the $ variable, you can run 
+			into conflicts with jQuery. In order to avoid these conflicts, 
+			you need to put jQuery in no-conflict mode immediately after 
+			it is loaded onto the page and before you attempt to use 
+			jQuery in your page.
+		-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.2/prototype.js">
+		</script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js">
+		</script>
+		<script type="text/javascript">
+			var $j = jQuery.noConflict();
+			// $j is now an alias to the jQuery function; creating the new alias is optional.
+			 
+			$j(document).ready(function() {
+			    $j( "div" ).hide();
+			});	
+		</script>
+		<script type="text/javascript">
+			//Code using prototype.js
+			// The $ variable now has the meaning that prototype.js carries, which is a shortcut for
+			// document.getElementById(). mainDiv below is a DOM element, not a jQuery object.
+			window.onload = function() {
+			    var mainDiv = $( "main" );
+			}
+		</script>
+		<!-- 
+			
+			In the code above, the $ will revert back to its meaning in original 
+			library. You'll still be able to use the full function name jQuery 
+			as well as the new alias $j in the rest of your application. 
+			The new alias can be named anything you'd like: jq, $J, awesomeQuery, etc.
+		-->
+	</head>
+	<body>
+
+	</body>
+</html>

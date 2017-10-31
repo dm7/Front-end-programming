@@ -1,0 +1,24 @@
+/*
+	Lists:
+		CSS provides special properties that are designed for lists. It 
+		is usually more convenient to use these properties whenever you can.
+
+		To specify the style for a list, use the list-style property to 
+		specify the type of marker.
+
+		The selector in your CSS rule can either select the list item 
+		elements (for example, <li>), or it can select the parent list 
+		element (for example, <ul>) so that the list elements inherit the style.
+*/
+
+/*
+	If you are using a markup language like HTML that provides conventional 
+	tags for unordered (<ul>) and ordered (<ol>) lists, then it is good 
+	practice to use the tags in the way they were intended. However, you 
+	can use CSS to make <ul> display ordered and <ol> display unordered 
+	if you wish.
+
+	Browsers differ in the way they implement the styles for lists. Do 
+	not expect your stylesheet to give identical results in all browsers.
+*/
+

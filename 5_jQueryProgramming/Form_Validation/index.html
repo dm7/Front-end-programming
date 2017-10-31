@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery tutorials -> Form Validation</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script type="text/javascript" src="js/custom.js"></script>
+	</head>
+	<body>
+	<div id="container">
+		<h1>Contact me</h1>	
+		<form action="" method="post" id="contact_form">
+			<div>
+				<label for="name">Name</label>
+				<input id="name" name="name" type="text">
+				<span id="nameDetails">What's your name?</span>
+			</div>
+			<div>
+				<label for="email">Email</label>
+				<input id="email" name="email" type="text">
+				<span id="emailDetails">Can I get back to you?</span>
+			</div>
+			<div>
+				<label for="pass1">Password</label>
+				<input id="pass1" name="pass1" type="password"></input>
+				<span id="pass1Details" >8 characters or more please</span>
+			</div>
+			<div>
+				<label for="pass2">Confirm password</label>
+				<input id="pass2" name="pass2" type="password"></input>
+				<span id="pass2Details">Same as above</span>
+			</div>
+			<div>
+				<label for="message">What do you wanna tell me?</label>
+				<textarea id="message" name="message"></textarea>
+			</div>
+			<div>
+				<input id="send" name="send" type="submit" value="Send"></input>
+			</div>
+		</form>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!--
+	
+	Styling can be added to HTML elements in 3 ways:
+	•	Inline - using a style attribute in HTML elements
+	•	Internal - using a <style> element in the HTML <head> section
+	•	External - using one or more external CSS files
+
+	The most frequent to add styling, is to keep the styles in separate CSS files.
+	
+	Use CSS to define styles for your documents, including the design, layout 
+	and variations in display for different devices and screen sizes. You can 
+	place your CSS in the <head> of a document with an embedded style sheet, 
+	or attach a separate file that defines your styles with an external style 
+	sheet. To link an external style sheet to your document, you'll simply 
+	add a link to the style sheet in the <head> of the document.
+
+	An external style sheet has many advantages. Keeping the styles separate 
+	from your HTML content:
+		Helps avoid duplication
+		Makes maintenance easier
+		Allows you to make a site-wide change in one place
+
+	Example
+	[Using CSS, you store the style information in common files that all the 
+	pages share. For example, when the documents link to the same style sheet
+	that defines the color of h2 headers, you can apply the style for h2 header
+	tags globally by changing one css attribute.]
+	
+	When a user displays a web page, the user's browser loads the style
+	information along with the content of the page.
+
+	When a user prints a web page, you can provide different style information
+	that makes the printed page easy to read.
+
+	How do HTML and CSS work together? 
+	In general, you use HTML to describe the content of the document, not its 
+	style. You use CSS to specify the document's style, not its content. Later
+	in this tutorial, you will see some exceptions to this arrangement.
+
+	Example:
+	[A markup language like HTML also provides some ways to specify style.
+	
+	For example, in HTML you can use a <b> tag to make text bold, and you 
+	can specify the background color of a page in its <body> tag.
+
+	When you use CSS, you normally avoid using these features of the markup
+	language so that all your document's style information is in one place.]
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Sample document</title>
+  <link rel="stylesheet" href="style1.css">
+  <!-- rel attribute specifies the relationship between the current document 
+  		and the linked document/resource.-->
+
+  <!-- The href attribute specifies the URL of the page the link goes to.
+		If the href attribute is not present, the <a> tag is not a hyperlink. -->
+  </head>
+  <body>
+    <p>
+      <strong>C</strong>ascading
+      <strong>S</strong>tyle
+      <strong>S</strong>heets
+    </p>
+  </body>
+</html>

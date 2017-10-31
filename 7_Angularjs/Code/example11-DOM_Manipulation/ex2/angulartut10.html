@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="app10" ng-cloak>
+	<head>
+		<title>Custom directives</title>
+		<style>
+			[ng\:cloak], [ng-cloak], .ng-cloak{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div ng-controller="mainCtrl as o">
+			<div  bb-player-list="bbPlayers" array-item="name | uppercase" ng-model="o"> 
+				
+			</div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script type="text/javascript" src="js/exam10.js"></script>
+	</body>
+</html>

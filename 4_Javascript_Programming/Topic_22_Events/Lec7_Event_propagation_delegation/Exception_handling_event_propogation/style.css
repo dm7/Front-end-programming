@@ -1,0 +1,21 @@
+#outer{
+	position: absolute;
+	top: 100px;
+	left: 400px;
+	width: 400px;
+	min-height: 400px;
+	background-color: hsl(18, 91%, 46%);
+}
+
+#inner{
+	position: absolute;
+	top: 48%;
+	left: 48%;
+}
+
+#inner{
+	width: 200px;
+	min-height: 200px;
+	background-color: hsl(158, 100%, 40%);
+}
+

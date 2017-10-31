@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="app8" ng-cloak>
+	<head>
+		<meta charset="UTF-8">
+		<title> Filters</title>
+		<style>
+			[ng\:cloak], [ng-cloak], .ng-cloak{
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div ng-controller="mainCtrl as o">
+			<label>Make uppercase:</label>
+			<input type="text" ng-model="name">
+			<p>Uppercase: {{o.name | uppercase}}</p>
+			<p>Lowercase: {{o.name | lowercase}}</p>
+
+			<label>Currency filter:</label>
+			<input type="text" ng-model="money">
+			<p>Currency: {{o.money | currency}}</p>
+
+			<ul>
+				<li ng-repeat="student in o.student.gpas | orderBy:'gpa'"> 
+					{{'Name: ' + student.name + ' | GPA : ' + student.gpa}}
+				</li>
+			</ul>
+
+			<label>Number filter: </label>
+			<input type="text" ng-model="numVal">
+			<p>Default: {{o.numVal | number}}</p>
+			<p>No Fractions: {{o.numVal | number:0}}</p>
+			<p>Negative and four decimal: {{-o.numVal | number:4}}</p>
+
+			<p>Date 1: {{o.currDate | date: 'medium'}}</p>
+			<p>Date 2: {{o.currDate | date: "MM/dd/yyyy 'at' h:mma"}}</p>
+			
+			<p>Default: {{o.randomStr}}</p>
+			<p>10 Characters: {{o.randomStr | limitTo:10}}</p>
+			<p>
+				<ul>
+					<li ng-repeat="item in o.randArray | limitTo:3">
+						{{item}}
+					</li>
+				</ul>	
+			</p>
+
+
+
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script type="text/javascript" src="js/exam8.js"></script>
+	</body>
+</html>

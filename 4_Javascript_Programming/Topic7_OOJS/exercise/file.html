@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> OOP tut</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+	<script language="javascript" type="text/javascript">
+		function Animal(name, sound, owner, favFood) { 
+  			var _name     = name || "animal"; 
+  			var _sound    = sound || "roar";
+  			var _owner    = owner || "Homeless";
+  			var _favFood  = favFood || "Anything";
+  		}
+  			
+  		
+      Object.defineProperty(this, "name", {
+        get: function(){ return _name; }
+        set: function(newName){ _name = newName;}
+      });
+
+      Object.defineProperty(this, "owner", {
+        get: function(){ return _owner; }
+        set: function(newOwner){ _owner = newOwner;}
+      });
+      
+      Object.defineProperty(this, "sound", {
+        get: function(){ return _sound; }
+        set: function(name){ _name = name;}
+      });
+
+      Object.defineProperty(this, "name", {
+        get: function(){ return _name; }
+        set: function(name){ _name = name;}
+      });
+
+
+      Animal.prototype.setOwner = function(newOwner){
+  			if (typeof newOwner != 'undefined'){
+  					this.owner = newOwner;
+  				} 
+  			else
+  			{
+  				document.write("Please enter a valid owner name" + "<br>");
+  			}
+  		}
+  			
+  			
+  		Animal.prototype.getOwner = function(){
+  			return this.owner;
+  		}
+  			
+  		Animal.prototype.setName = function(newName){
+  			if (typeof newName != 'undefined'){
+  					this.name = newName;
+  			} 
+  			else{
+  				document.write("Please enter a valid animal name" + "<br>");
+  			}
+  		}
+  			
+  		Animal.prototype.getName = function(){
+  			return this.name;
+  		}
+  			
+  		Animal.prototype.setNoise = function(newNoise){
+  			if (typeof newNoise != 'undefined'){
+  				this.sound = newNoise;
+  			} 
+  			else{
+  				document.write("Please enter a valid animal sound" + "<br>");
+  			}
+  		}
+  			
+  		Animal.prototype.getNoise = function(){
+  			return this.sound;
+  		}
+  			
+  		
+  			
+  		var dog = new Animal();
+  		document.write(dog.getName() + "<br />");
+  			
+  		dog.setName("Spot");
+  		dog.setOwner("Paul");
+  		dog.setNoise();
+  			
+  		document.write(dog.getName() + "<br />");
+  		document.write(dog.getOwner() + "<br />");
+  		document.write(dog.getNoise() + "<br />");
+  			
+  		
+  		
+  			
+  		function Cat() {
+  			/*
+  				Below line will add members name/sound/owner/favFood to new Cat(),
+  				with default values
+  			*/
+  			Animal.call(this); 
+  			this.mode = "Happy";
+  		}
+  			
+  		/*
+			Aftre executing, below line of code,
+			Cat.prototype.__proto__ will point to  Animal.prototype;
+		*/
+  		Cat.prototype = Object.create(Animal.prototype);
+
+  		/*
+  			In the above line, when Cat.prototype.__proto__ points to Animal.prototype,
+  			Cat.prototype.constructor automatically points to Animal, so this below line	
+		*/
+  		Cat.prototype.constructor = Cat;
+  			
+  		Cat.prototype.getMode = function(){
+  			return this.mode;
+  		}
+  			
+  		Cat.prototype.setMode = function(newMode){
+  			if (typeof newMode != 'undefined'){
+  					this.mode = newMode;
+  			} 
+  			else{
+  				document.write("Please enter a valid animal mode" + "<br>");
+  			}
+  		}
+  			
+  		
+  		var sophie = new Cat();
+  			
+  		sophie.setName("Sophie");
+  		sophie.setOwner("Derek");
+  		sophie.setNoise("Meow");
+  			
+  		document.write(sophie.getName() + "<br />");
+  		document.write(sophie.getOwner() + "<br />");
+  		document.write(sophie.getNoise() + "<br />");
+  	</script>
+	<noscript>
+		<h3>This site requires Javascript</h3>
+	</noscript>
+	</body>
+</html>

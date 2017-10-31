@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>One way data binding</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+            <script src="controller2.js"></script>
+        </head>
+        <body ng-app="app1">
+            <div ng-controller="OneWayBindController">
+                <div>
+                    Value of a is {{a}} <br> <!-- One way binding thru evaluating angular expressions-->
+                    Value of b is {{b}} <br>
+                </div>
+                <hr>
+                Value of a is <span ng-bind="a"></span><br> <!-- One way binding using ng-bind-->
+                Value of b is <span ng-bind="b"></span><br>
+                <hr>
+                Sum={{sum}}<br>
+                <button ng-click="doDoubleAndSum()"> <!-- ng-click takes care of click event handling-->
+                    Calculate
+                </button>
+                <br>
+                Initial value is {{::a}} <!-- One time binding is performed thru "::" in angular expressions-->
+            </div>    
+        </body>
+    </html>

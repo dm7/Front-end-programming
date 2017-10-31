@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery conflicts</title>
+		<!-- 
+			This is probably the ideal solution for most of your code, 
+			considering that there'll be less code that you'll have to 
+			change in order to achieve complete compatibility.
+		-->
+		<!-- Loading jQuery before other libraries. -->
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js">
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.2/prototype.js">
+		</script>
+		
+		<script>
+			// Use full jQuery function name to reference jQuery.
+			jQuery( document ).ready(function() {
+			    jQuery( "div" ).hide();
+			});
+			 
+			// Use the $ variable as defined in prototype.js
+			window.onload = function() {
+			    var mainDiv = $( "main" );
+			};
+		</script>
+ 	</head>
+	<body>
+
+	</body>
+</html>

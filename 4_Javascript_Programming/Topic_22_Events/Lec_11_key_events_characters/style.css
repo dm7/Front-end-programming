@@ -1,0 +1,17 @@
+div{
+	width: 100px;
+	height: 100px;
+	background-color: hsl(211, 100%, 57%);
+	transition: all 2s ease 0.5s;
+}
+
+img{
+	position: absolute;
+	right: 100px;
+	transition: transform 2s ease-in;
+}
+
+.sizeChange{
+	width: 200px;
+	height: 200px;
+}

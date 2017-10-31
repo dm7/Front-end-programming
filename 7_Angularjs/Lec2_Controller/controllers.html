@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html >
+        <head>
+            <meta charset="UTF-8">
+            <title>Controllers in angularJS</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.3/angular.js"></script>
+            <script src="CityController.js"></script>
+            <!--
+                1) Controllers in AngularJS are Javascript objects
+                2) AngularJS controllers controls data of AngularJS applications
+                3) Controller controls data between view and model through $scope variable
+                4) $scope variable is used to communicate between view and controller
+                        
+                        ------------                             -------------
+                       |    View    |\                          |  Controller |
+                        ------------  \                       /  -------------
+                                       \                    /    
+                                         \                 / 
+                                          \               /           
+                                           \             /
+                                            \           /
+                                             \         /
+                                             -----------
+                                            |   $scope  |
+                                             -----------
+            --> 
+        </head>
+        <body ng-app="app"> <!-- angularJS framework is visible from here due to ng-app directive-->
+            <div ng-controller="cityController">
+                City: <input type="text" ng-model="city"/><br>
+                State: <input type="text" ng-model="state"><br>
+                <label>CityInfo: {{cityInfo()}}</label>
+                <ul>
+                    <li ng-repeat="cityWithStates in cities">
+                        {{cityWithStates.city + ", " + cityWithStates.state}}
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Providing script in html is a bad practice
+                <script>
+                    function cityController($scope) {
+                        $scope.cities=[
+                                {city: 'Indore', state: 'MP'},
+                                {city: 'Pune', state: 'MH'},
+                                {city: 'Mumbai', state: 'MH'}];
+                        $scope.city = "Mumbai";
+                        $scope.state = "Maharashtra"
+                        $scope.cityInfo = function(){
+                            return $scope.city + ", " + $scope.state;
+                        }
+                    }
+                </script>
+            -->
+            
+        </body>
+    </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery conflicts</title>
+		<!-- 
+			Finally, if you don't want to define another alternative 
+			to the full jQuery function name (you really like to use $ 
+			and don't care about using the other library's $ method), 
+			then there's still another approach you might try: simply 
+			add the $ as an argument passed to your jQuery( document ).ready() 
+			function. This is most frequently used in the case where you 
+			still want the benefits of really concise jQuery code, but 
+			don't want to cause conflicts with other libraries.
+		-->
+		<!-- Another way to put jQuery into no-conflict mode. -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.2/prototype.js">
+		</script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js">
+		</script>
+		<script type="text/javascript">
+			jQuery.noConflict();
+ 			jQuery( document ).ready(function( $ ) {
+			    // You can use the locally-scoped $ in here as an alias to jQuery.
+			    $( "div" ).hide();
+			});
+ 			
+
+ 			// The $ variable in the global scope has the prototype.js meaning.
+			window.onload = function(){
+			    var mainDiv = $( "main" );
+			}
+			/*
+				Note that if you use this technique, you will not be able 
+				to use prototype.js methods inside the immediately invoked 
+				function. $ will be a reference to jQuery, not prototype.js.
+			*/
+		</script>
+ 	</head>
+	<body>
+
+	</body>
+</html>

@@ -1,0 +1,12 @@
+Set devtools.chrome.enabled to "true"
+
+Below is the code from scratch pad:
+
+var x= 3;
+debugger;
+function f(){
+	return this;
+}
+
+Read more: https://www.youtube.com/watch?v=TQxQr1H0iZ0&t=17s
+

@@ -1,0 +1,72 @@
+<!--
+	The final style for an element can be specified in many different places, 
+	which can interact in a complex way. This complex interaction makes CSS 
+	powerful, but it can also make it confusing and difficult to debug.
+
+	Three main sources of style information form a cascade. They are:
+
+		1) The browser's default styles for the markup language.
+		2) Styles specified by a user who is reading the document.
+		3) The styles linked to the document by its author. These can be specified in three places:
+			In an external file: this tutorial primarily discusses this method of defining styles.
+			In a definition at the beginning of the document: use this method only for styles that are used only on that page.
+			On a specific element in the body of the document: this is the least maintainable method, but can be used for testing.
+
+	The user's style modifies the browser's default style. The document 
+	author's style then modifies the style some more. In this tutorial, 
+	you are the author of your sample document, and you only work with 
+	author stylesheets.
+	
+	
+	As mentioned in first point above,
+	a) browser's default style sheet for webkit - http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css
+	b) browser's default style sheet for firefox - http://hg.mozilla.org/mozilla-central/file/tip/layout/style/html.css
+	Example: When you open your sample document in your browser, the <strong> elements are bolder
+	than the rest of the text. This comes from the browser's default style for HTML.
+
+	As mentioned in second point above, procedure is given here:
+	a) In firefox - https://ffeathers.wordpress.com/2013/03/10/how-to-override-css-stylesheets-in-firefox/
+	b) In chrome(not possible) - https://codereview.chromium.org/66383005/
+	c) In IE - http://webdesign.about.com/od/css/ht/htcssuseriewin.htm
+
+
+	The <strong> elements also inherit much of the <p> element's style, because they
+	are its children. In the same way, the <p> element inherits much of the <body> 
+	element's style.
+
+	For styles in the cascade, author stylesheets have priority, then reader stylesheets, 
+	then the browser's defaults. For inherited styles, a child node's own style has priority 
+	over style inherited from its parent.
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Sample document</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- rel attribute specifies the relationship between the current document 
+  		and the linked document/resource.-->
+
+  <!-- The href attribute specifies the URL of the page the link goes to.
+		If the href attribute is not present, the <a> tag is not a hyperlink. -->
+  </head>
+  <body>
+    <p>
+      <strong>C</strong>ascading
+      <strong>S</strong>tyle
+      <strong>S</strong>heets
+    </p>
+  </body>
+</html>
+
+<!-- 
+	The underlining affects all the text in the paragraph, including the initial 
+	letters. The <strong> elements have inherited the underlined style from their
+	parent <p> element.
+ 
+	But the <strong> elements are still red. The red color is their own style, 
+	so it has priority over the blue color of their parent <p> element. 
+-->

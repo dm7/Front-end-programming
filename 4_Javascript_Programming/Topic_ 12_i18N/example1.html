@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>I18N</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<h2>Ejemplo I18N</h2>
+		Castellano, griego y chino: <p>
+
+			<script type="text/javascript">
+				document.write("Caracteres escapados {\u55e8\uff0c\u4f60\u597d\u5417}: "
+													+ "\u55e8\uff0c\u4f60\u597d\u5417" + "<br>");
+				document.write("Caracteres escapados \\u55e8\\uff0c\\u4f60\\u597d\\u5417: "
+													+ "\u55e8\uff0c\u4f60\u597d\u5417" + "<br>");
+
+				var x = 嗨，你好吗.charCodeAt(0).toString(16);
+				var y = String.fromCharCode(parseInt(x, 16));
+				document.write('el carácter \\u' + x + ' representa: ' + y);
+			</script>
+
+
+		</p>
+	</body>
+</html>

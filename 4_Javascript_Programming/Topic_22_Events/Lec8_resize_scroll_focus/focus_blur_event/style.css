@@ -1,0 +1,9 @@
+div{
+	background-color: hsl(155, 100%, 30%);
+	position: absolute;
+	top: 150px;
+	left: 150px;
+	color: white;
+	font-family: courier;
+	font-weight: bold;
+}
