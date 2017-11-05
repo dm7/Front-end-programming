@@ -1,0 +1,23 @@
+div, nav{
+	border: 1px solid red;
+}
+
+nav{
+	border: 1px solid blue;
+}
+
+.simple{
+	max-width: 400px;
+	position: relative;
+}
+
+.fancy{
+	width: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+body, div{
+	outline: 1px solid red !important;
+}

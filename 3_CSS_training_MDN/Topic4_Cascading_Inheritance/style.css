@@ -23,13 +23,10 @@ strong {color:red}
 	rules you feel are most crucial always be applied. A rule that has the !important 
 	directive will always be applied no matter where that rule appears in the CSS document.
 
-
-
 	So if you wanted to make sure that a property always applied, you would 
 	add the !important property to the tag. So, to make the paragraph text 
 	always red, from the above example, you would write:
 
 	    p { color: red !important; }
 	    p { color: black;}
-
 */

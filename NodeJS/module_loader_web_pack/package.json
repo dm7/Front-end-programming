@@ -1,0 +1,16 @@
+{
+  "name": "module_loaders",
+  "version": "1.0.0",
+  "description": "Module loaders example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "lodash": "^4.12.0",
+    "webpack": "^1.13.0"
+  }
+}

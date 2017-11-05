@@ -5,7 +5,6 @@
 		(such as images or inline tables) on its line.
 
 		The first letter of an element is not necessarily trivial to identify:
-
 		- Punctuation, that is any characters defined in Unicode in the open (Ps), close (Pe),
 			 initial quote (Pi), final quote (Pf) and other punctuation (Po) classes, preceding 
 			 or immediately following the first letter is also matched by this pseudo-element.
