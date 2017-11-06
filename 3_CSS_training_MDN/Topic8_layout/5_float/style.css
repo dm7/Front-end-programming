@@ -10,7 +10,7 @@
     http://stackoverflow.com/questions/39312963/how-inline-elements-float
 
 */
- 
+
 img[src="LittleBrain.jpg"] {
   float: left;
   padding: 10px;
