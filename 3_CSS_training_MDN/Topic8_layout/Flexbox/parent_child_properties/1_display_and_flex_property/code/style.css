@@ -17,14 +17,42 @@
 .box10{ background: #16ae85; }
 
 
+
+
+
+
+
+
 /* Properties for the parent(container) - start */
 /* A flexbox layout consists of a parent element, with one or more child elements. */
 /* The parent element becomes flexible by setting the display property to flex */
+/*
 .container{
 	display: flex;
 	border: 10px solid goldenrod;
 }
+*/
+
+/*
+	
+	Below declaration makes the flex container display inline. That is the only difference 
+	between "display: inline-flex" and "display: flex". A similar comparison can 
+	be made between "display: inline-block" and "display: block".
+	https://stackoverflow.com/a/9189873/1787812
+*/
+.container{
+	display: inline-flex;
+}
 /* Properties for the parent(container) - end */
+
+
+
+
+
+
+
+
+
 
 
 /* Properties for the children(items) - start */
@@ -42,12 +70,3 @@
 }
 /* Properties for the children(items) - end */
 
-
-.wrapper{
-	display: inline-flex;
-	/* 
-		Block elements extend the entire width of the browser.
-		where as inline elements take amount of space that
-		they need.
-	*/
-}
