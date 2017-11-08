@@ -17,12 +17,32 @@
 .box10{ background: #16ae85; }
 
 
-/* Here is a code for flex box */
+
+
+
+
+
+
+
+
+/* Properties for flex container - start */
 /* Flexbox ordering */
 .container{
 	display:flex;
 }
+/* Properties for flex container - end */
 
+
+
+
+
+
+
+
+
+
+/* Properties for flex items(child) - start */
+/* the order property controls the order in which they appear in the flex container. */
 .box{
 	flex:1; /* By default, flex is zero */
 } 
@@ -38,3 +58,4 @@
 .box7{
 	order:2;
 }
+/* Properties for flex items(child) - end */

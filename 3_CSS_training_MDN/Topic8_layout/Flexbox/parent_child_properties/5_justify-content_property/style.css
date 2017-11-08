@@ -17,10 +17,13 @@
 .box10{ background: #16ae85; }
 
 
-/* Here is a code for flex box */
-/* Flex-box alignment + Centering with align-content */
+/* Property of parent container - start */
+/* Justify-content works on main axis of the border*/
 .container{
-	display:flex;
-	border: 10px solid mistyrose;
-	height:100vh;
+	display:inline-flex;
+	flex-direction: column;
+	/* check the attached doc for various options */
+	justify-content: space-around;
+	/*flex-direction: column;*/
 }
+/* Property of parent container - start */

@@ -17,10 +17,11 @@
 .box10{ background: #16ae85; }
 
 
-/* Here is a code for flex box */
-/* Centering with justify-content, check the doc file */
-/* Justify-content works on main axis of the border*/
+/* Properties of a parent container */
 .container{
+	height: 100vh;
 	display:flex;
+	border: 10px solid mistyrose;
+	align-items: center;
+	/* Centering with align-items, check the doc file */
 }
-

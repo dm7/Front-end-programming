@@ -1,6 +1,6 @@
 .box{
     color: white;
-    font-size: 100px;
+    font-size: 400px;
     text-align: center;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0, 1);
 }
@@ -17,10 +17,19 @@
 .box10{ background: #16ae85; }
 
 
-/* Here is a code for flex box */
-/* Centering with align-items, check the doc file */
+/* flex property for parent(container) - start */
+/* Wrapping flex items */
 .container{
-	display:flex;
-	border: 10px solid mistyrose;
+	display: flex;
+	border: 1px solid goldenrod;
+	height:100vh;
+	/* flex-wrap:wrap;   default value. */
+        flex-wrap: nowrap;
 }
+/* flex property for parent(container) - end */
 
+
+.box{
+	width: 33.3333333333%;
+	overflow: hidden;
+}

@@ -21,6 +21,9 @@
 
 
 
+
+
+
 /* Parent container property - start */
 /* Flex box order, re-ordering columns and rows */
 .wrapper{
@@ -50,7 +53,10 @@
 
 
 
+
+
 /* Child items property - start */
+/* the order property controls the order in which they appear in the flex container. */
 .box{
 	flex: 1;
 }
