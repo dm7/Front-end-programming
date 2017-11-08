@@ -17,9 +17,12 @@
 .box10{ background: #16ae85; }
 
 
-/* Here is a code for flex box */
-/* Flex box order, re-ordering columns and rows */
 
+
+
+
+/* Parent container property - start */
+/* Flex box order, re-ordering columns and rows */
 .wrapper{
 	display: flex;
 	flex-direction: row; 
@@ -37,7 +40,17 @@
 		We use amidst using justify-content and align-items.
 	*/
 }
+/* Parent container property - end */
 
+
+
+
+
+
+
+
+
+/* Child items property - start */
 .box{
 	flex: 1;
 }
@@ -51,3 +64,4 @@
 	flex: 4;
 	order: 2;
 }
+/* Child items property - end */
