@@ -17,12 +17,18 @@
 .box10{ background: #16ae85; }
 
 
-/* Here is a code for flex box*/
+/* Properties for the parent(container) - start */
+/* A flexbox layout consists of a parent element, with one or more child elements. */
+/* The parent element becomes flexible by setting the display property to flex */
 .container{
 	display: flex;
 	border: 10px solid goldenrod;
 }
+/* Properties for the parent(container) - end */
 
+
+/* Properties for the children(items) - start */
+/* The direct child element(s) of a flexible container automatically becomes flexible items. */
 .box{
 	flex: 1;
 }
@@ -34,10 +40,14 @@
 .box6{
 	flex: 4;
 }
+/* Properties for the children(items) - end */
+
 
 .wrapper{
 	display: inline-flex;
-	/* block elements extend the entire width of the browser.
+	/* 
+		Block elements extend the entire width of the browser.
 		where as inline elements take amount of space that
-		they need*/
+		they need.
+	*/
 }
