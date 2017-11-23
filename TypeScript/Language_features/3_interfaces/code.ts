@@ -1,6 +1,19 @@
-function prinLabel(labelledObj:{label: string}) {
-    console.log(labelledObj.label);
+interface SquareConfig {
+    color?: string;
+    width?: number;
+    /* width?: number is equivalent to width: number | undefined */
 }
 
-let myObj = {size: 10, label: "Size 10 Object"};
-prinLabel(myObj);
+function createSquare(config: SquareConfig): {color: string, area: number}{
+  let newSquare = {color: "white", area: 100};
+  if(config.color){
+    newSquare.color = config.color;
+  }
+  if(config.width){
+    newSquare.area = config.width * config.width;
+  }
+  return newSquare;
+}
+
+let mySquare = createSquare({color: "black"});
+console.log(mySquare.area);
