@@ -1,4 +1,19 @@
-/* Classes */
+/*
+Introduction
+============
+
+Traditional JavaScript uses functions and prototype-based inheritance to build
+up reusable components, but this may feel a bit awkward to programmers more
+comfortable with an object-oriented approach, where classes inherit functionality
+and objects are built from these classes. Starting with ECMAScript 2015, also
+known as ECMAScript 6, JavaScript programmers will be able to build their
+applications using this object-oriented class-based approach. In TypeScript,
+we allow developers to use these techniques now, and compile them down to
+JavaScript that works across all major browsers and platforms, without having
+to wait for the next version of JavaScript.
+*/
+
+
 class Greeter{
   greeting: string;
   constructor(message: string){
@@ -17,11 +32,11 @@ let greeter = new Greeter("world");
   property called "greeting", a constructor, and a method "greet".
 
   You’ll notice that in the class when we refer to one of the members
-   of the class we prepend this.. This denotes that it’s a member access.
+  of the class we prepend "this". This denotes that it’s a member access.
 
-  In the last line we construct an instance of the Greeter class using new.
+  In the last line we construct an instance of the "Greeter" class using "new".
   This calls into the constructor we defined earlier, creating a new object
-  with the Greeter shape, and running the constructor to initialize it.
+  with the "Greeter" shape, and running the constructor to initialize it.
 */
 
 /*
@@ -31,36 +46,63 @@ let greeter = new Greeter("world");
   to extend existing classes to create new ones using inheritance.
 
   Let’s take a look at an example:
+  class Animal {
+      move(distanceInMeters: number = 0) {
+          console.log(`Animal moved ${distanceInMeters}m.`);
+        }
+  }
+
+  class Dog extends Animal {
+      bark() {
+          console.log('Woof! Woof!');
+        }
+  }
+
+  const dog = new Dog();
+  dog.bark();
+  dog.move(10);
+  dog.bark();
+
+  This example show the most basic inheritance feature: classes inherit
+  properties and methods from base classes. Here, Dog is a derived class that
+  derives from the Animal base class using the extends keyword. Derived classes
+  are often called subclasses, and base classes are often called superclasses.
+
+  Because Dog extends the functionality from Animal, we were able to create an
+  instance of Dog that could both bark() and move().
+
+  Let’s now look at a more complex example.
 */
+
 /*
-class Animal{
-  name: string;
-  constructor(theName: string){ this.name = theName; }
-  move(distanceInMeters: number = 0){
-    console.log('${this.name} moved ${distanceInMeters}m');
-  }
-}
-
-class Snake extends Animal{
-    constructor(name: string){ super(name); }
-    move(distanceInMeters = 5){
-      console.log("Slithering ... ");
-      super.move(distanceInMeters);
+    class Animal{
+      name: string;
+      constructor(theName: string){ this.name = theName; }
+      move(distanceInMeters: number = 0){
+        console.log(`${this.name} moved ${distanceInMeters}m`);
+      }
     }
-}
 
-class Horse extends Animal{
-  constructor(name: string){ super(name); }
-  move(distanceInMeters = 45){
-    console.log("Galloping ...");
-    super.move(distanceInMeters);
-  }
-}
+    class Snake extends Animal{
+      constructor(name: string){ super(name); }
+      move(distanceInMeters = 5){
+        console.log("Slithering ... ");
+        super.move(distanceInMeters);
+      }
+    }
 
-let sam = new Snake("Sammy the Python");
-let tom: Animal = new Horse("Tommy the Palomino");
-sam.move();
-tom.move(34);
+    class Horse extends Animal{
+      constructor(name: string){ super(name); }
+      move(distanceInMeters = 45){
+        console.log("Galloping ...");
+        super.move(distanceInMeters);
+      }
+    }
+
+    let sam = new Snake("Sammy the Python");
+    let tom: Animal = new Horse("Tommy the Palomino");
+    sam.move();
+    tom.move(34);
 */
 
 /*
