@@ -106,20 +106,22 @@ let greeter = new Greeter("world");
 */
 
 /*
-  This example covers quite a few of the inheritance features in TypeScript
-  that are common to other languages. Here we see the extends keywords used
-  to create a subclass. You can see this where Horse and Snake subclass the
-  base class Animal and gain access to its features.
+  This example covers a few other features we didn’t previously mention.
+  Again, we see the extends keywords used to create two new subclasses of
+  "Animal"": "Horse" and "Snake".
 
-  Derived classes that contain constructor functions must call super() which
-  will execute the constructor function on the base class.
+  One difference from the prior example is that each derived class that
+  contains a constructor function must call "super()" which will execute the
+  constructor of the base class. What’s more, before we ever access a property
+  on "this" in a constructor body, we have to call "super()"". This is an
+  important rule that TypeScript will enforce.
 
   The example also shows how to override methods in the base class with methods
-  that are specialized for the subclass. Here both Snake and Horse create a
-  move method that overrides the move from Animal, giving it functionality
-  specific to each class. Note that even though tom is declared as an Animal,
-  since its value is a Horse, when tom.move(34) calls the overriding method
-  in Horse:
+  that are specialized for the subclass. Here both "Snake" and "Horse" create
+  a "move" method that overrides the "move" from "Animal", giving it functionality
+  specific to each class. Note that even though "tom" is declared as an "Animal",
+  since its value is a "Horse", calling "tom.move(34)" will call the overriding
+  method in "Horse":
 
   Output:
   Slithering...
@@ -129,34 +131,41 @@ let greeter = new Greeter("world");
 */
 
 /*
-Public, private, and protected modifiers
+Public, private, and protected modifiers:
+========================================
+
+/*
+
+/*
 Public by default
 
 In our examples, we’ve been able to freely access the members that we declared
 throughout our programs. If you’re familiar with classes in other languages,
 you may have noticed in the above examples we haven’t had to use the word
-public to accomplish this; for instance, C# requires that each member be
-explicitly labeled public to be visible. In TypeScript, each member is
-public by default.
+"public" to accomplish this; for instance, C# requires that each member be
+explicitly labeled "public" to be visible. In TypeScript, each member is
+"public" by default.
 
-You may still mark a member public explicitly. We could have written the
-Animal class from the previous section in the following way:
+You may still mark a member "public" explicitly. We could have written the
+"Animal" class from the previous section in the following way:
 */
+
 class Animal{
   public name: string;
   public constructor(theName: string){ this.name = theName; }
-  public move(distanceInMeters: number = 0){
-    console.log('${this.name} moved ${distanceInMeters}m');
+  public move(distanceInMeters: number){
+    console.log(`${this.name} moved ${distanceInMeters}m`);
   }
 }
 
 /*
   Understanding private
 
-  When a member is marked private, it cannot be accessed from outside of its
+  When a member is marked "private", it cannot be accessed from outside of its
   containing class. For example:
 
 */
+
 interface Named{
   x:string;
 }
@@ -167,6 +176,7 @@ class Animal implements Named{
 }
 
 new Animal("Cat").name; // Error: 'name' is private;
+
 /*
 
 https://www.typescriptlang.org/docs/handbook/classes.html
