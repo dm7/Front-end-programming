@@ -1,0 +1,73 @@
+HTML5/CSS3:
+==========
+	CSS Grid layout 
+	      crash course - https://www.youtube.com/watch?v=jV8B24rSN5o&list=PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU&index=4
+			     https://www.youtube.com/watch?v=H3LRtAm2SOo&t=2s
+			     https://css-tricks.com/snippets/css/complete-guide-grid/
+Projects:
+========  			     
+	HTML5 website
+    with Responsive layout - https://www.youtube.com/watch?v=Wm6CUkswsNw&index=3&list=PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU
+  Full screen landing page - https://www.youtube.com/watch?v=hVdTQWASliE&list=PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU&index=6
+     Parallax Website 
+      With HTML & CSS      - https://www.youtube.com/watch?v=JttTcnidSdQ&index=7&list=PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU
+       Bootstrap           - https://www.youtube.com/watch?v=5GcQtLDGXy8&list=PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU&index=8
+	CMS admin 
+	with Bootstrap     - https://www.youtube.com/watch?v=pXbEcGUtHgo&list=PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU&index=9
+	Easy responsive 
+           CSS3 Pricing    - https://www.youtube.com/watch?v=7rJ5rhdVvOo&list=PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU&index=10
+	Side menu	   - https://www.youtube.com/watch?v=wpGNFGqNfdU&list=PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU&index=11
+
+	
+Pending items for JavaScript:
+============================
+	JavaScript: 
+		https://www.youtube.com/user/webtunings/playlists - Not now
+Projects:
+========
+		JS for beginners - https://www.youtube.com/watch?v=vEROU2XtPR8&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		DOM crash course - https://www.youtube.com/watch?v=0ik6X4DJKCc&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=13
+		Bookmarker app   - https://www.youtube.com/watch?v=DIVfDZZeGxM&index=2&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		Filterable List  - https://www.youtube.com/watch?v=G1eW3Oi6uoc&index=3&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		Weight converter - https://www.youtube.com/watch?v=7l-ZAuU8TXc&index=4&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		Animate icons    - https://www.youtube.com/watch?v=XP-MRCUPZao&index=5&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		Slide show       - https://www.youtube.com/watch?v=4YQ4svkETS0&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=6
+  		Google maps      - https://www.youtube.com/watch?v=Zxf1mnP5zcw&index=8&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		Geocode          - https://www.youtube.com/watch?v=pRiQeo17u6c&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=7
+		Facebook login   - https://www.youtube.com/watch?v=gXux8b3wcYw&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=9
+	  Fullscreen image slider
+		HTML/CSS/JS 	 - https://www.youtube.com/watch?v=7ZO2RTMNSAY&index=19&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		Modal
+		HTML/CSS/JS      - https://www.youtube.com/watch?v=6ophW7Ask_0&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=12
+		ES6              - https://www.youtube.com/watch?v=2LeqilIw-28&list=PLillGF-RfqbZ7s3t6ZInY3NjEOOX7hsBv
+		Mocha & Chai     - https://www.youtube.com/watch?v=MLTRHc5dk6s
+		
+	
+jQuery & Ajax:
+=============
+		Asynchronous JavaScript - https://www.youtube.com/watch?v=YxWMxJONp7E&list=PL4cUxeGkcC9jAhrjtZ9U93UMIhnCc44MH
+		Fetch API Intro -   https://www.youtube.com/watch?v=Oive66jrwBs
+
+Projects:
+========
+		Number facts app -  https://www.youtube.com/watch?v=tUE2Nic21BA&index=17&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		Zip code app -      https://www.youtube.com/watch?v=K3GfUH7AZKs&index=18&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+		Movie info App    - https://www.youtube.com/watch?v=YsPqjYGauns
+		Github Finder app - https://www.youtube.com/watch?v=lIKrfLWNsUI
+
+Angular 2:
+=========
+		Angular 2 -
+			https://www.typescriptlang.org/docs/handbook/decorators.html			
+			https://blog.thoughtram.io/angular/2015/05/03/the-difference-between-annotations-and-decorators.html			
+			https://medium.com/@ttemplier/angular2-decorators-and-class-inheritance-905921dbd1b7
+			https://angular.io/docs			
+			https://www.youtube.com/watch?v=QzXdiH3wJp0&list=PLsS7rcLJIvNN9nm_sEz-F005-JAsyHXJg&index=1
+			https://www.youtube.com/watch?v=DwTNR3EBSJQ&list=PL4cUxeGkcC9jqhk5RvBiEwHMKSUXPyng0
+		Angular 2 on AWS:
+			https://www.youtube.com/watch?v=8cnmLzODSgM&list=PLsS7rcLJIvNO8xD-IQrX8w_s7NsBCu48R
+		
+Angular 2 project:
+=================
+		https://www.youtube.com/watch?v=QMQbAoTLJX8
+

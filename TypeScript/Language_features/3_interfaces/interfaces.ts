@@ -129,5 +129,222 @@
 
   let mySquare = createSquare({color: "black"});
 
+*/
+
+/*
+  Readonly properties
+  ===================
+  Some properties should only be modifiable when an object is first created.
+  You can specify this by putting readonly before the name of the property:
+
+  interface Point{
+    readonly x: number;
+    readonly y: number;
+  }
+
+  You can construct a Point by assigning an object literal. After the
+  assignment, x and y can’t be changed.
+
+  interface Point {
+    readonly x: number;
+    readonly y: number;
+  }
+  let p1:Point = {x:10, y:20};
+  p1.x = 5; // error
+
+  TypeScript comes with a "ReadonlyArray<T>" type that is the same as "Array<T>"
+  with all mutating methods removed, so you can make sure you don’t change
+  your arrays after creation:
+
+  let a: number[] = [1,2,3,4];
+  let ro: ReadonlyArray<number> = a;
+  ro[0] = 12; // error!
+  ro.push(5); // error!
+  ro.length = 100; // error!
+  a = ro; // error!
+
+  On the last line of the snippet you can see that even assigning the entire
+  ReadonlyArray back to a normal array is illegal. You can still override it
+  with a type assertion, though:
+
+  a = ro as number[];
+
+  readonly vs const
+  =================
+  The easiest way to remember whether to use readonly or const is to ask whether
+  you’re using it on a variable or a property. Variables use const whereas
+  properties use readonly.
+
+*/
+
+/*
+  Excess Property Checks
+  ======================
+  In our first example using interfaces, TypeScript lets us pass
+  "{ size: number; label: string; }" to something that only expected a
+  "{ label: string; }". We also just learned about optional properties, and how
+  they’re useful when describing so-called “option bags”.
+
+  However, combining the two naively would let you to shoot yourself in the
+  foot the same way you might in JavaScript. For example, taking our last
+  example using createSquare:
+
+  interface SquareConfig {
+    color?: string;
+    width?: number;
+  }
+  function createSquare(config: SquareConfig):{color: string, area: number}{
+    // ...
+  }
+
+  let mySquare = createSquare({color: "red", width: 100});
+
+  Notice the given argument to createSquare is spelled colour instead of color.
+  In plain JavaScript, this sort of thing fails silently.
+
+  You could argue that this program is correctly typed, since the width properties
+  are compatible, there’s no color property present, and the extra colour
+  property is insignificant.
+
+  However, TypeScript takes the stance that there’s probably a bug in this code.
+  Object literals get special treatment and undergo excess property checking
+  when assigning them to other variables, or passing them as arguments. If an
+  object literal has any properties that the “target type” doesn’t have, you’ll
+  get an error.
+
+  // error: 'colour' not expected in type 'SquareConfig'
+  let mySquare = createSquare({ colour: "red", width: 100 });
+
+  Getting around these checks is actually really simple. The easiest method is
+  to just use a type assertion:
+
+  let mySquare = createSquare({ width: 100, opacity: 0.5 } as SquareConfig);
+
+  About type assertion: https://basarat.gitbooks.io/typescript/content/docs/types/type-assertion.html
+
+  However, a better approach might be to add a string index signature if you’re
+  sure that the object can have some extra properties that are used in some
+  special way. If SquareConfigs can have color and width properties with the
+  above types, but could also have any number of other properties, then we
+  could define it like so:
+
+  interface SquareConfig {
+    color?: string;
+    width?: number;
+    [propname: string]: any;
+  }
+
+  We’ll discuss index signatures in a bit, but here we’re saying a "SquareConfig"
+  can have any number of properties, and as long as they aren’t color or width,
+  their types don’t matter.
+
+  One final way to get around these checks, which might be a bit surprising,
+  is to assign the object to another variable: Since squareOptions won’t undergo
+  excess property checks, the compiler won’t give you an error.
+
+  let squareOptions = { colour: "red", width: 100 };
+  let mySquare = createSquare(squareOptions);
+
+  Keep in mind that for simple code like above, you probably shouldn’t be trying
+  to “get around” these checks. For more complex object literals that have methods
+  and hold state, you might need to keep these techniques in mind, but a majority
+  of excess property errors are actually bugs. That means if you’re running into
+  excess property checking problems for something like option bags, you might
+  need to revise some of your type declarations. In this instance, if it’s okay
+  to pass an object with both a "color" or "colour" property to "createSquare", you
+  should fix up the definition of "SquareConfig" to reflect that.
+
+*/
+
+/*
+  Function Types
+  ==============
+  Interfaces are capable of describing the wide range of shapes that JavaScript
+  objects can take. In addition to describing an object with properties,
+  interfaces are also capable of describing function types.
+
+  To describe a function type with an interface, we give the interface a call
+  signature. This is like a function declaration with only the parameter list
+  and return type given. Each parameter in the parameter list requires both
+  name and type.
+
+  interface SearchFunc {
+    (source: string, subString: string): boolean;
+  }
+
+  Once defined, we can use this function type interface like we would other
+  interfaces. Here, we show how you can create a variable of a function type
+  and assign it a function value of the same type.
+
+  interface SearchFunc {
+    (source: string, substring: string): boolean;
+  }
+
+  let mySearch: SearchFunc;
+  mySearch = function (source: string, subString: string) {
+      let result = source.search(subString);
+      return result > -1;
+  }
+
+  For function types to correctly type-check, the names of the parameters do
+  not need to match. We could have, for example, written the above example like
+  this:
+
+  let mySearch: SearchFunc;
+  mySearch = function(src: string, sub: string): boolean {
+    let result = src.search(sub);
+    return result > -1;
+  }
+
+  Function parameters are checked one at a time, with the type in each corresponding
+  parameter position checked against each other. If you do not want to specify
+  types at all, TypeScript’s contextual typing can infer the argument types
+  since the function value is assigned directly to a variable of type SearchFunc.
+  Here, also, the return type of our function expression is implied by the values
+  it returns (here false and true). Had the function expression returned numbers
+  or strings, the type-checker would have warned us that return type doesn’t match
+  the return type described in the SearchFunc interface.
+
+  let mySearch: SearchFunc;
+  mySearch = function(src, sub) {
+      let result = src.search(sub);
+      return result > -1;
+  }
+*/
+
+/*
+  Indexable Types
+  ===============
+
+  Similarly to how we can use interfaces to describe function types, we can also
+  describe types that we can “index into” like a[10], or ageMap["daniel"].
+  Indexable types have an index signature that describes the types we can use to
+  index into the object, along with the corresponding return types when indexing.
+
+  Let’s take an example:
+
+  interface StringArray {
+    [index: number]: string;
+  }
+
+  let myArray: StringArray;
+  myArray = ["Bob", "Fred"];
+  let myStr: string = myArray[0];
+  console.log(myStr);
+
+  Above, we have a StringArray interface that has an index signature. This index
+  signature states that when a StringArray is indexed with a number, it will
+  return a string.
+
+  There are two types of supported index signatures: string and number. It is
+  possible to support both types of indexers, but the type returned from a
+  numeric indexer must be a subtype of the type returned from the string indexer.
+  This is because when indexing with a number, JavaScript will actually convert
+  that to a string before indexing into an object. That means that indexing with
+  100 (a number) is the same thing as indexing with "100" (a string), so the
+  two need to be consistent.
+
+    https://stackoverflow.com/a/47488162/3317808
+
 
 */
